@@ -1,0 +1,92 @@
+body {
+    background-color: #a1c5c4;
+    font-family: 'Montserrat', sans-serif;
+    color: #3a3d3d;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.card {
+    background-color: #a1c5c4;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.logo-card {
+    padding: 30px;
+}
+
+.logo-img {
+    display: block;
+    width: 280px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* New section for the button and image layout */
+.trailer-and-photo-section {
+    display: flex;
+    justify-content: space-between; /* Pushes items to opposite ends */
+    align-items: center;          /* Vertically aligns them in the middle */
+    margin-top: 15px;
+}
+
+.artist-photo {
+    flex-shrink: 0;
+    width: 100px; /* Adjust size of the photo as needed */
+}
+
+.artist-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+}
+/* End of new styles */
+
+h2 {
+    font-size: 2.5em;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 1.5em;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.credits {
+    line-height: 1.8;
+}
+
+a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3a3d3d;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 5px;
+    position: relative;
+    z-index: 1;
+}
+
+a:hover {
+    background-color: #2c2f2f;
+}
+
+/* This keeps the text left-aligned on mobile */
+@media (max-width: 480px) {
+    .artist-text {
+        text-align: left;
+    }
+}
