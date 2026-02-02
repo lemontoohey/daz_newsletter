@@ -169,27 +169,34 @@
 
         .cover-title {
             font-family: 'Montserrat', sans-serif;
-            font-weight: 900;
-            font-size: 48px;
+            font-weight: 300;
+            font-size: clamp(2.5rem, 5vw, 4rem);
             color: #24292E;
             margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            line-height: 1.2;
         }
 
         .cover-subtitle {
             font-family: 'Montserrat', sans-serif;
-            font-weight: 400;
-            font-style: italic;
-            font-size: 28px;
-            color: #E07A2F;
+            font-weight: 700;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: #CC7722;
             margin-bottom: 48px;
+            text-transform: none;
+            letter-spacing: normal;
+            line-height: 1.3;
         }
 
         .cover-artist {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
-            font-size: 36px;
+            font-size: clamp(2rem, 4vw, 3rem);
             color: #24292E;
             margin-bottom: 60px;
+            text-transform: none;
+            letter-spacing: normal;
         }
 
         .key-themes-table {
