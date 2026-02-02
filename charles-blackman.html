@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charles Blackman - An Imprint in Time | The Australian Art Anthology</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Montserrat:ital,wght@1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Teacher Pack Page Specific Styles */
+        .teacher-pack-page {
+            background-color: #24292E;
+            color: #E6E6E6;
+            min-height: 100vh;
+        }
+
+        /* Top Navigation */
+        .top-nav {
+            background-color: #24292E;
+            padding: 24px 0;
+            border-bottom: 1px solid rgba(224, 122, 47, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            height: 50px;
+            width: auto;
+            filter: brightness(0) invert(1);
+            opacity: 0.9;
+        }
+
+        .nav-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #E6E6E6;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .artist-name {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: clamp(3rem, 6vw, 5rem);
+            line-height: 1.1;
+            color: #E6E6E6;
+            margin: 0;
+        }
+
+        .film-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-style: italic;
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            color: #E6E6E6;
+            opacity: 0.9;
+            margin: 0;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .cta-group-hero {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 16px;
+        }
+
+        .btn-watch-trailer {
+            display: inline-block;
+            padding: 16px 32px;
+            background-color: #E07A2F;
+            color: #FFFFFF;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+        }
+
+        .btn-watch-trailer:hover {
+            background-color: #C86926;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(224, 122, 47, 0.4);
+        }
+
+        .btn-purchase {
+            display: inline-block;
+            padding: 16px 32px;
+            background-color: transparent;
+            color: #E07A2F;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            border: 2px solid #E07A2F;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+        }
+
+        .btn-purchase:hover {
+            background-color: rgba(224, 122, 47, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Curriculum & Metadata Section */
+        .curriculum-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .curriculum-box {
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(224, 122, 47, 0.2);
+            border-radius: 8px;
+            padding: 32px;
+        }
+
+        .curriculum-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #E07A2F;
+            margin-bottom: 24px;
+        }
+
+        .curriculum-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .curriculum-tag {
+            display: inline-block;
+            padding: 8px 16px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #E07A2F;
+            background-color: rgba(224, 122, 47, 0.1);
+            border: 1px solid #E07A2F;
+            border-radius: 4px;
+        }
+
+        .metadata-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .metadata-item {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #E6E6E6;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .metadata-item:last-child {
+            border-bottom: none;
+        }
+
+        .metadata-label {
+            font-weight: 500;
+            color: #E07A2F;
+        }
+
+        /* Teacher Pack Premium Card */
+        .teacher-pack-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+
+        .teacher-pack-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(224, 122, 47, 0.3);
+            border-radius: 8px;
+            padding: 48px;
+        }
+
+        .teacher-pack-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #E6E6E6;
+            margin-bottom: 32px;
+        }
+
+        .teacher-pack-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 32px 0;
+        }
+
+        .teacher-pack-features li {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #E6E6E6;
+            padding: 12px 0;
+            padding-left: 32px;
+            position: relative;
+        }
+
+        .teacher-pack-features li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #E07A2F;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 40px;
+            background-color: #E07A2F;
+            color: #FFFFFF;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+        }
+
+        .btn-download:hover {
+            background-color: #C86926;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(224, 122, 47, 0.4);
+        }
+
+        .download-icon {
+            font-size: 1.2rem;
+        }
+
+        /* Artist Bio Section */
+        .bio-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+
+        .bio-content {
+            max-width: 70ch;
+            margin: 0 auto;
+        }
+
+        .bio-text {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #E6E6E6;
+            margin-bottom: 32px;
+        }
+
+        .pull-quote {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-style: italic;
+            font-size: 1.5rem;
+            line-height: 1.6;
+            color: #E6E6E6;
+            padding: 24px 0 24px 32px;
+            margin: 32px 0;
+            border-left: 3px solid #E07A2F;
+        }
+
+        /* Footer */
+        .teacher-pack-footer {
+            background-color: #24292E;
+            padding: 60px 40px;
+            border-top: 1px solid rgba(224, 122, 47, 0.2);
+            text-align: center;
+        }
+
+        .footer-link-teacher {
+            font-family: 'Montserrat', sans-serif;
+            color: #9CA3AF;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-link-teacher:hover {
+            color: #E07A2F;
+        }
+
+        .footer-link-teacher:hover .footer-arrow-teacher {
+            transform: translateX(5px);
+        }
+
+        .footer-separator-teacher {
+            color: #9CA3AF;
+            opacity: 0.5;
+        }
+
+        .footer-link-teacher:hover .footer-separator-teacher {
+            color: #E07A2F;
+            opacity: 0.5;
+        }
+
+        .footer-arrow-teacher {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-grid,
+            .curriculum-section {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-section,
+            .curriculum-section,
+            .teacher-pack-section,
+            .bio-section {
+                padding: 40px 20px;
+            }
+
+            .cta-group-hero {
+                flex-direction: column;
+            }
+
+            .btn-watch-trailer,
+            .btn-purchase {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body class="teacher-pack-page">
+
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <img src="nas-logo.png" alt="National Art School Logo" class="nav-logo">
+            <div class="nav-title">The Australian Art Anthology</div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-grid">
+            <div class="hero-content">
+                <h1 class="artist-name">Charles Blackman</h1>
+                <h2 class="film-title">An Imprint in Time</h2>
+                
+                <div class="cta-group-hero">
+                    <a href="https://youtu.be/8vfKLy35CnA?si=8vJpdaoSlsuBmG1l" target="_blank" class="btn-watch-trailer">Watch Trailer</a>
+                    <a href="#" class="btn-purchase">Purchase Site License</a>
+                </div>
+            </div>
+            
+            <div class="hero-image-wrapper">
+                <img src="blackman.png" alt="Charles Blackman - An Imprint in Time" class="hero-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Curriculum & Metadata Section -->
+    <section class="curriculum-section">
+        <div class="curriculum-box">
+            <h3 class="curriculum-title">Curriculum Alignment</h3>
+            <div class="curriculum-tags">
+                <span class="curriculum-tag">The Subjective Frame</span>
+                <span class="curriculum-tag">Symbolism & Surrealism</span>
+                <span class="curriculum-tag">The Antipodeans</span>
+                <span class="curriculum-tag">Year 11/12 Visual Arts</span>
+                <span class="curriculum-tag">Literary Allusion</span>
+            </div>
+        </div>
+        
+        <div class="metadata-box">
+            <ul class="metadata-list">
+                <li class="metadata-item">
+                    <span class="metadata-label">Running Time:</span> 1 h 2 min
+                </li>
+                <li class="metadata-item">
+                    <span class="metadata-label">Format:</span> 4K Digital
+                </li>
+                <li class="metadata-item">
+                    <span class="metadata-label">License:</span> Perpetual Institutional License
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Teacher Pack Premium Card -->
+    <section class="teacher-pack-section">
+        <div class="teacher-pack-card">
+            <h3 class="teacher-pack-title">Download Charles Blackman Resource Pack</h3>
+            <ul class="teacher-pack-features">
+                <li>Analysing the Subjective Frame: Blackman's Interior World</li>
+                <li>The Heide Circle: A Historical Context of Australian Modernism</li>
+                <li>Practical Workshop: 'Painting the Poem' - Exploring Literary Allusion</li>
+                <li>Visual Analysis Worksheets for the 'Schoolgirl' and 'Alice' Series</li>
+            </ul>
+            <a href="#" class="btn-download">
+                <span class="download-icon">📄</span>
+                Download Syllabus Guide (PDF)
+            </a>
+        </div>
+    </section>
+
+    <!-- Artist Bio & Context -->
+    <section class="bio-section">
+        <div class="bio-content">
+            <p class="bio-text">
+                Charles Blackman was a modern Australian painter whose work spans over six decades. Beginning as a self-taught artist, Blackman evolved into a master of Australian figurative art, creating some of the most iconic images in the nation's cultural memory. His transition from commercial art to fine art marked a significant moment in Australian modernism.
+            </p>
+            
+            <blockquote class="pull-quote">
+                "I paint the things that are invisible: shadows, dreams, and the space between people."
+            </blockquote>
+            
+            <p class="bio-text">
+                In the documentary Charles talks about his art in his own words, about his imagery and his process and practice along with members of his family and contemporary fellow painters: David Boyd, John Coburn, Judy Cassab. Over a five year period, Charles was interviewed and discusses key periods throughout his life. "An Imprint In Time" is a great time capsule of Australian art history and would be useful as a teaching tool and also for library use. Narrated by Miranda Otto.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="teacher-pack-footer">
+        <a href="https://greenturtleproductions.com.au" target="_blank" class="footer-link-teacher">
+            <span>A Green Turtle Production</span>
+            <span class="footer-separator-teacher">|</span>
+            <span>Explore the Anthology Series <span class="footer-arrow-teacher">→</span></span>
+        </a>
+    </footer>
+
+</body>
+</html>

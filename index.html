@@ -3,98 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artist Documentaries</title>
+    <title>Premium Art Documentaries | Digital Exhibition Catalogue</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div class="card logo-card">
-        <img src="gtp-logo.png" alt="Green Turtle Production Logo" class="logo-img">
-        <img src="nas-logo.png" alt="National Art School Logo" class="logo-img">
-    </div>
+    <!-- Header with National Art School Logo -->
+    <header class="header">
+        <div class="container">
+            <div class="header-logo">
+                <img src="nas-logo.png" alt="National Art School Logo" class="nas-logo">
+            </div>
+        </div>
+    </header>
 
-    <div class="card intro-text">
-        <p>Green Turtle Production is proud to present a collection of documentaries celebrating the lives and work of three iconic Australian artists.</p>
-        <p>Each film is a time capsule, offering students a rare glimpse into the creative processes that shaped our country's artistic landscape. As a valuable teaching tool, they aim to spark classroom discussion and deepen the understanding of Australia's cultural history.</p>
-        <p>We invite you to explore these important stories below.</p>
-    </div>
+    <!-- Hero Introduction Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">The Australian Art Anthology</h1>
+                <h2 class="hero-subtitle">Essential Cinema for the Senior Syllabus.</h2>
+                <p class="hero-description">
+                    Green Turtle Production presents a collection of premium documentaries celebrating the lives and work of three iconic Australian artists. Each film is a time capsule, offering students a rare glimpse into the creative processes that shaped our country's artistic landscape.
+                </p>
+                <p class="hero-description">
+                    As valuable teaching tools, these documentaries spark classroom discussion and deepen understanding of Australia's cultural history.
+                </p>
+            </div>
+        </div>
+    </section>
 
-    <div class="card artist-card">
-        <div class="artist-header">
-            <div class="artist-title">
-                <h2>Adam Cullen</h2>
-                <h3>Between Two Worlds</h3>
-            </div>
-            <div class="artist-photo">
-                <img src="cullen.png" alt="Portrait of Adam Cullen">
-            </div>
-        </div>
-        <div class="artist-body">
-            <p>
-                Contemporary grunge artist Adam Cullen, found fame in the year 2000 for his portrait of actor, David Wenham, the winner of the prestigious Archibald portrait prize. Adam talks about his art and life by breaking down shapes, imagery and colour on canvas and the meaning behind his strong and bold images. Interviews with Adam's father Kevin Cullen and arts writer and mentor Ken McGregor give further insight. Documented over a five year period "Between Two Worlds" is useful as a teaching tool and also for library use. Narrated by Marcus Graham.
-            </p>
-            <p class="credits">
-                Running time: 55:36<br>
-                Music written and produced by Justin Ossher<br>
-                Featuring Renato Vacirca on percussion<br>
-                Extra composition by Carmen O'Brien on violin
-            </p>
-            <a href="https://youtu.be/5WdwJyCm7ho?si=VKog-VSQvzgI6kK0" target="_blank">Watch Trailer</a>
-        </div>
-    </div>
+    <!-- Timeline Container -->
+    <main class="timeline-container">
+        <div class="container">
+            
+            <!-- Timeline Line -->
+            <div class="timeline-line"></div>
 
-    <div class="card artist-card">
-        <div class="artist-header">
-            <div class="artist-title">
-                <h2>Charles Blackman</h2>
-                <h3>An Imprint in Time</h3>
-            </div>
-            <div class="artist-photo">
-                <img src="blackman.png" alt="Portrait of Charles Blackman">
-            </div>
-        </div>
-        <div class="artist-body">
-            <p>
-                Charles Blackman was a modern Australian painter. His work spans over six decades. In the documentary Charles talks about his art in his own words, about his imagery and his process and practice along with members of his family and contemporary fellow painters; David Boyd, John Coburn, Judy Cassab. Over a five year period, Charles was interviewed and discusses key periods throughout his life. "An Imprint In Time" is a great time capsule of Australian art history and would be useful as a teaching tool and also for library use. Narrated by Miranda Otto.
-            </p>
-            <p class="credits">
-                Running time: 1 h 2 min<br>
-                Music composed by Ross Johnston<br>
-                Bear and the raven song by Bertie Blackman
-            </p>
-            <a href="https://youtu.be/8vfKLy35CnA?si=8vJpdaoSlsuBmG1l" target="_blank">Watch Trailer</a>
-        </div>
-    </div>
+            <!-- Film 1: Adam Cullen -->
+            <section class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="film-header">
+                        <h2 class="film-title">Adam Cullen</h2>
+                        <h3 class="film-subtitle">Between Two Worlds</h3>
+                    </div>
+                    
+                    <div class="film-body">
+                        <div class="film-image-wrapper">
+                            <img src="cullen.png" alt="Portrait of Adam Cullen" class="film-image">
+                        </div>
+                        
+                        <div class="film-text">
+                            <p class="film-intro">
+                                Contemporary grunge artist Adam Cullen found fame in the year 2000 for his portrait of actor David Wenham, the winner of the prestigious Archibald portrait prize.
+                            </p>
+                            <p class="film-description">
+                                Adam talks about his art and life by breaking down shapes, imagery and colour on canvas and the meaning behind his strong and bold images. Interviews with Adam's father Kevin Cullen and arts writer and mentor Ken McGregor give further insight. Documented over a five year period "Between Two Worlds" is useful as a teaching tool and also for library use. Narrated by Marcus Graham.
+                            </p>
+                            
+                            <div class="film-details">
+                                <p class="credits">
+                                    <strong>Running time:</strong> 55:36<br>
+                                    <strong>Music:</strong> Written and produced by Justin Ossher<br>
+                                    <strong>Featuring:</strong> Renato Vacirca on percussion<br>
+                                    <strong>Extra composition:</strong> Carmen O'Brien on violin
+                                </p>
+                            </div>
 
-    <div class="card artist-card">
-        <div class="artist-header">
-            <div class="artist-title">
-                <h2>John Coburn</h2>
-                <h3>A Sacred Landscape</h3>
-            </div>
-            <div class="artist-photo">
-                <img src="coburn.png" alt="Portrait of John Coburn">
-            </div>
-        </div>
-        <div class="artist-body">
-            <p>
-                John Coburn is one of the fathers of abstract painting in Australia. He started painting in Queensland during the mid-1950s floating his bold colourful shapes on canvas and tapestry throughout his life. In this film John talks about art and his life and the process of his practice. His family and mentor Stuart Perves add to the richness of his story. John Coburn has made an important mark on the development of abstract art in Australia. The documentary is narrated by Kamahl, singer and longtime friend. "A Sacred Landscape" would be great as a teaching tool and also for library use. John Coburn was interviewed over 4 years.
-            </p>
-            <p class="credits">
-                Running time: 50 min<br>
-                Music composed by Jim Moginie and Wayne Goodwin<br>
-                Music arrangement by Justin Ossher
-            </p>
-            <a href="https://youtu.be/_rwgX0oTBHc?si=CwtidBTr350UJEDE" target="_blank">Watch Trailer</a>
-        </div>
-    </div>
+                            <div class="cta-group">
+                                <a href="https://youtu.be/5WdwJyCm7ho?si=VKog-VSQvzgI6kK0" target="_blank" class="btn-primary">Watch Trailer</a>
+                                <a href="teacher-pack.html" class="btn-secondary">View Teacher Pack</a>
+                            </div>
+                            
+                            <div class="curriculum-section">
+                                <h4 class="curriculum-label">Curriculum Links</h4>
+                                <div class="curriculum-tags">
+                                    <span class="tag">Year 11/12 Visual Arts</span>
+                                    <span class="tag">Contemporary Australian Art</span>
+                                    <span class="tag">Portraiture & Identity</span>
+                                    <span class="tag">Art & Society</span>
+                                    <span class="tag">Modernism & Post-Modernism</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-    <!-- Footer Section with the Live Website Link -->
+            <!-- Film 2: Charles Blackman -->
+            <section class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="film-header">
+                        <h2 class="film-title">Charles Blackman</h2>
+                        <h3 class="film-subtitle">An Imprint in Time</h3>
+                    </div>
+                    
+                    <div class="film-body">
+                        <div class="film-image-wrapper">
+                            <img src="blackman.png" alt="Portrait of Charles Blackman" class="film-image">
+                        </div>
+                        
+                        <div class="film-text">
+                            <p class="film-intro">
+                                Charles Blackman was a modern Australian painter whose work spans over six decades.
+                            </p>
+                            <p class="film-description">
+                                In the documentary Charles talks about his art in his own words, about his imagery and his process and practice along with members of his family and contemporary fellow painters: David Boyd, John Coburn, Judy Cassab. Over a five year period, Charles was interviewed and discusses key periods throughout his life. "An Imprint In Time" is a great time capsule of Australian art history and would be useful as a teaching tool and also for library use. Narrated by Miranda Otto.
+                            </p>
+                            
+                            <div class="film-details">
+                                <p class="credits">
+                                    <strong>Running time:</strong> 1 h 2 min<br>
+                                    <strong>Music:</strong> Composed by Ross Johnston<br>
+                                    <strong>Song:</strong> Bear and the raven song by Bertie Blackman
+                                </p>
+                            </div>
+
+                            <div class="cta-group">
+                                <a href="https://youtu.be/8vfKLy35CnA?si=8vJpdaoSlsuBmG1l" target="_blank" class="btn-primary">Watch Trailer</a>
+                                <a href="charles-blackman.html" class="btn-secondary">View Teacher Pack</a>
+                            </div>
+                            
+                            <div class="curriculum-section">
+                                <h4 class="curriculum-label">Curriculum Links</h4>
+                                <div class="curriculum-tags">
+                                    <span class="tag">Year 11/12 Visual Arts</span>
+                                    <span class="tag">Australian Art History</span>
+                                    <span class="tag">Modernism & Abstraction</span>
+                                    <span class="tag">Art & Memory</span>
+                                    <span class="tag">Signs & Symbols</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Film 3: John Coburn -->
+            <section class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="film-header">
+                        <h2 class="film-title">John Coburn</h2>
+                        <h3 class="film-subtitle">A Sacred Landscape</h3>
+                    </div>
+                    
+                    <div class="film-body">
+                        <div class="film-image-wrapper">
+                            <img src="coburn.png" alt="Portrait of John Coburn" class="film-image">
+                        </div>
+                        
+                        <div class="film-text">
+                            <p class="film-intro">
+                                John Coburn is one of the fathers of abstract painting in Australia. He started painting in Queensland during the mid-1950s floating his bold colourful shapes on canvas and tapestry throughout his life.
+                            </p>
+                            <p class="film-description">
+                                In this film John talks about art and his life and the process of his practice. His family and mentor Stuart Perves add to the richness of his story. John Coburn has made an important mark on the development of abstract art in Australia. The documentary is narrated by Kamahl, singer and longtime friend. "A Sacred Landscape" would be great as a teaching tool and also for library use. John Coburn was interviewed over 4 years.
+                            </p>
+                            
+                            <div class="film-details">
+                                <p class="credits">
+                                    <strong>Running time:</strong> 50 min<br>
+                                    <strong>Music:</strong> Composed by Jim Moginie and Wayne Goodwin<br>
+                                    <strong>Arrangement:</strong> Justin Ossher
+                                </p>
+                            </div>
+
+                            <div class="cta-group">
+                                <a href="https://youtu.be/_rwgX0oTBHc?si=CwtidBTr350UJEDE" target="_blank" class="btn-primary">Watch Trailer</a>
+                                <a href="teacher-pack.html" class="btn-secondary">View Teacher Pack</a>
+                            </div>
+                            
+                            <div class="curriculum-section">
+                                <h4 class="curriculum-label">Curriculum Links</h4>
+                                <div class="curriculum-tags">
+                                    <span class="tag">Year 11/12 Visual Arts</span>
+                                    <span class="tag">Abstract Art & Modernism</span>
+                                    <span class="tag">Colour Theory & Composition</span>
+                                    <span class="tag">Australian Art Movements</span>
+                                    <span class="tag">Art & Spirituality</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer with Green Turtle Logo -->
     <footer class="footer">
-        <a href="https://greenturtleproductions.com.au" target="_blank">Visit Green Turtle Production for more information</a>
+        <div class="container">
+            <div class="footer-content">
+                <a href="https://greenturtleproductions.com.au" target="_blank" class="footer-link">
+                    <span class="footer-brand">A Green Turtle Production</span>
+                    <span class="footer-separator">|</span>
+                    <span class="footer-action">Explore the Resource Hub <span class="footer-arrow">→</span></span>
+                </a>
+            </div>
+        </div>
     </footer>
 
 </body>
