@@ -31,6 +31,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Montserrat:ital,wght@1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Plyr CSS -->
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
     <style>
         /* Teacher Pack Page Specific Styles */
         .teacher-pack-page {
@@ -146,7 +148,8 @@
             margin-top: 16px;
         }
 
-        .btn-watch-trailer {
+        .btn-watch-trailer,
+        .watch-trailer-btn {
             display: inline-block;
             padding: 14px 28px;
             background-color: #E07A2F;
@@ -159,9 +162,16 @@
             text-align: center;
             transition: all 0.3s ease;
             border: 1px solid #E07A2F;
+            cursor: pointer;
+            position: relative;
+            z-index: 10;
+            pointer-events: auto;
+            -webkit-user-select: none;
+            user-select: none;
         }
 
-        .btn-watch-trailer:hover {
+        .btn-watch-trailer:hover,
+        .watch-trailer-btn:hover {
             background-color: #2F353B;
             color: #E07A2F;
             transform: translateY(-2px);
@@ -665,6 +675,12 @@
             © 2024 <a href="https://greenturtleproductions.com.au" target="_blank" class="footer-link-teacher">Green Turtle Productions</a> | The Australian Art Anthology is an Institutional Resource.
         </p>
     </footer>
+
+    <!-- Plyr JavaScript -->
+    <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+    
+    <!-- Video Player JavaScript -->
+    <script src="video-player.js"></script>
 
 </body>
 </html>
