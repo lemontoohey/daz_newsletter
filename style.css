@@ -124,10 +124,15 @@ p {
     padding: var(--spacing-sm) 0;
 }
 
+.nas-logo,
+.nav-logo,
+.header-logo img {
+    filter: brightness(0) saturate(100%) invert(56%) sepia(68%) saturate(2331%) hue-rotate(346deg) brightness(97%) contrast(92%) !important;
+}
+
 .nas-logo {
     height: 80px;
     width: auto;
-    filter: brightness(0) saturate(100%) invert(58%) sepia(78%) saturate(1352%) hue-rotate(350deg) brightness(95%) contrast(89%);
     opacity: 1;
     transition: opacity 0.3s ease;
 }
@@ -865,6 +870,7 @@ p {
     
     .nas-logo {
         height: 60px;
+        filter: brightness(0) saturate(100%) invert(56%) sepia(68%) saturate(2331%) hue-rotate(346deg) brightness(97%) contrast(92%) !important;
     }
     
     .tag {
