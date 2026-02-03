@@ -1,10 +1,10 @@
-# Custom Domain Setup Guide: greenturtleproductions.com.au
+# Custom Domain Setup Guide: anthology.greenturtleproductions.com.au
 
 ## 1. CNAME File ✅
 
 The `CNAME` file has been created in the root directory with the content:
 ```
-greenturtleproductions.com.au
+anthology.greenturtleproductions.com.au
 ```
 
 **Important:** This file must be in the root of your repository (same level as `index.html`).
@@ -13,44 +13,48 @@ greenturtleproductions.com.au
 
 ## 2. DNS Records Configuration
 
-Add these DNS records at your domain registrar (GoDaddy, Namecheap, etc.):
+Add this DNS record at your domain registrar (GoDaddy, Namecheap, etc.):
 
-### A Records (IPv4 Addresses)
-Add **4 A records** for the root domain (`@` or `greenturtleproductions.com.au`):
-
-| Type | Name/Host | Value | TTL |
-|------|-----------|-------|-----|
-| A | @ | 185.199.108.153 | 3600 |
-| A | @ | 185.199.109.153 | 3600 |
-| A | @ | 185.199.110.153 | 3600 |
-| A | @ | 185.199.111.153 | 3600 |
-
-**Note:** Some registrars use `@` for the root domain, others use the domain name itself. Use whichever your registrar requires.
-
-### CNAME Record (for www subdomain - Optional but Recommended)
-Add **1 CNAME record** for the `www` subdomain:
+### CNAME Record (Required)
+Add **1 CNAME record** for the `anthology` subdomain:
 
 | Type | Name/Host | Value | TTL |
 |------|-----------|-------|-----|
-| CNAME | www | lemontoohey.github.io | 3600 |
+| CNAME | anthology | lemontoohey.github.io | 3600 |
 
-**Note:** If you want `www.greenturtleproductions.com.au` to also work, add this CNAME record.
+**Important Notes:**
+- **Host/Name:** `anthology` (just the subdomain name, not the full domain)
+- **Value/Target:** `lemontoohey.github.io` (your GitHub Pages URL)
+- **TTL:** 3600 (or use your registrar's default)
+
+**How to add at common registrars:**
+- **GoDaddy:** DNS Management → Add Record → Type: CNAME, Name: `anthology`, Value: `lemontoohey.github.io`
+- **Namecheap:** Advanced DNS → Add New Record → Type: CNAME Record, Host: `anthology`, Value: `lemontoohey.github.io`
+- **Cloudflare:** DNS → Add record → Type: CNAME, Name: `anthology`, Target: `lemontoohey.github.io`
+
+**Note:** Since you're using a subdomain, you only need a CNAME record (not A records). This is simpler than root domain setup!
 
 ---
 
-## 3. Path Fixes ✅
+## 3. Path Verification ✅
 
-**Good News:** Your paths are already configured correctly!
+**Good News:** Your paths are already configured correctly and will work on the subdomain!
 
 All your file paths are **relative** (no leading slashes):
 - ✅ `href="style.css"` 
 - ✅ `src="nas-logo.png"`
 - ✅ `href="teacher-pack.html"`
 - ✅ `src="video-player.js"`
+- ✅ `href="charles-blackman.html"`
+- ✅ `href="john-coburn.html"`
 
-These relative paths will work perfectly on your custom domain without any changes needed.
+**Why this works:**
+- Relative paths work the same way on subdomains as they do on root domains
+- `href="teacher-pack.html"` resolves to `https://anthology.greenturtleproductions.com.au/teacher-pack.html`
+- `src="nas-logo.png"` resolves to `https://anthology.greenturtleproductions.com.au/nas-logo.png`
+- No base path changes needed since you're not using absolute paths
 
-**No changes required** - your site will work immediately after DNS propagation.
+**No changes required** - your site will work immediately after DNS propagation on the subdomain.
 
 ---
 
@@ -66,13 +70,13 @@ git push origin main
 ### Step 2: Configure Custom Domain in GitHub
 1. Go to your repository: `https://github.com/lemontoohey/daz_newsletter`
 2. Click **Settings** → **Pages**
-3. Under **Custom domain**, enter: `greenturtleproductions.com.au`
+3. Under **Custom domain**, enter: `anthology.greenturtleproductions.com.au`
 4. Click **Save**
 
 ### Step 3: Wait for DNS Propagation
 - DNS changes can take **24-48 hours** to propagate globally
 - You can check propagation status at: https://www.whatsmydns.net/
-- Enter your domain and check for the A records
+- Enter `anthology.greenturtleproductions.com.au` and check for the CNAME record pointing to `lemontoohey.github.io`
 
 ### Step 4: Enable HTTPS (After DNS Propagation)
 **Important:** Wait until DNS has fully propagated and GitHub recognizes your domain before enabling HTTPS.
@@ -85,7 +89,7 @@ git push origin main
 **Troubleshooting HTTPS:**
 - If "Enforce HTTPS" is grayed out, DNS hasn't fully propagated yet
 - Wait 24-48 hours and try again
-- Ensure all 4 A records are correctly configured
+- Ensure the CNAME record is correctly configured (Host: `anthology`, Value: `lemontoohey.github.io`)
 - GitHub will show a green checkmark when the domain is verified
 
 ---
@@ -94,12 +98,12 @@ git push origin main
 
 After setup, verify:
 
-- [ ] CNAME file is in repository root
-- [ ] All 4 A records are added at domain registrar
-- [ ] CNAME record for www is added (optional)
+- [ ] CNAME file is in repository root with `anthology.greenturtleproductions.com.au`
+- [ ] CNAME record for `anthology` is added at domain registrar
+- [ ] CNAME record points to `lemontoohey.github.io`
 - [ ] Custom domain is configured in GitHub Pages settings
 - [ ] DNS has propagated (check with whatsmydns.net)
-- [ ] Site loads at greenturtleproductions.com.au
+- [ ] Site loads at anthology.greenturtleproductions.com.au
 - [ ] HTTPS is enabled and working
 - [ ] All images and links work correctly
 
@@ -108,13 +112,13 @@ After setup, verify:
 ## 6. Common Issues & Solutions
 
 ### Issue: "Domain not verified" in GitHub
-**Solution:** Wait for DNS propagation (24-48 hours). Ensure A records are correct.
+**Solution:** Wait for DNS propagation (24-48 hours). Ensure CNAME record is correct (Host: `anthology`, Value: `lemontoohey.github.io`).
 
 ### Issue: Site loads but shows "Not Secure"
 **Solution:** Enable "Enforce HTTPS" in GitHub Pages settings after DNS propagates.
 
-### Issue: www subdomain doesn't work
-**Solution:** Add the CNAME record for `www` pointing to `lemontoohey.github.io`.
+### Issue: Subdomain doesn't resolve
+**Solution:** Verify the CNAME record is correctly set. The Host should be `anthology` (not `anthology.greenturtleproductions.com.au`). The Value should be `lemontoohey.github.io`.
 
 ### Issue: Mixed content warnings
 **Solution:** Ensure all external resources (CDNs, fonts) use HTTPS URLs (you're already doing this ✅).
@@ -127,8 +131,7 @@ Your current GitHub Pages URL is:
 - **https://lemontoohey.github.io/daz_newsletter/**
 
 After custom domain setup, it will be:
-- **https://greenturtleproductions.com.au**
-- **https://www.greenturtleproductions.com.au** (if CNAME is added)
+- **https://anthology.greenturtleproductions.com.au**
 
 ---
 
