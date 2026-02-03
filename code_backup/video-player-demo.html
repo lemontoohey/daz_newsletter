@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Branded Video Player Demo | The Australian Art Anthology</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Plyr CSS -->
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+    
+    <style>
+        .demo-section {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 40px;
+        }
+        
+        .demo-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #E6E6E6;
+            margin-bottom: 1rem;
+        }
+        
+        .demo-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 1rem;
+            color: #9CA3AF;
+            margin-bottom: 3rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-logo">
+                <img src="nas-logo.png" alt="National Art School Logo" class="nas-logo">
+            </div>
+        </div>
+    </header>
+
+    <!-- Demo Section -->
+    <section class="demo-section">
+        <h1 class="demo-title">Video Player Demo</h1>
+        <p class="demo-subtitle">Museum-style branded video player with theater mode</p>
+
+        <!-- Example 1: YouTube Video with Theater Mode -->
+        <div class="video-player-wrapper" 
+             data-video-id="5WdwJyCm7ho" 
+             data-video-type="youtube" 
+             data-theater-mode="true">
+            
+            <div class="video-poster-container">
+                <img src="cullen.png" alt="Adam Cullen - Between Two Worlds" class="video-poster-image">
+                <div class="video-poster-overlay"></div>
+                <div class="video-play-button"></div>
+            </div>
+            
+            <div class="video-container"></div>
+            
+            <p class="video-caption">
+                Preview: Series 01 Anthology | Educational License Required for Full Access.
+            </p>
+        </div>
+
+        <!-- Example 2: YouTube Video without Theater Mode (Inline) -->
+        <div class="video-player-wrapper" 
+             data-video-id="8vfKLy35CnA" 
+             data-video-type="youtube" 
+             data-theater-mode="false"
+             style="margin-top: 60px;">
+            
+            <div class="video-poster-container">
+                <img src="blackman.png" alt="Charles Blackman - An Imprint in Time" class="video-poster-image">
+                <div class="video-poster-overlay"></div>
+                <div class="video-play-button"></div>
+            </div>
+            
+            <div class="video-container"></div>
+            
+            <p class="video-caption">
+                Preview: Series 01 Anthology | Educational License Required for Full Access.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <a href="https://greenturtleproductions.com.au" target="_blank" class="footer-link">
+                    <span class="footer-brand">A Green Turtle Production</span>
+                    <span class="footer-separator">|</span>
+                    <span class="footer-action">Explore the Resource Hub <span class="footer-arrow">→</span></span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Plyr JavaScript -->
+    <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+    
+    <!-- Video Player JavaScript -->
+    <script src="video-player.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classroom Resources - John Coburn | The Australian Art Anthology</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Resource Generator Page Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #24292E;
+            color: #E6E6E6;
+            line-height: 1.6;
+        }
+
+        @media print {
+            body {
+                background-color: #FFFFFF;
+                color: #24292E;
+            }
+        }
+
+        /* Header */
+        .resource-header {
+            background-color: #FFFFFF;
+            border-bottom: 3px solid #E07A2F;
+            padding: 24px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        @media print {
+            .resource-header {
+                background-color: #FFFFFF;
+            }
+        }
+
+        .header-logo {
+            height: 50px;
+            width: auto;
+        }
+
+        .header-branding {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #24292E;
+        }
+
+        /* Main Container */
+        .resource-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: #FFFFFF;
+        }
+
+        @media print {
+            .resource-container {
+                background-color: #FFFFFF;
+            }
+        }
+
+        /* Tab Navigation */
+        .tab-navigation {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 32px;
+            border-bottom: 2px solid #E0E0E0;
+        }
+
+        .tab-button {
+            padding: 12px 24px;
+            background-color: transparent;
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #9CA3AF;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            margin-bottom: -2px;
+        }
+
+        .tab-button:hover {
+            color: #E07A2F;
+        }
+
+        .tab-button.active {
+            color: #E07A2F;
+            border-bottom-color: #E07A2F;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Print Button */
+        .print-controls {
+            text-align: center;
+            margin: 32px 0;
+            padding: 24px;
+            background-color: #F9F9F9;
+            border-radius: 8px;
+        }
+
+        @media print {
+            .print-controls {
+                display: none;
+            }
+        }
+
+        .btn-print {
+            display: inline-block;
+            padding: 14px 28px;
+            background-color: #CC7722;
+            color: #2F353B;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            border-radius: 4px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #CC7722;
+            cursor: pointer;
+        }
+
+        .btn-print:hover {
+            background-color: #2F353B;
+            color: #CC7722;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(204, 119, 34, 0.3);
+        }
+
+        /* Section Styles */
+        .resource-section {
+            margin-bottom: 60px;
+            page-break-after: always;
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 32px;
+            color: #24292E;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 3px solid #E07A2F;
+        }
+
+        @media print {
+            .section-title {
+                color: #24292E;
+            }
+        }
+
+        .section-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            color: #E07A2F;
+            margin-bottom: 20px;
+            margin-top: 32px;
+        }
+
+        /* Cover Page */
+        .cover-page {
+            text-align: center;
+            padding: 80px 40px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .cover-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: #24292E;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            line-height: 1.2;
+        }
+
+        .cover-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: #CC7722;
+            margin-bottom: 48px;
+            text-transform: none;
+            letter-spacing: normal;
+            line-height: 1.3;
+        }
+
+        .cover-artist {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: #24292E;
+            margin-bottom: 60px;
+            text-transform: none;
+            letter-spacing: normal;
+        }
+
+        .key-themes-table {
+            width: 100%;
+            max-width: 800px;
+            margin: 40px auto;
+            border-collapse: collapse;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .key-themes-table th {
+            background-color: #E07A2F;
+            color: #FFFFFF;
+            padding: 16px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .key-themes-table td {
+            padding: 16px;
+            border: 1px solid #E0E0E0;
+            font-size: 15px;
+            color: #24292E;
+        }
+
+        .key-themes-table tr:nth-child(even) {
+            background-color: #F9F9F9;
+        }
+
+        /* Worksheet Styles */
+        .worksheet-question {
+            margin-bottom: 24px;
+            padding: 20px;
+            background-color: #F9F9F9;
+            border-left: 4px solid #E07A2F;
+        }
+
+        @media print {
+            .worksheet-question {
+                background-color: #F9F9F9;
+            }
+        }
+
+        .question-number {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #E07A2F;
+            margin-bottom: 8px;
+        }
+
+        .question-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
+            color: #24292E;
+        }
+
+        .practical-box {
+            border: 2px solid #E07A2F;
+            border-radius: 8px;
+            padding: 24px;
+            margin: 32px 0;
+            background-color: #FFF9F5;
+        }
+
+        @media print {
+            .practical-box {
+                background-color: #FFF9F5;
+            }
+        }
+
+        .practical-box-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: #E07A2F;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .practical-box ol {
+            margin-left: 24px;
+        }
+
+        .practical-box li {
+            margin-bottom: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            line-height: 1.7;
+            color: #24292E;
+        }
+
+        .essay-prompt-box {
+            border: 3px solid #E07A2F;
+            border-radius: 8px;
+            padding: 32px;
+            margin: 32px 0;
+            background-color: #FFFFFF;
+        }
+
+        @media print {
+            .essay-prompt-box {
+                background-color: #FFFFFF;
+            }
+        }
+
+        .essay-prompt-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            color: #E07A2F;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .essay-prompt-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 17px;
+            line-height: 1.8;
+            color: #24292E;
+            font-weight: 500;
+        }
+
+        .essay-prompt-text ul {
+            margin-top: 16px;
+            margin-left: 24px;
+        }
+
+        .essay-prompt-text li {
+            margin-bottom: 8px;
+            color: #24292E;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background-color: #FFFFFF;
+            }
+
+            .resource-header {
+                position: static;
+                page-break-after: always;
+            }
+
+            .tab-navigation,
+            .print-controls {
+                display: none;
+            }
+
+            .tab-content {
+                display: block !important;
+            }
+
+            .resource-section {
+                page-break-after: always;
+                margin-bottom: 0;
+            }
+
+            .cover-page {
+                page-break-after: always;
+            }
+
+            .worksheet-question,
+            .practical-box,
+            .essay-prompt-box {
+                page-break-inside: avoid;
+            }
+
+            .btn-print {
+                display: none;
+            }
+
+            @page {
+                margin: 2cm;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .resource-container {
+                padding: 20px;
+            }
+
+            .cover-title {
+                font-size: 36px;
+            }
+
+            .cover-subtitle {
+                font-size: 22px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="resource-header">
+        <img src="nas-logo.png" alt="National Art School Logo" class="header-logo">
+        <div class="header-branding">The Australian Art Anthology | Series 01</div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="resource-container">
+        
+        <!-- Print Controls -->
+        <div class="print-controls">
+            <button onclick="window.print()" class="btn-print">Print Resource</button>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="tab-navigation">
+            <button class="tab-button active" onclick="switchTab('junior')">9/10 Design Pack</button>
+            <button class="tab-button" onclick="switchTab('senior')">11/12 Structural Pack</button>
+        </div>
+
+        <!-- SECTION A: THE TEACHER BRIEF (Cover Page) -->
+        <section class="resource-section cover-page">
+            <div class="cover-title">CLASSROOM RESOURCE PACK</div>
+            <div class="cover-subtitle">A Sacred Landscape</div>
+            <div class="cover-artist">John Coburn – The Geometry of Spirit</div>
+            
+            <div style="max-width: 600px; margin: 0 auto; text-align: left;">
+                <p style="font-family: 'Inter', sans-serif; font-size: 16px; margin-bottom: 32px; color: #333333; font-weight: 500; line-height: 1.8;">
+                    This resource pack is designed to support teachers delivering Stage 5 (Years 9-10) and Stage 6 (Years 11-12) Visual Arts curriculum. All materials align with the NSW Syllabus and can be adapted for VCE and QCE contexts.
+                </p>
+
+                <table class="key-themes-table">
+                    <thead>
+                        <tr>
+                            <th>Year Level</th>
+                            <th>Key Concepts</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Stage 5 (9-10)</strong></td>
+                            <td>Geometric Abstraction, Color Theory, Translation of Nature into Simplified Symbols, Radiant Design, Balance & Rhythm</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Stage 6 (11-12)</strong></td>
+                            <td>The Structural Frame, Formalist Analysis, Fine Art & Public Commission, Sacred Geometry, Spiritual Space, Sydney Opera House</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- SECTION B: JUNIOR WORKSHEET (Years 9-10) -->
+        <div id="junior-tab" class="tab-content active">
+            <section class="resource-section">
+                <h2 class="section-title">Stage 5: Abstraction & Radiant Design</h2>
+                
+                <div class="worksheet-question">
+                    <div class="question-number">Viewing Question 1</div>
+                    <div class="question-text">
+                        Observe Coburn's use of flat color. How does he use "radiant" colors (golds, oranges, reds) to represent the Australian landscape without using realistic details? What emotions or feelings do these colors evoke?
+                    </div>
+                </div>
+
+                <div class="worksheet-question">
+                    <div class="question-number">Viewing Question 2</div>
+                    <div class="question-text">
+                        Identify the 'Coburn Alphabet' of shapes (leaf, sun, moon, triangle). How does he arrange these shapes to create a sense of balance and rhythm? Draw a simple diagram showing how these shapes work together in one of his compositions.
+                    </div>
+                </div>
+
+                <div class="worksheet-question">
+                    <div class="question-number">Viewing Question 3</div>
+                    <div class="question-text">
+                        Compare Coburn's abstracted landscapes with a photograph of the Australian bush. What has he kept? What has he removed? Why do you think he simplified nature in this way?
+                    </div>
+                </div>
+
+                <div class="worksheet-question">
+                    <div class="question-number">Viewing Question 4</div>
+                    <div class="question-text">
+                        Research Coburn's tapestries and public art commissions. How does his work translate from canvas to textile? What makes his designs suitable for large-scale public spaces like the Sydney Opera House?
+                    </div>
+                </div>
+
+                <div class="practical-box">
+                    <div class="practical-box-title">Studio Task: Nature's Icon</div>
+                    <ol>
+                        <li><strong>Select an Object:</strong> Choose an object from the Australian environment—a gum leaf, a seed pod, a rock, or a flower. Study its form carefully.</li>
+                        <li><strong>Simplify:</strong> Distill the object into a single geometric symbol. Remove all realistic details. Focus on the essential shape—what makes this object recognizable?</li>
+                        <li><strong>Create the Alphabet:</strong> Develop 3-4 related shapes that work together (like Coburn's leaf, sun, moon, triangle). These become your "visual alphabet."</li>
+                        <li><strong>Design the Composition:</strong> Arrange your shapes to create balance and rhythm. Use symmetry or asymmetry strategically. Consider how the shapes interact.</li>
+                        <li><strong>Apply Color:</strong> Use a limited palette of 3 vibrant colors (consider Coburn's radiant golds, oranges, reds). Each color should have a purpose—creating contrast, harmony, or emphasis.</li>
+                        <li><strong>Reflect:</strong> Write 200 words explaining how your abstracted design captures the "essence" of your chosen natural object while moving away from realistic representation.</li>
+                    </ol>
+                </div>
+            </section>
+        </div>
+
+        <!-- SECTION C: SENIOR WORKSHEET (Years 11-12) -->
+        <div id="senior-tab" class="tab-content">
+            <section class="resource-section">
+                <h2 class="section-title">Stage 6: The Structural Frame & Spiritual Geometry</h2>
+                
+                <div class="worksheet-question">
+                    <div class="question-number">Analysis Question 1</div>
+                    <div class="question-text">
+                        Using the <strong>Structural Frame</strong>, analyze how Coburn's work bridges the gap between traditional painting and textile design. Focus on his 'Curtains of the Sun and Moon' at the Sydney Opera House. How do formal elements (line, shape, color, composition) function differently when translated from canvas to tapestry?
+                    </div>
+                </div>
+
+                <div class="worksheet-question">
+                    <div class="question-number">Analysis Question 2</div>
+                    <div class="question-text">
+                        Coburn described his work as "painting the feeling of the earth." Discuss how his use of symmetry and formal composition creates a sense of "sacred" or "spiritual" space. Analyze specific artworks where this is evident.
+                    </div>
+                </div>
+
+                <div class="worksheet-question">
+                    <div class="question-number">Analysis Question 3</div>
+                    <div class="question-text">
+                        Examine Coburn's position as one of the "fathers of abstract painting in Australia." How did his work contribute to the development of Australian modernism? Compare his approach to abstraction with international abstract movements of the 1950s-1960s.
+                    </div>
+                </div>
+
+                <div class="worksheet-question">
+                    <div class="question-number">Context Question 4</div>
+                    <div class="question-text">
+                        Research the relationship between fine art and public art commissions in mid-20th century Australia. How did Coburn's work for the Sydney Opera House represent a shift in how abstract art was perceived and valued? Discuss the role of public art in shaping national identity.
+                    </div>
+                </div>
+
+                <div class="essay-prompt-box">
+                    <div class="essay-prompt-title">Formal Essay Prompt</div>
+                    <div class="essay-prompt-text">
+                        <strong>"John Coburn's abstraction is not a rejection of the world, but a structural distillation of its essence."</strong>
+                        <br><br>
+                        Evaluate this statement with reference to the film 'A Sacred Landscape' and Coburn's use of the Structural Frame. In your response, you must:
+                        <ul>
+                            <li>Analyze how Coburn uses formal elements (shape, color, composition) to distill natural forms</li>
+                            <li>Examine his "visual alphabet" of symbols and how they function structurally</li>
+                            <li>Discuss the relationship between abstraction and representation in his work</li>
+                            <li>Evaluate how the Structural Frame helps us understand Coburn's artistic practice</li>
+                            <li>Reference specific artworks including his paintings and public commissions</li>
+                            <li>Consider the spiritual or sacred dimension of his geometric abstraction</li>
+                        </ul>
+                        <br>
+                        <strong>Word Count: 800-1000 words</strong>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </div>
+
+    <script>
+        function switchTab(tab) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Remove active class from all buttons
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Show selected tab content
+            if (tab === 'junior') {
+                document.getElementById('junior-tab').classList.add('active');
+                document.querySelectorAll('.tab-button')[0].classList.add('active');
+            } else {
+                document.getElementById('senior-tab').classList.add('active');
+                document.querySelectorAll('.tab-button')[1].classList.add('active');
+            }
+        }
+    </script>
+
+</body>
+</html>

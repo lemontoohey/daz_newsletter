@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classroom Resources - Adam Cullen | The Australian Art Anthology</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Resource Generator Page Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F5F5F5;
+            color: #24292E;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .resource-header {
+            background-color: #FFFFFF;
+            border-bottom: 3px solid #E07A2F;
+            padding: 24px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-logo {
+            height: 50px;
+            width: auto;
+        }
+
+        .header-branding {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #24292E;
+        }
+
+        /* Main Container */
+        .resource-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: #FFFFFF;
+        }
+
+        /* Tab Navigation */
+        .tab-navigation {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 32px;
+            border-bottom: 2px solid #E0E0E0;
+        }
+
+        .tab-button {
+            padding: 12px 24px;
+            background-color: transparent;
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #9CA3AF;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            margin-bottom: -2px;
+        }
+
+        .tab-button:hover {
+            color: #E07A2F;
+        }
+
+        .tab-button.active {
+            color: #E07A2F;
+            border-bottom-color: #E07A2F;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Print Button */
+        .print-controls {
+            text-align: center;
+            margin: 32px 0;
+            padding: 24px;
+            background-color: #F9F9F9;
+            border-radius: 8px;
+        }
+
+        .btn-print {
+            display: inline-block;
+            padding: 14px 28px;
+            background-color: #CC7722;
+            color: #2F353B;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            border-radius: 4px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #CC7722;
+            cursor: pointer;
+        }
+
+        .btn-print:hover {
+            background-color: #2F353B;
+            color: #CC7722;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(204, 119, 34, 0.3);
+        }
+
+        /* Section Styles */
+        .resource-section {
+            margin-bottom: 60px;
+            page-break-after: always;
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 32px;
+            color: #24292E;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 3px solid #E07A2F;
+        }
+
+        .section-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            color: #E07A2F;
+            margin-bottom: 20px;
+            margin-top: 32px;
+        }
+
+        /* Cover Page */
+        .cover-page {
+            text-align: center;
+            padding: 80px 40px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .cover-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: #24292E;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            line-height: 1.2;
+        }
+
+        .cover-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: #CC7722;
+            margin-bottom: 48px;
+            text-transform: none;
+            letter-spacing: normal;
+            line-height: 1.3;
+        }
+
+        .cover-artist {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: #24292E;
+            margin-bottom: 60px;
+            text-transform: none;
+            letter-spacing: normal;
+        }
+
+        .key-themes-table {
+            width: 100%;
+            max-width: 800px;
+            margin: 40px auto;
+            border-collapse: collapse;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .key-themes-table th {
+            background-color: #E07A2F;
+            color: #FFFFFF;
+            padding: 16px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .key-themes-table td {
+            padding: 16px;
+            border: 1px solid #E0E0E0;
+            font-size: 15px;
+        }
+
+        .key-themes-table tr:nth-child(even) {
+            background-color: #F9F9F9;
+        }
+
+        /* Worksheet Styles */
+        .worksheet-question {
+            margin-bottom: 24px;
+            padding: 20px;
+            background-color: #F9F9F9;
+            border-left: 4px solid #E07A2F;
+        }
+
+        .question-number {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #E07A2F;
+            margin-bottom: 8px;
+        }
+
+        .question-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
+            color: #24292E;
+        }
+
+        .practical-box {
+            border: 2px solid #E07A2F;
+            border-radius: 8px;
+            padding: 24px;
+            margin: 32px 0;
+            background-color: #FFF9F5;
+        }
+
+        .practical-box-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: #E07A2F;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .practical-box ol {
+            margin-left: 24px;
+        }
+
+        .practical-box li {
+            margin-bottom: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .essay-prompt-box {
+            border: 3px solid #E07A2F;
+            border-radius: 8px;
+            padding: 32px;
+            margin: 32px 0;
+            background-color: #FFFFFF;
+        }
+
+        .essay-prompt-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            color: #E07A2F;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .essay-prompt-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 17px;
+            line-height: 1.8;
+            color: #24292E;
+            font-weight: 500;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background-color: #FFFFFF;
+            }
+
+            .resource-header {
+                position: static;
+                page-break-after: always;
+            }
+
+            .tab-navigation,
+            .print-controls {
+                display: none;
+            }
+
+            .tab-content {
+                display: block !important;
+            }
+
+            .resource-section {
+                page-break-after: always;
+                margin-bottom: 0;
+            }
+
+            .cover-page {
+                page-break-after: always;
+            }
+
+            .worksheet-question,
+            .practical-box,
+            .essay-prompt-box {
+                page-break-inside: avoid;
+            }
+
+            .btn-print {
+                display: none;
+            }
+
+            @page {
+                margin: 2cm;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .resource-container {
+                padding: 20px;
+            }
+
+            .cover-title {
+                font-size: 36px;
+            }
+
+            .cover-subtitle {
+                font-size: 22px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="resource-header">
+        <img src="nas-logo.png" alt="National Art School Logo" class="header-logo">
+        <div class="header-branding">The Australian Art Anthology | Series 01</div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="resource-container">
+        
+        <!-- Print Controls -->
+        <div class="print-controls">
+            <button onclick="window.print()" class="btn-print">Print Resource</button>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="tab-navigation">
+            <button class="tab-button active" onclick="switchTab('junior')">Years 9-10</button>
+            <button class="tab-button" onclick="switchTab('senior')">Years 11-12</button>
+        </div>
+
+        <!-- SECTION A: THE TEACHER BRIEF (Cover Page) -->
+        <section class="resource-section cover-page">
+            <div class="cover-title">CLASSROOM RESOURCE PACK</div>
+            <div class="cover-subtitle">Between Two Worlds</div>
+            <div class="cover-artist">Adam Cullen</div>
+            
+            <div style="max-width: 600px; margin: 0 auto; text-align: left;">
+                <p style="font-family: 'Inter', sans-serif; font-size: 16px; margin-bottom: 32px; color: #333333; font-weight: 500; line-height: 1.8;">
+                    This resource pack is designed to support teachers delivering Stage 5 (Years 9-10) and Stage 6 (Years 11-12) Visual Arts curriculum. All materials align with the NSW Syllabus and can be adapted for VCE and QCE contexts.
+                </p>
+
+                <table class="key-themes-table">
+                    <thead>
+                        <tr>
+                            <th>Year Level</th>
+                            <th>Key Concepts</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Stage 5 (9-10)</strong></td>
+                            <td>Contemporary Art, Portraiture, Identity, Visual Language, Technique & Process</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Stage 6 (11-12)</strong></td>
+                            <td>Postmodern Frame, Subjective Frame, Conceptual Framework, Art & Society, Australian Art History</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- SECTION B: JUNIOR WORKSHEET (Years 9-10) -->
+        <div id="junior-tab" class="tab-content active">
+            <section class="resource-section">
+                <h2 class="section-title">Stage 5: Exploring Technique & Narrative</h2>
+                
+                <div class="worksheet-question">
+                    <div class="question-number">Question 1</div>
+                    <div class="question-text">
+                        Describe how Adam Cullen uses color to create mood in his portrait of David Wenham. Identify at least three specific color choices and explain their emotional impact.
+                    </div>
+                </div>
+
+                <div class="worksheet-question">
+                    <div class="question-number">Question 2</div>
+                    <div class="question-text">
+                        Analyze the visual language Cullen uses to represent identity. How does he break down shapes and imagery to communicate meaning about the subject?
+                    </div>
+                </div>
+
+                <div class="worksheet-question">
+                    <div class="question-number">Question 3</div>
+                    <div class="question-text">
+                        Compare Cullen's "grunge" style with traditional portraiture. What makes his approach contemporary? Use specific examples from the documentary.
+                    </div>
+                </div>
+
+                <div class="worksheet-question">
+                    <div class="question-number">Question 4</div>
+                    <div class="question-text">
+                        Research the Archibald Prize. Why was Cullen's portrait of David Wenham significant? How does winning this prize impact an artist's career?
+                    </div>
+                </div>
+
+                <div class="practical-box">
+                    <div class="practical-box-title">Studio Task: Controlled Leak Portrait</div>
+                    <ol>
+                        <li><strong>Research:</strong> Study Cullen's technique of breaking down forms into simplified shapes. Collect reference images of his portraits.</li>
+                        <li><strong>Sketch:</strong> Create a portrait of someone significant to you. Begin with basic geometric shapes (circles, rectangles, triangles).</li>
+                        <li><strong>Develop:</strong> Add bold, expressive lines. Use color strategically to convey emotion—avoid realistic skin tones.</li>
+                        <li><strong>Refine:</strong> Apply Cullen's "grunge" aesthetic: rough edges, visible brushstrokes, and strong contrasts.</li>
+                        <li><strong>Reflect:</strong> Write 200 words explaining how your portrait communicates identity through visual language.</li>
+                    </ol>
+                </div>
+            </section>
+        </div>
+
+        <!-- SECTION C: SENIOR WORKSHEET (Years 11-12) -->
+        <div id="senior-tab" class="tab-content">
+            <section class="resource-section">
+                <h2 class="section-title">Stage 6: The Frames & Conceptual Framework</h2>
+                
+                <div class="worksheet-question">
+                    <div class="question-number">Question 1</div>
+                    <div class="question-text">
+                        Analyze Adam Cullen's portrait of David Wenham through the <strong>Postmodern Frame</strong>. How does Cullen challenge traditional portraiture conventions? Discuss his use of appropriation, irony, and visual language.
+                    </div>
+                </div>
+
+                <div class="worksheet-question">
+                    <div class="question-number">Question 2</div>
+                    <div class="question-text">
+                        Using the <strong>Subjective Frame</strong>, explore how Cullen's personal experiences and relationships (with his father Kevin, mentor Ken McGregor) influence his artistic practice. How does the documentary reveal the connection between the artist's life and his work?
+                    </div>
+                </div>
+
+                <div class="worksheet-question">
+                    <div class="question-number">Question 3</div>
+                    <div class="question-text">
+                        Examine Cullen's position within the <strong>Conceptual Framework</strong>. How do art critics, galleries, and institutions (like the Archibald Prize) shape the reception of his work? Discuss the relationship between the artist, artwork, audience, and world.
+                    </div>
+                </div>
+
+                <div class="worksheet-question">
+                    <div class="question-number">Question 4</div>
+                    <div class="question-text">
+                        Research the Australian art scene in the late 1990s and early 2000s. Where does Cullen fit within the broader context of contemporary Australian art? Compare his work with other artists of his generation.
+                    </div>
+                </div>
+
+                <div class="essay-prompt-box">
+                    <div class="essay-prompt-title">HSC/VCE Style Extended Response</div>
+                    <div class="essay-prompt-text">
+                        <strong>"Adam Cullen's 'Between Two Worlds' demonstrates how contemporary artists use visual language to explore complex ideas about identity and society."</strong>
+                        <br><br>
+                        Discuss this statement with reference to Cullen's artistic practice, techniques, and the broader context of Australian contemporary art. In your response, you must refer to:
+                        <ul style="margin-top: 16px; margin-left: 24px;">
+                            <li>At least two specific artworks or series by Cullen</li>
+                            <li>The Postmodern and/or Subjective Frames</li>
+                            <li>The role of institutions and audiences in shaping meaning</li>
+                            <li>Relevant art historical and cultural contexts</li>
+                        </ul>
+                        <br>
+                        <strong>Word Count: 800-1000 words</strong>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </div>
+
+    <script>
+        function switchTab(tab) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Remove active class from all buttons
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Show selected tab content
+            if (tab === 'junior') {
+                document.getElementById('junior-tab').classList.add('active');
+                document.querySelectorAll('.tab-button')[0].classList.add('active');
+            } else {
+                document.getElementById('senior-tab').classList.add('active');
+                document.querySelectorAll('.tab-button')[1].classList.add('active');
+            }
+        }
+    </script>
+
+</body>
+</html>
