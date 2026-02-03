@@ -569,8 +569,24 @@
                 <h2 class="film-title">A Sacred Landscape</h2>
                 
                 <div class="cta-group-hero">
-                    <a href="https://youtu.be/_rwgX0oTBHc?si=CwtidBTr350UJEDE" target="_blank" class="btn-watch-trailer">Watch Trailer</a>
+                    <button class="btn-watch-trailer watch-trailer-btn" 
+                            data-video-id="_rwgX0oTBHc" 
+                            data-video-type="youtube" 
+                            data-poster-image="coburn.png" 
+                            data-video-title="John Coburn Trailer">
+                        Watch Trailer
+                    </button>
                     <a href="#teacher-pack-section" class="btn-view-teacher-pack">View Teacher Pack</a>
+                </div>
+                
+                <!-- Hidden Player Container -->
+                <div class="video-player-wrapper" 
+                     data-video-id="_rwgX0oTBHc"
+                     data-video-type="youtube" 
+                     data-theater-mode="false"
+                     style="display: none; margin-top: 20px;">
+                    <button class="video-player-close" aria-label="Close video player">×</button>
+                    <div class="video-container"></div>
                 </div>
             </div>
             

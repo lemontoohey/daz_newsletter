@@ -569,8 +569,24 @@
                 <h2 class="film-title">An Imprint in Time</h2>
                 
                 <div class="cta-group-hero">
-                    <a href="https://youtu.be/8vfKLy35CnA?si=8vJpdaoSlsuBmG1l" target="_blank" class="btn-watch-trailer">Watch Trailer</a>
+                    <button class="btn-watch-trailer watch-trailer-btn" 
+                            data-video-id="8vfKLy35CnA" 
+                            data-video-type="youtube" 
+                            data-poster-image="blackman.png" 
+                            data-video-title="Charles Blackman Trailer">
+                        Watch Trailer
+                    </button>
                     <a href="#teacher-pack-section" class="btn-view-teacher-pack">View Teacher Pack</a>
+                </div>
+                
+                <!-- Hidden Player Container -->
+                <div class="video-player-wrapper" 
+                     data-video-id="8vfKLy35CnA"
+                     data-video-type="youtube" 
+                     data-theater-mode="false"
+                     style="display: none; margin-top: 20px;">
+                    <button class="video-player-close" aria-label="Close video player">×</button>
+                    <div class="video-container"></div>
                 </div>
             </div>
             

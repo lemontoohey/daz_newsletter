@@ -14,7 +14,7 @@
     <meta property="og:title" content="Adam Cullen - Between Two Worlds | The Australian Art Anthology">
     <meta property="og:description" content="Explore Adam Cullen's artistic journey in 'Between Two Worlds'. Premium cinematic resource for Years 9–12 Visual Arts curriculum.">
     <meta property="og:image" content="https://anthology.greenturtleproductions.com.au/cullen.png">
-    <meta property="og:url" content="https://anthology.greenturtleproductions.com.au/teacher-pack.html">
+    <meta property="og:url" content="https://anthology.greenturtleproductions.com.au/adam-cullen.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="The Australian Art Anthology">
     
@@ -25,7 +25,7 @@
     <meta name="twitter:image" content="https://anthology.greenturtleproductions.com.au/cullen.png">
     
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://anthology.greenturtleproductions.com.au/teacher-pack.html">
+    <link rel="canonical" href="https://anthology.greenturtleproductions.com.au/adam-cullen.html">
     
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -569,8 +569,24 @@
                 <h2 class="film-title">Between Two Worlds</h2>
                 
                 <div class="cta-group-hero">
-                    <a href="https://youtu.be/5WdwJyCm7ho?si=VKog-VSQvzgI6kK0" target="_blank" class="btn-watch-trailer">Watch Trailer</a>
+                    <button class="btn-watch-trailer watch-trailer-btn" 
+                            data-video-id="5WdwJyCm7ho" 
+                            data-video-type="youtube" 
+                            data-poster-image="cullen.png" 
+                            data-video-title="Adam Cullen Trailer">
+                        Watch Trailer
+                    </button>
                     <a href="#teacher-pack-section" class="btn-view-teacher-pack">View Teacher Pack</a>
+                </div>
+                
+                <!-- Hidden Player Container -->
+                <div class="video-player-wrapper" 
+                     data-video-id="5WdwJyCm7ho"
+                     data-video-type="youtube" 
+                     data-theater-mode="false"
+                     style="display: none; margin-top: 20px;">
+                    <button class="video-player-close" aria-label="Close video player">×</button>
+                    <div class="video-container"></div>
                 </div>
             </div>
             
@@ -616,7 +632,7 @@
                 <li>Practical 'Controlled Leak' Artist Workshop</li>
                 <li>HSC/VCE Style Analysis Questions & Marking Rubrics</li>
             </ul>
-            <a href="resource-generator.html" class="btn-download">
+            <a href="adam-cullen-resources.html" class="btn-download">
                 <span class="download-icon">📄</span>
                 Get Classroom Ready (PDF)
             </a>
