@@ -3,7 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
     <title>John Coburn - A Sacred Landscape | The Australian Art Anthology</title>
+    <meta name="description" content="Experience John Coburn's geometric abstraction in 'A Sacred Landscape'. Premium cinematic resource for Years 9–12 Visual Arts. Structural Frame, Color Theory, Public Art.">
+    <meta name="keywords" content="John Coburn, Australian Art, Visual Arts, Art Education, Abstract Art, Geometric Abstraction, Structural Frame, Sydney Opera House, Art Documentary, NSW Syllabus, VCE Art">
+    <meta name="author" content="Green Turtle Production">
+    
+    <!-- OpenGraph Meta Tags -->
+    <meta property="og:title" content="John Coburn - A Sacred Landscape | The Australian Art Anthology">
+    <meta property="og:description" content="Experience John Coburn's geometric abstraction in 'A Sacred Landscape'. Premium cinematic resource for Years 9–12 Visual Arts.">
+    <meta property="og:image" content="https://anthology.greenturtleproductions.com.au/coburn.png">
+    <meta property="og:url" content="https://anthology.greenturtleproductions.com.au/john-coburn.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="The Australian Art Anthology">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="John Coburn - A Sacred Landscape | The Australian Art Anthology">
+    <meta name="twitter:description" content="Experience John Coburn's geometric abstraction in 'A Sacred Landscape'. Premium cinematic resource for Years 9–12 Visual Arts.">
+    <meta name="twitter:image" content="https://anthology.greenturtleproductions.com.au/coburn.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://anthology.greenturtleproductions.com.au/john-coburn.html">
+    
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -256,7 +279,10 @@
             color: #E6E6E6;
             padding: 12px 0;
             padding-left: 32px;
+            padding-right: 0;
             position: relative;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .teacher-pack-features li::before {
@@ -337,6 +363,27 @@
             text-align: center;
         }
 
+        .footer-text-teacher {
+            font-family: 'Montserrat', sans-serif;
+            color: #9CA3AF;
+            font-weight: 400;
+            font-size: 14px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin: 0;
+            text-align: center;
+        }
+
+        .footer-text-teacher .footer-link-teacher {
+            color: #9CA3AF;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-text-teacher .footer-link-teacher:hover {
+            color: #E07A2F;
+        }
+
         .footer-link-teacher {
             font-family: 'Montserrat', sans-serif;
             color: #9CA3AF;
@@ -391,12 +438,86 @@
 
             .cta-group-hero {
                 flex-direction: column;
+                gap: 12px;
             }
 
             .btn-watch-trailer,
             .btn-purchase {
                 width: 100%;
                 text-align: center;
+                min-height: 44px;
+                padding: 16px 28px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero-section,
+            .curriculum-section,
+            .teacher-pack-section,
+            .bio-section {
+                padding: 30px 16px;
+            }
+
+            .teacher-pack-card {
+                padding: 32px 20px;
+            }
+
+            .teacher-pack-features li {
+                padding-left: 24px;
+                padding-right: 0;
+                font-size: 1rem;
+                line-height: 1.7;
+            }
+
+            .teacher-pack-features li::before {
+                left: 4px;
+            }
+
+            .btn-watch-trailer,
+            .btn-purchase,
+            .btn-download {
+                width: 100%;
+                min-height: 48px;
+                padding: 16px 24px;
+                font-size: 1rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .cta-group-hero {
+                width: 100%;
+                gap: 12px;
+            }
+
+            .hero-grid {
+                gap: 30px;
+            }
+
+            .artist-name {
+                font-size: clamp(2rem, 8vw, 3rem);
+            }
+
+            .film-title {
+                font-size: clamp(1.5rem, 6vw, 2rem);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .teacher-pack-features li {
+                padding-left: 20px;
+                font-size: 0.95rem;
+            }
+
+            .teacher-pack-title {
+                font-size: 20px;
+            }
+
+            .btn-watch-trailer,
+            .btn-purchase,
+            .btn-download {
+                min-height: 48px;
+                padding: 14px 20px;
             }
         }
     </style>
@@ -494,11 +615,9 @@
 
     <!-- Footer -->
     <footer class="teacher-pack-footer">
-        <a href="https://greenturtleproductions.com.au" target="_blank" class="footer-link-teacher">
-            <span>A Green Turtle Production</span>
-            <span class="footer-separator-teacher">|</span>
-            <span>Explore the Anthology Series <span class="footer-arrow-teacher">→</span></span>
-        </a>
+        <p class="footer-text-teacher">
+            © 2024 <a href="https://greenturtleproductions.com.au" target="_blank" class="footer-link-teacher">Green Turtle Productions</a> | The Australian Art Anthology is an Institutional Resource.
+        </p>
     </footer>
 
 </body>
