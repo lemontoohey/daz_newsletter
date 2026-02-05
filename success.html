@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Successful | The Australian Art Anthology</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .success-container {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .success-icon {
+            font-size: 64px;
+            color: #E07A2F;
+            margin-bottom: 24px;
+        }
+
+        .success-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 32px;
+            color: var(--text-color);
+            margin-bottom: 16px;
+        }
+
+        .success-message {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .success-details {
+            background: rgba(224, 122, 47, 0.1);
+            border: 1px solid rgba(224, 122, 47, 0.3);
+            border-radius: 8px;
+            padding: 24px;
+            max-width: 500px;
+            margin-bottom: 32px;
+        }
+
+        .success-details h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+            color: var(--text-color);
+            margin-bottom: 12px;
+        }
+
+        .success-details p {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .btn-success {
+            display: inline-block;
+            padding: 14px 32px;
+            background-color: #E07A2F;
+            color: #FFFFFF;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            letter-spacing: 0.05em;
+        }
+
+        .btn-success:hover {
+            background-color: rgba(224, 122, 47, 0.9);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .success-title {
+                font-size: 24px;
+            }
+
+            .success-message {
+                font-size: 14px;
+            }
+
+            .success-details {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with National Art School Logo -->
+    <header class="header">
+        <div class="container">
+            <div class="header-logo">
+                <img src="nas-logo.png" alt="National Art School Logo" class="nas-logo">
+            </div>
+            <nav class="header-nav">
+                <a href="https://greenturtleproductions.com.au/login" class="header-login-link">School Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="success-container">
+            <div class="success-icon">✓</div>
+            <h1 class="success-title">Payment Successful</h1>
+            <p class="success-message">
+                Thank you for your enrollment! Your payment has been processed successfully. 
+                Your school now has access to the complete Series 01 Anthology.
+            </p>
+            
+            <div class="success-details">
+                <h3>What's Next?</h3>
+                <p><strong>Access Details:</strong> You will receive an email confirmation with your login credentials and access instructions within 24 hours.</p>
+                <p><strong>License Period:</strong> Your 24-month institutional license begins immediately upon account activation.</p>
+                <p><strong>Support:</strong> If you have any questions, please contact us at admin@greenturtleproductions.com.au</p>
+            </div>
+
+            <a href="index.html" class="btn-success">Return to Anthology</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">
+                © 2024 <a href="https://greenturtleproductions.com.au" style="color: #E07A2F; text-decoration: none;">Green Turtle Productions</a> | 
+                The Australian Art Anthology is an Institutional Resource.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
