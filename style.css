@@ -115,12 +115,14 @@ p {
 
 .header .container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
 .header-logo {
-    text-align: center;
+    flex: 1;
+    display: flex;
+    justify-content: center;
     padding: var(--spacing-sm) 0;
 }
 
@@ -154,6 +156,20 @@ p {
 }
 
 .header-nav-link:hover {
+    color: #E07A2F;
+}
+
+.header-login-link {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    letter-spacing: 0.05em;
+}
+
+.header-login-link:hover {
     color: #E07A2F;
 }
 
@@ -790,6 +806,19 @@ p {
 
     .enrollment-narrative {
         font-size: 14px;
+    }
+
+    .header .container {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .header-logo {
+        flex: none;
+    }
+
+    .header-login-link {
+        font-size: 13px;
     }
 }
 

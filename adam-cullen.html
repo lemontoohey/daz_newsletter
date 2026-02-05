@@ -89,6 +89,20 @@
             color: #E07A2F;
         }
 
+        .nav-login-link {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            color: rgba(230, 230, 230, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-login-link:hover {
+            color: #E07A2F;
+        }
+
         /* Hero Section */
         .hero-section {
             max-width: 1200px;
@@ -555,6 +569,7 @@
         <div class="nav-container">
             <img src="nas-logo.png" alt="National Art School Logo" class="nav-logo">
             <div class="nav-title">The Australian Art Anthology</div>
+            <a href="https://greenturtleproductions.com.au/login" class="nav-login-link">School Login</a>
         </div>
     </nav>
 
@@ -694,6 +709,9 @@
     
     <!-- Video Player JavaScript -->
     <script src="video-player.js"></script>
+    
+    <!-- Stripe Payment Handler -->
+    <script src="stripe-payment.js"></script>
 
 </body>
 </html>
