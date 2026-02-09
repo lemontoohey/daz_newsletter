@@ -9,23 +9,21 @@ function raf(time) {
 
 requestAnimationFrame(raf);
 
-// Cascading Text Animation
+// Cascading Text Animation - top to bottom (paragraphs cascade down)
 document.addEventListener('DOMContentLoaded', () => {
-    const paragraph = document.getElementById('hero-paragraph-1');
-    if (paragraph) {
-        const text = paragraph.textContent.trim();
-        const words = text.split(' ');
+    const container = document.getElementById('hero-paragraph-1');
+    if (container) {
+        const text = container.textContent.trim();
+        const paragraphs = text.split(/\n\s*\n/).map(p => p.trim()).filter(Boolean);
 
-        // Clear the original paragraph
-        paragraph.textContent = '';
+        container.textContent = '';
 
-        words.forEach((word, index) => {
-            const wordSpan = document.createElement('span');
-            wordSpan.textContent = word;
-            wordSpan.className = 'cascading-word';
-            // The animation starts 1.5s in, and each word is delayed by 0.1s
-            wordSpan.style.animationDelay = `${1.5 + index * 0.1}s`;
-            paragraph.appendChild(wordSpan);
+        paragraphs.forEach((paraText, index) => {
+            const p = document.createElement('p');
+            p.textContent = paraText;
+            p.className = 'cascading-paragraph';
+            p.style.animationDelay = `${1.5 + index * 0.4}s`;
+            container.appendChild(p);
         });
     }
 });

@@ -223,16 +223,23 @@ p {
    ANIMATIONS & HIGH-END STYLING
    ============================================ */
 
-#hero-paragraph-1 {
+.hero-cascade-container {
     margin-bottom: var(--spacing-md);
 }
 
-.cascading-word {
-    display: inline-block;
+.hero-cascade-container .cascading-paragraph {
+    margin-bottom: var(--spacing-md);
+}
+
+.hero-cascade-container .cascading-paragraph:last-child {
+    margin-bottom: 0;
+}
+
+.cascading-paragraph {
+    display: block;
     opacity: 0;
-    transform: translateY(20px);
-    animation: cascade-in 1s ease-out forwards;
-    padding-right: 0.4em;
+    transform: translateY(-20px);
+    animation: cascade-down 1.2s ease-out forwards;
 }
 
 @keyframes apparate {
@@ -242,7 +249,7 @@ p {
     }
 }
 
-@keyframes cascade-in {
+@keyframes cascade-down {
     to {
         opacity: 1;
         transform: translateY(0);
