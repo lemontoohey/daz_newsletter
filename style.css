@@ -119,7 +119,7 @@ p {
     align-items: center;
 }
 
-.header-logo {
+.header .header-logo {
     flex: 1.05;
     display: flex;
     justify-content: center;
@@ -128,15 +128,22 @@ p {
 
 .nas-logo,
 .nav-logo,
-.header-logo img {
+.header-logo img,
+img.header-logo {
     filter: brightness(0) saturate(100%) invert(56%) sepia(68%) saturate(2331%) hue-rotate(346deg) brightness(97%) contrast(92%) !important;
+}
+
+/* NAS logo shifted 3mm left (nav-logo and img.header-logo don't have apparate animation) */
+.nav-logo,
+img.header-logo {
+    transform: translateX(-3mm);
 }
 
 .nas-logo {
     height: 80px;
     width: auto;
     opacity: 0;
-    transform: translateY(20px);
+    transform: translate(-3mm, 20px);
     animation: apparate 2s ease-out 0.5s forwards;
     pointer-events: none;
     cursor: default;
@@ -245,7 +252,7 @@ p {
 @keyframes apparate {
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translate(-3mm, 0);
     }
 }
 
@@ -627,7 +634,7 @@ p {
     border-radius: 8px;
     padding: 56px 48px;
     text-align: center;
-    box-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 28px 60px -16px rgba(0, 0, 0, 0.36);
     position: relative;
     background: linear-gradient(to bottom, rgba(55, 62, 68, 0.95), rgba(47, 53, 59, 0.95));
 }
@@ -852,7 +859,7 @@ p {
         gap: 16px;
     }
 
-    .header-logo {
+    .header .header-logo {
         flex: none;
     }
 
