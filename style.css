@@ -56,11 +56,14 @@ body.ink-bleed-loaded {
 body::before {
     content: '';
     position: fixed;
-    inset: 0;
-    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
     pointer-events: none;
-    opacity: 0.03;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' result='n'/%3E%3CfeColorMatrix in='n' type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.02;
+    background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
     background-repeat: repeat;
 }
 
@@ -412,6 +415,7 @@ img.header-logo {
 }
 
 .timeline-content {
+    position: relative;
     background: var(--card-bg);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -419,6 +423,20 @@ img.header-logo {
     border-radius: 8px;
     border: 0.5px solid rgba(143, 74, 76, 0.2);
     box-shadow: var(--shadow-atelier);
+}
+
+.timeline-content::after {
+    content: 'MMXXVI';
+    position: absolute;
+    bottom: 12px;
+    right: 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    color: var(--text-color);
+    opacity: 0.2;
+    pointer-events: none;
 }
 
 /* Fountain pen divider — ink stroke between sections */
@@ -593,8 +611,8 @@ img.header-logo {
     clip-path: inset(10% 10% 10% 10%);
     transform: scale(0.9);
     filter: brightness(0.85) saturate(0.7) contrast(1.06);
-    -webkit-mask-image: radial-gradient(circle at center, black 60%, transparent 100%);
-    mask-image: radial-gradient(circle at center, black 60%, transparent 100%);
+    -webkit-mask-image: radial-gradient(circle, black 70%, transparent 100%);
+    mask-image: radial-gradient(circle, black 70%, transparent 100%);
 }
 
 .film-image-wrapper.revealed .film-image {
@@ -725,9 +743,19 @@ img.header-logo {
 
 /* Film Details */
 .film-details {
+    position: relative;
     margin: var(--spacing-md) 0;
     padding-top: var(--spacing-md);
-    border-top: 0.5px solid rgba(143, 74, 76, 0.2);
+}
+
+.film-details::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 0.5px;
+    background: linear-gradient(to right, transparent, rgba(143, 74, 76, 0.3), transparent);
 }
 
 /* Secondary Intelligence — Cormorant Garamond (credits, metadata, pedagogy quote) */
@@ -892,10 +920,21 @@ img.header-logo {
 
 /* Footer */
 .footer {
+    position: relative;
     background-color: var(--card-bg);
     padding: var(--spacing-lg) var(--spacing-md);
-    border-top: 1px solid rgba(204, 119, 34, 0.2);
+    border-top: none;
     margin-top: var(--spacing-xl);
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 0.5px;
+    background: linear-gradient(to right, transparent, rgba(143, 74, 76, 0.3), transparent);
 }
 
 .footer-content {
