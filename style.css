@@ -130,7 +130,7 @@ p {
 .nav-logo,
 .header-logo img,
 img.header-logo {
-    filter: brightness(0) saturate(100%) invert(56%) sepia(68%) saturate(2331%) hue-rotate(346deg) brightness(97%) contrast(92%) !important;
+    /* Neutral black/white logo – no brand colour filter for institutional stability */
 }
 
 /* NAS logo shifted 3mm left (nav-logo and img.header-logo don't have apparate animation) */
@@ -312,6 +312,87 @@ img.header-logo {
     border: 1px solid rgba(224, 122, 47, 0.1);
 }
 
+/* Series 02: Expanding the Perspective (Upcoming) */
+.series-02-section {
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-xl) 0;
+    border-top: 1px solid rgba(224, 122, 47, 0.1);
+}
+
+.series-02-content {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.series-02-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-color);
+    margin-bottom: var(--spacing-md);
+}
+
+.series-02-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-sm);
+}
+
+.series-02-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--spacing-lg) 0;
+}
+
+.series-02-list li {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text-color);
+    padding: 4px 0;
+}
+
+.series-02-list li strong {
+    color: var(--accent-color);
+}
+
+.series-02-placeholders {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.series-02-placeholder.upcoming-card {
+    background: rgba(37, 42, 47, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.upcoming-image {
+    width: 100%;
+    padding-top: 56.25%;
+    background: linear-gradient(135deg, #3a4046 0%, #2a2e33 100%);
+    filter: grayscale(1);
+    opacity: 0.85;
+}
+
+.upcoming-label {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    padding: var(--spacing-sm);
+    text-align: center;
+}
+
 /* Film Header */
 .film-header {
     margin-bottom: var(--spacing-md);
@@ -414,11 +495,13 @@ img.header-logo {
 }
 
 .tag {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     padding: 8px 14px;
     font-family: 'Inter', sans-serif;
     font-size: 11px;
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: var(--accent-color);
@@ -427,6 +510,18 @@ img.header-logo {
     border-radius: 4px;
     text-align: center;
     line-height: 1.4;
+}
+
+.tag-year-badge::before {
+    content: '';
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23E07A2F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2L15 8L22 9L17 14L18 21L12 18L6 21L7 14L2 9L9 8L12 2Z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    flex-shrink: 0;
 }
 
 /* Film Details */
@@ -453,12 +548,33 @@ img.header-logo {
 /* CTA Buttons */
 .cta-group {
     display: flex;
+    flex-wrap: wrap;
     gap: var(--spacing-sm);
     margin-top: var(--spacing-md);
-    flex-wrap: wrap;
     position: relative;
     z-index: 10;
     pointer-events: auto;
+}
+
+.btn-sample-preview {
+    flex-basis: 100%;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border: 1px solid rgba(224, 122, 47, 0.25);
+    background: transparent;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    display: inline-block;
+}
+
+.btn-sample-preview:hover {
+    color: var(--accent-color);
+    border-color: rgba(224, 122, 47, 0.5);
+    background: rgba(224, 122, 47, 0.05);
 }
 
 .btn-primary {
@@ -640,7 +756,7 @@ img.header-logo {
     border-radius: 8px;
     padding: 56px 48px;
     text-align: center;
-    box-shadow: 0 28px 60px -16px rgba(0, 0, 0, 0.36);
+    box-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.5);
     position: relative;
     background: linear-gradient(to bottom, rgba(55, 62, 68, 0.95), rgba(47, 53, 59, 0.95));
 }
