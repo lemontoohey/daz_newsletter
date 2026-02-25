@@ -16,10 +16,10 @@
     var style = document.createElement('style');
     style.textContent = [
         '.reticle-cursor { pointer-events: none; position: fixed; top: 0; left: 0; z-index: 99999; mix-blend-mode: difference; transition: transform 0.15s ease-out, opacity 0.2s ease; }',
-        '.reticle-dot { width: 8px; height: 8px; border-radius: 50%; background: #D64045; position: absolute; transform: translate(-50%, -50%); left: 0; top: 0; }',
-        '.reticle-ring { width: 56px; height: 56px; border-radius: 50%; border: 2px solid #D64045; position: absolute; left: 0; top: 0; transform: translate(-50%, -50%) scale(0.8); opacity: 0; transition: transform 0.25s ease, opacity 0.2s ease; display: flex; align-items: center; justify-content: center; }',
+        '.reticle-dot { width: 8px; height: 8px; border-radius: 50%; background: #8F4A4C; position: absolute; transform: translate(-50%, -50%); left: 0; top: 0; }',
+        '.reticle-ring { width: 56px; height: 56px; border-radius: 50%; border: 2px solid #8F4A4C; position: absolute; left: 0; top: 0; transform: translate(-50%, -50%) scale(0.8); opacity: 0; transition: transform 0.25s ease, opacity 0.2s ease; display: flex; align-items: center; justify-content: center; }',
         '.reticle-ring.reticle-active { transform: translate(-50%, -50%) scale(1); opacity: 1; }',
-        '.reticle-ring span { font-family: "Montserrat", sans-serif; font-weight: 700; font-size: 8px; letter-spacing: 0.2em; color: #D64045; text-transform: uppercase; }',
+        '.reticle-ring span { font-family: "Montserrat", sans-serif; font-weight: 700; font-size: 8px; letter-spacing: 0.2em; color: #8F4A4C; text-transform: uppercase; }',
         '.reticle-cursor.reticle-hide .reticle-dot { opacity: 0; }',
         '.reticle-cursor.reticle-hide .reticle-ring { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }'
     ].join('\n');
