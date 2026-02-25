@@ -32,6 +32,14 @@ html {
     scroll-behavior: auto; /* Lenis handles smooth scrolling */
 }
 
+/* Custom cursor: hide default on desktop when Intelligent Reticle is active */
+@media (pointer: fine) {
+    body.reticle-cursor-active,
+    body.reticle-cursor-active * {
+        cursor: none !important;
+    }
+}
+
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
@@ -77,14 +85,15 @@ h2 {
 }
 
 h3 {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     line-height: 1.3;
     color: var(--accent-color);
     font-size: clamp(1.2rem, 2vw, 1.5rem);
     margin-bottom: var(--spacing-md);
     text-transform: none;
-    letter-spacing: normal;
+    letter-spacing: -0.02em;
+    font-feature-settings: 'kern' 1;
 }
 
 h4 {
@@ -555,17 +564,17 @@ img.header-logo {
     overflow: hidden;
 }
 
-/* Cinematic Aperture Reveal — starts cropped/desaturated, reveals on scroll */
+/* Cinematic Aperture Reveal — 1.5s elegant easing */
 .film-image {
     width: 100%;
     height: auto;
     display: block;
     border-radius: 4px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-    transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transition: transform 1.5s cubic-bezier(0.2, 0.8, 0.2, 1),
                 box-shadow 0.3s ease,
-                clip-path 1.2s cubic-bezier(0.2, 0.8, 0.2, 1),
-                filter 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+                clip-path 1.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+                filter 1.5s cubic-bezier(0.2, 0.8, 0.2, 1);
     clip-path: inset(10% 10% 10% 10%);
     transform: scale(0.9);
     filter: brightness(0.85) saturate(0.7);
@@ -634,7 +643,7 @@ img.header-logo {
     flex-wrap: wrap;
     align-items: center;
     gap: 0;
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.15em;
@@ -648,7 +657,7 @@ img.header-logo {
     border-radius: 0;
     color: var(--text-secondary);
     font-family: 'Inter', sans-serif;
-    font-size: 10px;
+    font-size: 11px;
     letter-spacing: 0.15em;
     font-weight: 500;
     line-height: 1.5;
@@ -671,14 +680,14 @@ img.header-logo {
     gap: 6px;
     padding: 4px 0;
     font-family: 'Inter', sans-serif;
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.15em;
     color: var(--text-secondary);
     background: none;
     border: none;
-    border-bottom: 0.5px solid var(--accent-color);
+    border-bottom: 0.5px solid rgba(214, 64, 69, 0.5);
     border-radius: 0;
     text-align: center;
     line-height: 1.4;
@@ -703,23 +712,32 @@ img.header-logo {
     border-top: 1px solid rgba(214, 64, 69, 0.1);
 }
 
-.credits {
-    font-family: 'Inter', sans-serif;
-    font-size: 10px;
+/* Secondary Intelligence — Cormorant Garamond (credits, metadata, pedagogy quote) */
+.credits,
+.metadata-item {
+    font-family: 'Cormorant Garamond', Georgia, serif !important;
+    font-size: 11px;
     font-weight: 400;
+    font-style: italic;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--text-color);
-    opacity: 0.8;
+    opacity: 0.85;
     line-height: 1.8;
+}
+
+.credits {
     border-left: 1px solid rgba(214, 64, 69, 0.3);
     padding-left: 14px;
     margin-left: 0;
 }
 
-.credits strong {
-    font-weight: 500;
+.credits strong,
+.metadata-label {
+    font-weight: 600;
+    font-style: normal;
     opacity: 1;
+    color: var(--accent-color);
 }
 
 /* CTA Buttons */
@@ -752,6 +770,8 @@ img.header-logo {
     color: var(--accent-color);
     border-color: var(--accent-color);
     background: rgba(214, 64, 69, 0.05);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     box-shadow: 0 0 20px rgba(214, 64, 69, 0.12);
 }
 
@@ -777,6 +797,8 @@ img.header-logo {
     color: var(--accent-color);
     border-color: var(--accent-color);
     background: rgba(214, 64, 69, 0.05);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     box-shadow: 0 0 20px rgba(214, 64, 69, 0.15);
 }
 
@@ -808,6 +830,8 @@ img.header-logo {
 
 .btn-primary:hover {
     background: rgba(214, 64, 69, 0.05);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     box-shadow: 0 0 24px rgba(214, 64, 69, 0.2);
 }
 
@@ -831,6 +855,8 @@ img.header-logo {
     color: var(--accent-color);
     border-color: var(--accent-color);
     background: rgba(214, 64, 69, 0.05);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     box-shadow: 0 0 24px rgba(214, 64, 69, 0.15);
 }
 
@@ -858,6 +884,8 @@ img.header-logo {
 
 .watch-trailer-btn:hover {
     background: rgba(214, 64, 69, 0.05);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     box-shadow: 0 0 24px rgba(214, 64, 69, 0.2);
 }
 
@@ -1222,9 +1250,11 @@ img.header-logo {
     margin: 0 auto;
 }
 
-/* Archival Card — 3D prestige stack */
+/* Archival Card — heavy glassmorphism */
 .pricing-card {
-    background-color: var(--card-bg);
+    background: rgba(37, 50, 75, 0.7);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
     border: 1px solid rgba(214, 64, 69, 0.4);
     border-radius: 8px;
     padding: 56px 48px;
@@ -1390,6 +1420,8 @@ img.header-logo {
 
 .btn-pricing-primary:hover {
     background: rgba(214, 64, 69, 0.05);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     box-shadow: 0 0 24px rgba(214, 64, 69, 0.2);
 }
 
@@ -1416,6 +1448,8 @@ img.header-logo {
     color: var(--accent-color);
     border-color: var(--accent-color);
     background: rgba(214, 64, 69, 0.05);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     box-shadow: 0 0 20px rgba(214, 64, 69, 0.15);
 }
 
@@ -1606,7 +1640,7 @@ img.header-logo {
     }
     
     .tag {
-        font-size: 10px;
+        font-size: 11px;
         padding: 6px 12px;
     }
 }
