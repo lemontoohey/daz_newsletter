@@ -3,12 +3,13 @@
    Modern Cinematic & Architectural Aesthetic
    ============================================ */
 
-/* CSS Variables - Atelier / Fine Art (Prussian Teal-Ink Glaze, Heavy Glass) */
+/* CSS Variables - Atelier / Underwater Glass (Prussian Teal, Heavy Blur) */
 :root {
     --bg-color: #0E0C12;
     --text-color: #E6E6E6;
     --accent-color: #8F4A4C;
     --card-bg: rgba(14, 25, 24, 0.88);
+    --card-bg-glass: rgba(14, 25, 24, 0.45);
     --text-secondary: #8A928F;
     --glaze-border: rgba(143, 74, 76, 0.3);
     --shadow-atelier: 0 40px 100px rgba(14, 12, 18, 0.8);
@@ -152,7 +153,7 @@ p {
 }
 
 .header.header-scrolled {
-    background: rgba(14, 25, 24, 0.9);
+    background: rgba(14, 25, 24, 0.6);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom-color: var(--glaze-border);
@@ -424,9 +425,9 @@ img.header-logo {
 
 .timeline-content {
     position: relative;
-    background: var(--card-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: var(--card-bg-glass);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
     padding: var(--spacing-lg);
     border-radius: 8px;
     border: 0.5px solid var(--glaze-border);
@@ -1164,17 +1165,18 @@ img.header-logo {
     margin: 0 auto;
 }
 
-/* Enrollment card — Ink Teal glaze, prestige stack */
+/* Enrollment card — underwater glass, prestige stack */
 .pricing-card {
-    background: var(--card-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: var(--card-bg-glass);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
     border: 0.5px solid var(--glaze-border);
     border-radius: 8px;
     padding: 56px 48px;
     text-align: center;
     box-shadow: var(--shadow-prestige);
     position: relative;
+    z-index: 1;
     overflow: visible;
 }
 
@@ -1308,7 +1310,7 @@ img.header-logo {
     justify-content: center;
     flex-wrap: wrap;
     position: relative;
-    z-index: 2;
+    z-index: 10;
     overflow: visible;
     min-height: 48px;
 }
