@@ -160,8 +160,24 @@ img.header-logo {
     font-size: 14px;
     color: var(--text-secondary);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     letter-spacing: 0.05em;
+}
+
+.header-nav-link-faculty {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    padding: 10px 18px;
+    border: 1px solid rgba(224, 122, 47, 0.35);
+    border-radius: 4px;
+    color: var(--text-color);
+}
+
+.header-nav-link-faculty:hover {
+    color: var(--accent-color);
+    border-color: rgba(224, 122, 47, 0.6);
+    box-shadow: 0 0 0 1px rgba(224, 122, 47, 0.15);
 }
 
 .header-nav-link:hover {
@@ -312,17 +328,18 @@ img.header-logo {
     border: 1px solid rgba(224, 122, 47, 0.1);
 }
 
-/* Series 02: Expanding the Perspective (Upcoming) */
+/* Series 02: Expanding the Perspective (Upcoming) – aligns with .timeline-content */
 .series-02-section {
     margin-top: var(--spacing-xl);
     padding: var(--spacing-xl) 0;
     border-top: 1px solid rgba(224, 122, 47, 0.1);
+    width: 100%;
 }
 
 .series-02-content {
-    max-width: var(--max-content-width);
-    margin: 0 auto;
-    padding: 0 var(--spacing-md);
+    margin-left: calc(var(--timeline-offset) + 40px);
+    padding: 0 var(--spacing-md) 0 0;
+    max-width: calc(100% - (var(--timeline-offset) + 40px));
 }
 
 .series-02-title {
@@ -391,6 +408,10 @@ img.header-logo {
     color: var(--text-secondary);
     padding: var(--spacing-sm);
     text-align: center;
+}
+
+.upcoming-card-design .upcoming-label {
+    color: rgba(230, 230, 230, 0.9);
 }
 
 /* Film Header */
@@ -1016,6 +1037,11 @@ img.header-logo {
     .film-text {
         gap: var(--spacing-sm);
     }
+    
+    .series-02-content {
+        margin-left: calc(30px + 40px);
+        max-width: calc(100% - (30px + 40px));
+    }
 }
 
 @media (max-width: 600px) {
@@ -1046,6 +1072,11 @@ img.header-logo {
     
     .timeline-content {
         padding: var(--spacing-md);
+    }
+    
+    .series-02-content {
+        margin-left: calc(var(--timeline-offset) + 30px);
+        max-width: calc(100% - (var(--timeline-offset) + 30px));
     }
     
     .cta-group {
