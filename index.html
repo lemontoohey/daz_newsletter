@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
     <!-- Plyr CSS -->
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
 </head>
@@ -348,15 +348,21 @@
                     </ul>
                     <div class="series-02-placeholders">
                         <div class="series-02-placeholder upcoming-card">
-                            <div class="upcoming-image" aria-hidden="true"></div>
+                            <div class="upcoming-image-wrap">
+                                <img src="margaret_olley.png" alt="Margaret Olley — In Production" class="upcoming-image-img">
+                            </div>
                             <span class="upcoming-label">Margaret Olley — Coming Soon</span>
                         </div>
                         <div class="series-02-placeholder upcoming-card upcoming-card-design">
-                            <div class="upcoming-image" aria-hidden="true"></div>
+                            <div class="upcoming-image-wrap">
+                                <img src="akira.png" alt="Akira Isogawa — In Production" class="upcoming-image-img">
+                            </div>
                             <span class="upcoming-label">Akira Isogawa — Design & Textiles · Coming Soon</span>
                         </div>
                         <div class="series-02-placeholder upcoming-card">
-                            <div class="upcoming-image" aria-hidden="true"></div>
+                            <div class="upcoming-image-wrap">
+                                <img src="david_boyd.png" alt="David Boyd — In Production" class="upcoming-image-img">
+                            </div>
                             <span class="upcoming-label">David Boyd — Coming Soon</span>
                         </div>
                     </div>
@@ -368,7 +374,23 @@
 
     <!-- Institutional Enrollment Section -->
     <section class="pricing-section enrollment-section" id="pricing">
+        <div class="enrollment-content-wrap">
         <p class="enrollment-library-trust">The Australian Art Anthology is a verified educational resource currently held in the National Art School Library. Institutional enrollment grants your faculty legal streaming and reproduction rights for all archival materials.</p>
+
+        <section class="pedagogy-oversight">
+            <h3 class="pedagogy-oversight-title">Pedagogical Oversight</h3>
+            <div class="pedagogy-oversight-inner">
+                <div class="pedagogy-oversight-image">
+                    <img src="karena.png" alt="Karena Gregory, Lead Pedagogy Advisor" class="pedagogy-oversight-photo">
+                </div>
+                <div class="pedagogy-oversight-content">
+                    <p class="pedagogy-oversight-name">Karena Gregory <span class="pedagogy-oversight-credentials">(M.Ed)</span></p>
+                    <p class="pedagogy-oversight-role">Lead Pedagogy Advisor | Retired Principal & Visual Arts Specialist</p>
+                    <blockquote class="pedagogy-oversight-quote">"As a former Principal and Art Teacher, I've seen how primary sources can transform a classroom. This anthology is a meticulously mapped curriculum tool that meets the highest standards of Australian art education."</blockquote>
+                </div>
+            </div>
+        </section>
+
         <div class="pricing-card enrollment-card">
             <h3 class="pricing-header">Grant Institutional Access</h3>
             
@@ -391,8 +413,9 @@
             
             <div class="pricing-buttons">
                 <button class="btn-pricing-primary" id="activate-enrollment-btn">Activate School Enrollment</button>
-                <a href="mailto:admin@greenturtleproductions.com.au?subject=Institutional Access Inquiry: [School Name]&body=Hello Green Turtle Productions,%0D%0A%0D%0AWe would like to request a formal quote/invoice for the Series 01 Anthology for [School Name].%0D%0A%0D%0APlease send details to [Contact Email].%0D%0A%0D%0AThank you." class="btn-pricing-secondary">Request Tax Invoice / Quote</a>
+                <a href="mailto:admin@greenturtleproductions.com.au?subject=Institutional Access Inquiry: [School Name]&body=Hello Green Turtle Productions,%0D%0A%0D%0AWe would like to request a formal quote/invoice for the Series 01 Anthology for [School Name].%0D%0A%0D%0APlease send details to [Contact Email].%0D%0A%0D%0AThank you." class="btn-pricing-secondary btn-pricing-quote">Request Tax Invoice / Quote</a>
             </div>
+        </div>
         </div>
     </section>
 

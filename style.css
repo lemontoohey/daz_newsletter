@@ -406,12 +406,37 @@ img.header-logo {
     overflow: hidden;
 }
 
-.upcoming-image {
+.upcoming-image-wrap {
     width: 100%;
-    padding-top: 56.25%;
-    background: linear-gradient(135deg, #3a4046 0%, #2a2e33 100%);
-    filter: grayscale(1);
-    opacity: 0.85;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    position: relative;
+}
+
+@supports not (aspect-ratio: 16 / 9) {
+    .upcoming-image-wrap {
+        padding-top: 56.25%;
+        height: 0;
+    }
+    .upcoming-image-wrap .upcoming-image-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+.upcoming-image-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: filter 0.4s ease, opacity 0.4s ease;
+}
+
+.upcoming-card:hover .upcoming-image-img {
+    filter: grayscale(0);
+    opacity: 1;
 }
 
 .upcoming-label {
@@ -815,6 +840,12 @@ img.header-logo {
     border-top: 1px solid rgba(224, 122, 47, 0.1);
 }
 
+/* Enrollment content aligned with timeline-content / Series 02 */
+.enrollment-content-wrap {
+    margin-left: calc(var(--timeline-offset) + 40px);
+    max-width: calc(100% - (var(--timeline-offset) + 40px));
+}
+
 .enrollment-library-trust {
     font-family: 'Inter', sans-serif;
     font-size: 13px;
@@ -824,6 +855,97 @@ img.header-logo {
     max-width: 640px;
     margin: 0 auto var(--spacing-lg) auto;
     line-height: 1.6;
+}
+
+/* Pedagogical Oversight — Executive two-column */
+.pedagogy-oversight {
+    margin-bottom: var(--spacing-xl);
+}
+
+.pedagogy-oversight-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+}
+
+.pedagogy-oversight-inner {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-lg);
+}
+
+.pedagogy-oversight-image {
+    flex-shrink: 0;
+}
+
+.pedagogy-oversight-photo {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid rgba(224, 122, 47, 0.35);
+}
+
+.pedagogy-oversight-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.pedagogy-oversight-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.35rem;
+    color: var(--text-color);
+    margin-bottom: 4px;
+}
+
+.pedagogy-oversight-credentials {
+    font-weight: 600;
+    color: #E07A2F;
+}
+
+.pedagogy-oversight-role {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.5;
+}
+
+.pedagogy-oversight-quote {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--text-color);
+    line-height: 1.65;
+    margin: 0;
+    padding-left: 0;
+    border: none;
+}
+
+.pedagogy-oversight-quote::before {
+    content: '"';
+    color: #E07A2F;
+}
+
+.pedagogy-oversight-quote::after {
+    content: '"';
+    color: #E07A2F;
+}
+
+.teacher-pack-vetted {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+    font-style: italic;
 }
 
 .enrollment-card {
@@ -1024,6 +1146,17 @@ img.header-logo {
     background-color: rgba(224, 122, 47, 0.05);
 }
 
+.btn-pricing-quote {
+    border-width: 2px;
+    border-color: rgba(224, 122, 47, 0.7);
+    background-color: rgba(224, 122, 47, 0.08);
+}
+
+.btn-pricing-quote:hover {
+    background-color: rgba(224, 122, 47, 0.15);
+    border-color: #E07A2F;
+}
+
 /* Responsive Pricing */
 @media (max-width: 600px) {
     .pricing-card {
@@ -1069,6 +1202,21 @@ img.header-logo {
     .header-login-link {
         font-size: 13px;
     }
+
+    .enrollment-content-wrap {
+        margin-left: calc(var(--timeline-offset) + 30px);
+        max-width: calc(100% - (var(--timeline-offset) + 30px));
+    }
+
+    .pedagogy-oversight-inner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .pedagogy-oversight-quote {
+        text-align: center;
+    }
 }
 
 /* Responsive Design */
@@ -1099,6 +1247,11 @@ img.header-logo {
     }
     
     .series-02-content {
+        margin-left: calc(30px + 40px);
+        max-width: calc(100% - (30px + 40px));
+    }
+
+    .enrollment-content-wrap {
         margin-left: calc(30px + 40px);
         max-width: calc(100% - (30px + 40px));
     }
