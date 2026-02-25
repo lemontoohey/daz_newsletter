@@ -3,14 +3,16 @@
    Modern Cinematic & Architectural Aesthetic
    ============================================ */
 
-/* CSS Variables - Atelier / Fine Art (Chromatic Blacks, Glazed Layering) */
+/* CSS Variables - Atelier / Fine Art (Prussian Teal-Ink Glaze, Heavy Glass) */
 :root {
     --bg-color: #0E0C12;
     --text-color: #E6E6E6;
     --accent-color: #8F4A4C;
-    --card-bg: rgba(22, 27, 26, 0.95);
+    --card-bg: rgba(14, 25, 24, 0.88);
     --text-secondary: #8A928F;
+    --glaze-border: rgba(143, 74, 76, 0.3);
     --shadow-atelier: 0 40px 100px rgba(14, 12, 18, 0.8);
+    --shadow-prestige: 0 40px 100px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.03);
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 2rem;
@@ -71,7 +73,7 @@ body::before {
 h1, h2,
 .hero-title, .film-title, .film-subtitle,
 .series-02-title, .pricing-header, .pedagogy-oversight-title,
-.departmental-mapping-title, .artist-name {
+.artist-name {
     font-feature-settings: 'kern' 1;
     letter-spacing: -0.02em;
 }
@@ -138,7 +140,7 @@ p {
     position: relative;
 }
 
-/* Header — Architectural: transparent by default, frosted on scroll */
+/* Header — transparent by default, Ink Teal glaze on scroll */
 .header {
     background: transparent;
     padding: var(--spacing-lg) 0;
@@ -150,10 +152,10 @@ p {
 }
 
 .header.header-scrolled {
-    background: rgba(27, 38, 59, 0.88);
+    background: rgba(14, 25, 24, 0.9);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-bottom-color: rgba(143, 74, 76, 0.2);
+    border-bottom-color: var(--glaze-border);
 }
 
 .header .container {
@@ -260,7 +262,7 @@ img.header-logo {
 .hero-section {
     padding: var(--spacing-xl) var(--spacing-md);
     text-align: center;
-    background-color: var(--card-bg);
+    background-color: var(--bg-color);
     margin-bottom: 15vh;
 }
 
@@ -284,29 +286,35 @@ img.header-logo {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 14px 28px;
+    padding: 12px 24px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    font-size: 0.875rem;
-    letter-spacing: 0.05em;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     text-decoration: none;
-    border-radius: 4px;
+    border-radius: 0;
     transition: all 0.3s ease;
-    border: 1px solid var(--accent-color);
+    border: 0.5px solid var(--glaze-border);
     background: transparent;
+    color: var(--text-color);
+}
+
+.btn-hero-primary {
+    border-color: var(--glaze-border);
     color: var(--accent-color);
 }
 
 .btn-hero-primary:hover,
 .btn-hero-secondary:hover {
-    background: rgba(143, 74, 76, 0.05);
-    box-shadow: 0 0 20px rgba(143, 74, 76, 0.15);
+    background: rgba(143, 74, 76, 0.06);
+    border-color: var(--accent-color);
+    color: var(--accent-color);
 }
 
 .btn-hero-secondary {
     color: var(--text-color);
-    border-color: rgba(230, 230, 230, 0.4);
+    border-color: var(--glaze-border);
 }
 
 .btn-hero-secondary:hover {
@@ -417,11 +425,11 @@ img.header-logo {
 .timeline-content {
     position: relative;
     background: var(--card-bg);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     padding: var(--spacing-lg);
     border-radius: 8px;
-    border: 0.5px solid rgba(143, 74, 76, 0.2);
+    border: 0.5px solid var(--glaze-border);
     box-shadow: var(--shadow-atelier);
 }
 
@@ -786,6 +794,22 @@ img.header-logo {
     color: var(--accent-color);
 }
 
+.film-footnote {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 10px;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--text-secondary);
+    margin-top: var(--spacing-sm);
+    margin-bottom: 0;
+}
+
+.film-footnote span + span::before {
+    content: ' | ';
+    margin: 0 0.35em;
+    color: var(--text-secondary);
+}
+
 /* CTA Buttons */
 .cta-group {
     display: flex;
@@ -1126,69 +1150,6 @@ img.header-logo {
     color: var(--accent-color);
 }
 
-/* Departmental Mapping — Cross-Curriculum (Expansion) */
-.departmental-mapping {
-    margin-bottom: var(--spacing-xl);
-    padding: var(--spacing-lg);
-    background: rgba(55, 62, 68, 0.6);
-    border: 1px solid rgba(143, 74, 76, 0.2);
-    border-radius: 8px;
-    max-width: 640px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.departmental-mapping-title {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--text-secondary);
-    margin-bottom: var(--spacing-sm);
-}
-
-.departmental-mapping-intro {
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    color: var(--text-secondary);
-    margin-bottom: var(--spacing-md);
-    line-height: 1.5;
-}
-
-.departmental-mapping-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 0;
-    font-size: 13px;
-}
-
-.dept-row {
-    display: contents;
-}
-
-.dept-cell {
-    padding: 10px 12px;
-    border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
-}
-
-.departmental-mapping-grid .dept-cell:nth-child(-n+3) {
-    font-weight: 600;
-    color: var(--accent-color);
-    padding-bottom: 8px;
-    border-bottom: 0.5px solid rgba(143, 74, 76, 0.3);
-}
-
-.dept-cell.dept-name {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    color: var(--text-color);
-}
-
-.dept-cell.dept-content {
-    color: var(--text-secondary);
-}
-
 .teacher-pack-vetted {
     font-family: 'Inter', sans-serif;
     font-size: 12px;
@@ -1203,16 +1164,16 @@ img.header-logo {
     margin: 0 auto;
 }
 
-/* Archival Card — heavy glassmorphism */
+/* Enrollment card — Ink Teal glaze, prestige stack */
 .pricing-card {
-    background: rgba(37, 50, 75, 0.7);
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
-    border: 1px solid rgba(143, 74, 76, 0.4);
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 0.5px solid var(--glaze-border);
     border-radius: 8px;
     padding: 56px 48px;
     text-align: center;
-    box-shadow: var(--shadow-atelier), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    box-shadow: var(--shadow-prestige);
     position: relative;
     overflow: visible;
 }
@@ -1425,19 +1386,6 @@ img.header-logo {
 .btn-pricing-quote:hover {
     background: rgba(143, 74, 76, 0.05);
     border-color: var(--accent-color);
-}
-
-/* Responsive: Departmental Mapping */
-@media (max-width: 640px) {
-    .departmental-mapping {
-        padding: var(--spacing-md);
-    }
-    .departmental-mapping-grid {
-        font-size: 12px;
-    }
-    .dept-cell {
-        padding: 8px 10px;
-    }
 }
 
 /* Responsive Pricing */
