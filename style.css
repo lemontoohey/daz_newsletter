@@ -48,9 +48,22 @@ body {
     line-height: 1.7;
     padding: 0;
     margin: 0;
+    position: relative;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+/* Archival grain — subtle fixed noise overlay */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' result='n'/%3E%3CfeColorMatrix in='n' type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
 }
 
 /* Typography — luxury kerning for Montserrat headers */
@@ -412,14 +425,14 @@ img.header-logo {
     background-color: var(--card-bg);
     padding: var(--spacing-lg);
     border-radius: 8px;
-    border: 1px solid rgba(214, 64, 69, 0.1);
+    border: 0.5px solid rgba(214, 64, 69, 0.15);
 }
 
 /* Series 02: Expanding the Perspective (Upcoming) – aligns with .timeline-content */
 .series-02-section {
     margin-top: var(--spacing-xl);
     padding: var(--spacing-xl) 0;
-    border-top: 1px solid rgba(214, 64, 69, 0.1);
+    border-top: 0.5px solid rgba(214, 64, 69, 0.2);
     width: 100%;
 }
 
@@ -638,15 +651,16 @@ img.header-logo {
     margin-bottom: var(--spacing-sm);
 }
 
+/* Museum-style curriculum labels — no boxes, pipe divider */
 .curriculum-tags {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: 0;
-    font-size: 11px;
-    font-weight: 500;
+    font-size: 10px;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.2em;
     color: var(--text-secondary);
 }
 
@@ -657,9 +671,9 @@ img.header-logo {
     border-radius: 0;
     color: var(--text-secondary);
     font-family: 'Inter', sans-serif;
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    font-weight: 500;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
     line-height: 1.5;
 }
 
@@ -680,25 +694,25 @@ img.header-logo {
     gap: 6px;
     padding: 4px 0;
     font-family: 'Inter', sans-serif;
-    font-size: 11px;
-    font-weight: 500;
+    font-size: 10px;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.2em;
     color: var(--text-secondary);
     background: none;
     border: none;
-    border-bottom: 0.5px solid rgba(214, 64, 69, 0.5);
     border-radius: 0;
     text-align: center;
     line-height: 1.4;
 }
 
+/* Year 11/12 tag — desaturated Vermilion star */
 .tag-year-badge::before {
     content: '';
     display: inline-block;
     width: 14px;
     height: 14px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D64045' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2L15 8L22 9L17 14L18 21L12 18L6 21L7 14L2 9L9 8L12 2Z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D64045' stroke-opacity='0.55' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2L15 8L22 9L17 14L18 21L12 18L6 21L7 14L2 9L9 8L12 2Z'/%3E%3C/svg%3E");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -709,7 +723,7 @@ img.header-logo {
 .film-details {
     margin: var(--spacing-md) 0;
     padding-top: var(--spacing-md);
-    border-top: 1px solid rgba(214, 64, 69, 0.1);
+    border-top: 0.5px solid rgba(214, 64, 69, 0.2);
 }
 
 /* Secondary Intelligence — Cormorant Garamond (credits, metadata, pedagogy quote) */
@@ -727,7 +741,7 @@ img.header-logo {
 }
 
 .credits {
-    border-left: 1px solid rgba(214, 64, 69, 0.3);
+    border-left: 0.5px solid rgba(214, 64, 69, 0.3);
     padding-left: 14px;
     margin-left: 0;
 }
@@ -811,8 +825,9 @@ img.header-logo {
     font-size: 14px;
 }
 
-/* Ghost UI — outline only, hover tint + glow */
-.btn-primary {
+/* Ghost UI — outlined buttons, hover tint + glow */
+.btn-primary,
+.watch-trailer-btn {
     display: inline-block;
     padding: 14px 28px;
     background: transparent;
@@ -820,19 +835,30 @@ img.header-logo {
     text-decoration: none;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    font-size: 1rem;
-    letter-spacing: 0.05em;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     border-radius: 4px;
     text-align: center;
     transition: all 0.3s ease;
     border: 1px solid var(--accent-color);
 }
 
-.btn-primary:hover {
+.watch-trailer-btn {
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+    pointer-events: auto;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.btn-primary:hover,
+.watch-trailer-btn:hover {
     background: rgba(214, 64, 69, 0.05);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-    box-shadow: 0 0 24px rgba(214, 64, 69, 0.2);
+    box-shadow: 0 0 20px rgba(214, 64, 69, 0.15);
 }
 
 .btn-secondary {
@@ -842,8 +868,9 @@ img.header-logo {
     text-decoration: none;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    font-size: 1rem;
-    letter-spacing: 0.05em;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     border-radius: 4px;
     text-align: center;
     transition: all 0.3s ease;
@@ -857,36 +884,7 @@ img.header-logo {
     background: rgba(214, 64, 69, 0.05);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-    box-shadow: 0 0 24px rgba(214, 64, 69, 0.15);
-}
-
-.watch-trailer-btn {
-    display: inline-block;
-    padding: 14px 28px;
-    background: transparent;
-    color: var(--accent-color);
-    text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 1rem;
-    letter-spacing: 0.05em;
-    border-radius: 4px;
-    text-align: center;
-    transition: all 0.3s ease;
-    border: 1px solid var(--accent-color);
-    cursor: pointer;
-    position: relative;
-    z-index: 10;
-    pointer-events: auto;
-    -webkit-user-select: none;
-    user-select: none;
-}
-
-.watch-trailer-btn:hover {
-    background: rgba(214, 64, 69, 0.05);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    box-shadow: 0 0 24px rgba(214, 64, 69, 0.2);
+    box-shadow: 0 0 20px rgba(214, 64, 69, 0.15);
 }
 
 /* Footer */
@@ -982,7 +980,7 @@ img.header-logo {
 .enrollment-section {
     padding-top: 100px;
     margin-top: 100px;
-    border-top: 1px solid rgba(214, 64, 69, 0.1);
+    border-top: 0.5px solid rgba(214, 64, 69, 0.2);
 }
 
 /* Enrollment content aligned with timeline-content / Series 02 */
@@ -1032,7 +1030,7 @@ img.header-logo {
     height: 120px;
     object-fit: cover;
     border-radius: 50%;
-    border: 2px solid rgba(214, 64, 69, 0.35);
+    border: 2px solid rgba(214, 64, 69, 0.3);
     display: block;
 }
 
@@ -1129,14 +1127,14 @@ img.header-logo {
 
 .dept-cell {
     padding: 10px 12px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
 }
 
 .departmental-mapping-grid .dept-cell:nth-child(-n+3) {
     font-weight: 600;
     color: var(--accent-color);
     padding-bottom: 8px;
-    border-bottom: 1px solid rgba(214, 64, 69, 0.3);
+    border-bottom: 0.5px solid rgba(214, 64, 69, 0.3);
 }
 
 .dept-cell.dept-name {
@@ -1153,7 +1151,7 @@ img.header-logo {
 .classroom-snippet {
     margin-top: var(--spacing-lg);
     padding-top: var(--spacing-md);
-    border-top: 1px solid rgba(214, 64, 69, 0.15);
+    border-top: 0.5px solid rgba(214, 64, 69, 0.2);
 }
 
 .classroom-snippet-title {
@@ -1283,7 +1281,7 @@ img.header-logo {
     left: 50%;
     transform: translateX(-50%);
     width: 60px;
-    height: 1px;
+    height: 0.5px;
     background-color: #D64045;
 }
 
@@ -1399,6 +1397,13 @@ img.header-logo {
     min-height: 48px;
 }
 
+.pricing-buttons .btn-pricing-primary,
+.pricing-buttons .btn-pricing-secondary,
+.pricing-buttons button {
+    position: relative;
+    z-index: 10;
+}
+
 .btn-pricing-primary {
     display: inline-flex;
     align-items: center;
@@ -1409,20 +1414,22 @@ img.header-logo {
     text-decoration: none;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 0.05em;
+    font-size: 13px;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     border-radius: 4px;
     transition: all 0.3s ease;
     border: 1px solid var(--accent-color);
     min-height: 48px;
+    position: relative;
+    z-index: 10;
 }
 
 .btn-pricing-primary:hover {
     background: rgba(214, 64, 69, 0.05);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-    box-shadow: 0 0 24px rgba(214, 64, 69, 0.2);
+    box-shadow: 0 0 20px rgba(214, 64, 69, 0.15);
 }
 
 .btn-pricing-secondary {
@@ -1434,14 +1441,16 @@ img.header-logo {
     text-decoration: none;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 0.05em;
+    font-size: 13px;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     border-radius: 4px;
     transition: all 0.3s ease;
     border: 1px solid rgba(230, 230, 230, 0.4);
     background: transparent;
     min-height: 48px;
+    position: relative;
+    z-index: 10;
 }
 
 .btn-pricing-secondary:hover {
@@ -1640,7 +1649,7 @@ img.header-logo {
     }
     
     .tag {
-        font-size: 11px;
+        font-size: 10px;
         padding: 6px 12px;
     }
 }
@@ -2029,6 +2038,7 @@ img.header-logo {
 .video-caption {
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-weight: 500;
+    font-style: italic;
     font-size: 12px;
     color: #9CA3AF;
     text-align: center;
