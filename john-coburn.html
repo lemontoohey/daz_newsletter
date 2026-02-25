@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Montserrat:ital,wght@1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Montserrat:ital,wght@1,400&family=Inter:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
     <!-- Plyr CSS -->
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
     <style>
@@ -57,13 +57,26 @@
             align-items: center;
         }
 
+        .nav-logo-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
         .nav-logo {
             height: 50px;
             width: auto;
-            filter: brightness(0) saturate(100%) invert(56%) sepia(68%) saturate(2331%) hue-rotate(346deg) brightness(97%) contrast(92%) !important;
             opacity: 1;
             pointer-events: none;
             cursor: default;
+        }
+        .nav-logo-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 10px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(230, 230, 230, 0.7);
         }
 
         .nav-title {
@@ -575,7 +588,10 @@
     <!-- Top Navigation -->
     <nav class="top-nav">
         <div class="nav-container">
-            <img src="nas-logo.png" alt="National Art School Logo" class="nav-logo">
+            <div class="nav-logo-wrap">
+                <img src="nas-logo.png" alt="National Art School Logo" class="nav-logo">
+                <span class="nav-logo-subtitle">Official Archival Partner: NAS Library</span>
+            </div>
             <div class="nav-title">The Australian Art Anthology</div>
         </div>
     </nav>
@@ -657,6 +673,17 @@
                 <li>Public Commissions: Analysing the Sydney Opera House Curtains</li>
             </ul>
             <p class="teacher-pack-vetted">All resource packs are vetted and syllabus-aligned by Karena Gregory (Retired Principal/Art Specialist).</p>
+            <div class="classroom-snippet">
+                <h4 class="classroom-snippet-title">60-Second Classroom Preview</h4>
+                <p class="classroom-snippet-desc">See how the Teacher Pack works: 30 seconds of John on technique, then the worksheet question on screen.</p>
+                <div class="classroom-snippet-video">
+                    <div class="classroom-snippet-poster-wrap">
+                        <img src="coburn.png" alt="Classroom snippet preview" class="classroom-snippet-poster">
+                        <button type="button" class="watch-trailer-btn classroom-snippet-play-overlay" data-video-id="_rwgX0oTBHc" data-video-type="youtube" data-poster-image="coburn.png" data-video-title="John Coburn – 60s Classroom Snippet" aria-label="Play classroom snippet"><span class="classroom-snippet-play-icon" aria-hidden="true">▶</span></button>
+                    </div>
+                    <p class="classroom-snippet-worksheet">Worksheet sample: <em>"How does Coburn use colour and composition to create spiritual meaning?"</em></p>
+                </div>
+            </div>
             <a href="#pricing" class="btn-faculty-required btn-faculty-required-teacher">
                 <span class="btn-faculty-icon" aria-hidden="true">🔒</span>
                 Faculty Access Required
@@ -684,6 +711,19 @@
     <!-- Institutional Enrollment Section -->
     <section class="pricing-section enrollment-section" id="pricing">
         <p class="enrollment-library-trust">The Australian Art Anthology is a verified educational resource currently held in the National Art School Library. Institutional enrollment grants your faculty legal streaming and reproduction rights for all archival materials.</p>
+        <section class="pedagogy-oversight">
+            <h3 class="pedagogy-oversight-title">Pedagogical Oversight</h3>
+            <div class="pedagogy-oversight-inner">
+                <div class="pedagogy-oversight-image">
+                    <img src="karena.png" alt="Karena Gregory, Lead Pedagogy Advisor" class="pedagogy-oversight-photo">
+                </div>
+                <div class="pedagogy-oversight-content">
+                    <p class="pedagogy-oversight-name">Karena Gregory <span class="pedagogy-oversight-credentials">(M.Ed)</span></p>
+                    <p class="pedagogy-oversight-role">Lead Pedagogy Advisor | Retired Principal & Visual Arts Specialist</p>
+                    <blockquote class="pedagogy-oversight-quote">"As a former Principal and Art Teacher, I've seen how primary sources can transform a classroom. This anthology is a meticulously mapped curriculum tool that meets the highest standards of Australian art education."</blockquote>
+                </div>
+            </div>
+        </section>
         <div class="pricing-card enrollment-card">
             <h3 class="pricing-header">Grant Institutional Access</h3>
             
