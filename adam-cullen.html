@@ -269,31 +269,6 @@
             border-radius: 4px;
         }
 
-        .metadata-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .metadata-item {
-            font-family: 'Inter', sans-serif;
-            font-weight: 400;
-            font-size: 1rem;
-            line-height: 1.8;
-            color: #E6E6E6;
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .metadata-item:last-child {
-            border-bottom: none;
-        }
-
-        .metadata-label {
-            font-weight: 500;
-            color: #E07A2F;
-        }
-
         /* Teacher Pack Premium Card */
         .teacher-pack-section {
             max-width: 1200px;
@@ -679,19 +654,6 @@
     <!-- Institutional Enrollment Section -->
     <section class="pricing-section enrollment-section" id="pricing">
         <p class="enrollment-library-trust">The Australian Art Anthology is a verified educational resource currently held in the National Art School Library. Institutional enrollment grants your faculty legal streaming and reproduction rights for all archival materials.</p>
-        <section class="pedagogy-oversight">
-            <h3 class="pedagogy-oversight-title">Pedagogical Oversight</h3>
-            <div class="pedagogy-oversight-inner">
-                <div class="pedagogy-oversight-image">
-                    <img src="karena.png" alt="Karena Gregory, Lead Pedagogy Advisor" class="pedagogy-oversight-photo">
-                </div>
-                <div class="pedagogy-oversight-content">
-                    <p class="pedagogy-oversight-name">Karena Gregory <span class="pedagogy-oversight-credentials">(M.Ed)</span></p>
-                    <p class="pedagogy-oversight-role">Lead Pedagogy Advisor | Retired Principal & Visual Arts Specialist</p>
-                    <blockquote class="pedagogy-oversight-quote">"As a former Principal and Art Teacher, I've seen how primary sources can transform a classroom. This anthology is a meticulously mapped curriculum tool that meets the highest standards of Australian art education."</blockquote>
-                </div>
-            </div>
-        </section>
         <div class="pricing-card enrollment-card">
             <h3 class="pricing-header">Grant Institutional Access</h3>
             
@@ -719,6 +681,24 @@
         </div>
     </section>
 
+    <!-- Executive Signature (Karena Gregory) — just above footer -->
+    <div class="container">
+        <hr class="ink-divider">
+        <section class="pedagogy-oversight">
+            <h3 class="pedagogy-oversight-title">Pedagogical Oversight</h3>
+            <div class="pedagogy-oversight-inner">
+                <div class="pedagogy-oversight-image">
+                    <img src="karena.png" alt="Karena Gregory, Lead Pedagogy Advisor" class="pedagogy-oversight-photo">
+                </div>
+                <div class="pedagogy-oversight-content">
+                    <p class="pedagogy-oversight-name">Karena Gregory <span class="pedagogy-oversight-credentials">(M.Ed)</span></p>
+                    <p class="pedagogy-oversight-role">Lead Pedagogy Advisor | Retired Principal & Visual Arts Specialist</p>
+                    <blockquote class="pedagogy-oversight-quote">"As a former Principal and Art Teacher, I've seen how primary sources can transform a classroom. This anthology is a meticulously mapped curriculum tool that meets the highest standards of Australian art education."</blockquote>
+                </div>
+            </div>
+        </section>
+    </div>
+
     <!-- Footer -->
     <footer class="teacher-pack-footer">
         <p class="footer-text-teacher">
@@ -738,7 +718,6 @@
     <!-- Lenis Smooth Scrolling -->
     <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
     <script src="animations.js"></script>
-    <script src="cursor.js"></script>
 
 </body>
 </html>

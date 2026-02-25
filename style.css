@@ -32,14 +32,6 @@ html {
     scroll-behavior: auto; /* Lenis handles smooth scrolling */
 }
 
-/* Custom cursor: hide default on desktop when Intelligent Reticle is active */
-@media (pointer: fine) {
-    body.reticle-cursor-active,
-    body.reticle-cursor-active * {
-        cursor: none !important;
-    }
-}
-
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
@@ -52,6 +44,12 @@ body {
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    opacity: 0;
+    transition: opacity 1.2s ease;
+}
+
+body.ink-bleed-loaded {
+    opacity: 1;
 }
 
 /* Archival grain — subtle fixed noise overlay */
@@ -191,7 +189,7 @@ img.header-logo {
     /* Neutral black/white logo – no brand colour filter for institutional stability */
 }
 
-/* NAS logo shifted 3mm left (nav-logo and img.header-logo don't have apparate animation) */
+/* NAS logo: static, shifted 3mm left for alignment */
 .nav-logo,
 img.header-logo {
     transform: translateX(-3mm);
@@ -200,9 +198,8 @@ img.header-logo {
 .nas-logo {
     height: 80px;
     width: auto;
-    opacity: 0;
-    transform: translate(-3mm, 20px);
-    animation: apparate 2s ease-out 0.5s forwards;
+    opacity: 1;
+    transform: translateX(-3mm);
     pointer-events: none;
     cursor: default;
 }
@@ -261,7 +258,7 @@ img.header-logo {
     padding: var(--spacing-xl) var(--spacing-md);
     text-align: center;
     background-color: var(--card-bg);
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: 15vh;
 }
 
 .hero-content {
@@ -371,13 +368,6 @@ img.header-logo {
     animation: cascade-down 1.2s ease-out forwards;
 }
 
-@keyframes apparate {
-    to {
-        opacity: 1;
-        transform: translate(-3mm, 0);
-    }
-}
-
 @keyframes cascade-down {
     to {
         opacity: 1;
@@ -405,7 +395,7 @@ img.header-logo {
 /* Timeline Items */
 .timeline-item {
     position: relative;
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: 15vh;
     padding-left: calc(var(--timeline-offset) + 40px);
 }
 
@@ -431,11 +421,20 @@ img.header-logo {
     box-shadow: var(--shadow-atelier);
 }
 
+/* Fountain pen divider — ink stroke between sections */
+.ink-divider {
+    height: 0.5px;
+    border: none;
+    margin: 40px 0;
+    background: linear-gradient(to right, transparent, rgba(143, 74, 76, 0.3), transparent);
+}
+
 /* Series 02: Expanding the Perspective (Upcoming) – aligns with .timeline-content */
 .series-02-section {
     margin-top: var(--spacing-xl);
+    margin-bottom: 15vh;
     padding: var(--spacing-xl) 0;
-    border-top: 0.5px solid rgba(143, 74, 76, 0.2);
+    border-top: none;
     width: 100%;
 }
 
@@ -593,13 +592,15 @@ img.header-logo {
                 filter 1.5s cubic-bezier(0.2, 0.8, 0.2, 1);
     clip-path: inset(10% 10% 10% 10%);
     transform: scale(0.9);
-    filter: brightness(0.85) saturate(0.7);
+    filter: brightness(0.85) saturate(0.7) contrast(1.06);
+    -webkit-mask-image: radial-gradient(circle at center, black 60%, transparent 100%);
+    mask-image: radial-gradient(circle at center, black 60%, transparent 100%);
 }
 
 .film-image-wrapper.revealed .film-image {
     clip-path: inset(0%);
     transform: scale(1);
-    filter: brightness(1) saturate(1);
+    filter: brightness(1) saturate(1) contrast(1.06);
 }
 
 .film-image:hover {
@@ -982,7 +983,7 @@ img.header-logo {
 .enrollment-section {
     padding-top: 100px;
     margin-top: 100px;
-    border-top: 0.5px solid rgba(143, 74, 76, 0.2);
+    margin-bottom: 15vh;
 }
 
 /* Enrollment content aligned with timeline-content / Series 02 */
@@ -1147,93 +1148,6 @@ img.header-logo {
 
 .dept-cell.dept-content {
     color: var(--text-secondary);
-}
-
-/* 60-Second Classroom Snippet (Product Trial) */
-.classroom-snippet {
-    margin-top: var(--spacing-lg);
-    padding-top: var(--spacing-md);
-    border-top: 0.5px solid rgba(143, 74, 76, 0.2);
-}
-
-.classroom-snippet-title {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--text-secondary);
-    margin-bottom: 6px;
-}
-
-.classroom-snippet-desc {
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    color: var(--text-secondary);
-    margin-bottom: var(--spacing-sm);
-    line-height: 1.5;
-}
-
-.classroom-snippet-video {
-    max-width: 360px;
-}
-
-.classroom-snippet-poster-wrap {
-    position: relative;
-    border-radius: 6px;
-    overflow: hidden;
-    aspect-ratio: 16/9;
-    background: #1a1d21;
-}
-
-.classroom-snippet-poster {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.classroom-snippet-play-overlay {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.4);
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    transition: background 0.2s ease;
-}
-
-.classroom-snippet-play-overlay:hover {
-    background: rgba(0, 0, 0, 0.25);
-}
-
-.classroom-snippet-play-icon {
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(143, 74, 76, 0.9);
-    color: #fff;
-    border-radius: 50%;
-    font-size: 18px;
-    padding-left: 4px;
-}
-
-.classroom-snippet-worksheet {
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
-    color: var(--text-secondary);
-    margin-top: 8px;
-    line-height: 1.5;
-}
-
-.classroom-snippet-worksheet em {
-    color: var(--text-color);
-    font-style: italic;
 }
 
 .teacher-pack-vetted {

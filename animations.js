@@ -11,6 +11,7 @@ requestAnimationFrame(raf);
 
 // Cascading Text Animation - top to bottom (paragraphs cascade down)
 document.addEventListener('DOMContentLoaded', () => {
+    document.body.classList.add('ink-bleed-loaded');
     const container = document.getElementById('hero-paragraph-1');
     if (container) {
         const text = container.textContent.trim();
