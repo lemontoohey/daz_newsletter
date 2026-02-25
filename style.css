@@ -126,6 +126,22 @@ p {
     padding: var(--spacing-sm) 0;
 }
 
+.header-logo-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.header-logo-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+}
+
 .nas-logo,
 .nav-logo,
 .header-logo img,
@@ -598,6 +614,39 @@ img.header-logo {
     background: rgba(224, 122, 47, 0.05);
 }
 
+.btn-faculty-required {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border: 1px solid rgba(224, 122, 47, 0.4);
+    background: rgba(37, 42, 47, 0.6);
+    padding: 10px 18px;
+    border-radius: 4px;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.btn-faculty-required:hover {
+    color: var(--accent-color);
+    border-color: rgba(224, 122, 47, 0.6);
+    background: rgba(224, 122, 47, 0.08);
+}
+
+.btn-faculty-icon {
+    font-size: 14px;
+}
+
+.btn-faculty-required-teacher {
+    padding: 14px 28px;
+    font-size: 14px;
+}
+
 .btn-primary {
     display: inline-block;
     padding: 14px 28px;
@@ -764,6 +813,17 @@ img.header-logo {
     padding-top: 100px;
     margin-top: 100px;
     border-top: 1px solid rgba(224, 122, 47, 0.1);
+}
+
+.enrollment-library-trust {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text-secondary);
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto var(--spacing-lg) auto;
+    line-height: 1.6;
 }
 
 .enrollment-card {
