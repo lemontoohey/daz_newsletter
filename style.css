@@ -13,7 +13,7 @@
     --text-secondary: #8A928F;
     --glaze-border: rgba(143, 74, 76, 0.3);
     --shadow-atelier: 0 40px 100px rgba(14, 12, 18, 0.8);
-    --shadow-prestige: 0 40px 100px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    --shadow-atelier-stack: 0 40px 100px rgba(14, 12, 18, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.03);
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 2rem;
@@ -431,7 +431,7 @@ img.header-logo {
     padding: var(--spacing-lg);
     border-radius: 8px;
     border: 0.5px solid var(--glaze-border);
-    box-shadow: var(--shadow-atelier);
+    box-shadow: var(--shadow-atelier-stack);
 }
 
 .timeline-content::after {
@@ -1174,7 +1174,7 @@ img.header-logo {
     border-radius: 8px;
     padding: 56px 48px;
     text-align: center;
-    box-shadow: var(--shadow-prestige);
+    box-shadow: var(--shadow-atelier-stack);
     position: relative;
     z-index: 1;
     overflow: visible;
