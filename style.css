@@ -1388,6 +1388,7 @@ img.header-logo {
 .btn-pricing-quote:hover {
     background: rgba(143, 74, 76, 0.05);
     border-color: var(--accent-color);
+    box-shadow: 0 0 15px rgba(143, 74, 76, 0.2);
 }
 
 /* Responsive Pricing */

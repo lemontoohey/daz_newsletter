@@ -20,7 +20,7 @@
             font-family: 'Inter', sans-serif;
             background-color: #F5F5F5;
             color: #24292E;
-            line-height: 1.6;
+            line-height: 1.8;
         }
 
         /* Header */
@@ -68,6 +68,7 @@
         }
 
         .tab-button {
+            position: relative;
             padding: 12px 24px;
             background-color: transparent;
             border: none;
@@ -79,8 +80,21 @@
             color: #9CA3AF;
             cursor: pointer;
             border-bottom: 3px solid transparent;
-            transition: all 0.3s ease;
+            transition: color 0.3s ease;
             margin-bottom: -2px;
+        }
+
+        .tab-button::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 100%;
+            height: 3px;
+            background: #8F4A4C;
+            transform: translateX(-50%) scaleX(0);
+            transform-origin: center;
+            transition: transform 0.4s ease;
         }
 
         .tab-button:hover {
@@ -89,7 +103,10 @@
 
         .tab-button.active {
             color: #8F4A4C;
-            border-bottom-color: #8F4A4C;
+        }
+
+        .tab-button.active::after {
+            transform: translateX(-50%) scaleX(1);
         }
 
         .tab-content {
@@ -129,7 +146,7 @@
             background-color: #2F353B;
             color: #8F4A4C;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(143, 74, 76, 0.3);
+            box-shadow: 0 4px 12px rgba(143, 74, 76, 0.3), 0 0 15px rgba(143, 74, 76, 0.2);
         }
 
         /* Section Styles */
@@ -208,14 +225,15 @@
         }
 
         .key-themes-table th {
-            background-color: #8F4A4C;
-            color: #FFFFFF;
+            background-color: rgba(143, 74, 76, 0.05);
+            color: #8F4A4C;
             padding: 16px;
             text-align: left;
             font-weight: 600;
             font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 0.05em;
+            border-bottom: 0.5px solid #8F4A4C;
         }
 
         .key-themes-table td {
@@ -226,6 +244,20 @@
 
         .key-themes-table tr:nth-child(even) {
             background-color: #F9F9F9;
+        }
+
+        .resource-footer {
+            text-align: right;
+            padding: 24px 40px;
+            margin-top: 48px;
+        }
+
+        .resource-watermark {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 9px;
+            letter-spacing: 0.15em;
+            color: currentColor;
+            opacity: 0.05;
         }
 
         /* Worksheet Styles */
@@ -545,6 +577,10 @@
             }
         }
     </script>
+
+    <footer class="resource-footer" aria-hidden="true">
+        <span class="resource-watermark">MMXXVI</span>
+    </footer>
 
     <!-- Lenis Smooth Scrolling -->
     <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script>
