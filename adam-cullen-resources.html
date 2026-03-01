@@ -23,10 +23,10 @@
             line-height: 1.8;
         }
 
-        /* Header */
+        /* Header — Landing Page Green (Prussian Teal-Ink) */
         .resource-header {
-            background-color: #FFFFFF;
-            border-bottom: 3px solid #8F4A4C;
+            background-color: var(--card-bg);
+            border-bottom: 3px solid var(--accent-color);
             padding: 24px 40px;
             display: flex;
             justify-content: space-between;
@@ -35,6 +35,12 @@
             top: 0;
             z-index: 100;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        @media print {
+            .resource-header {
+                background-color: #FFFFFF;
+            }
         }
 
         .header-logo {
@@ -48,7 +54,13 @@
             font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            color: #24292E;
+            color: var(--text-color);
+        }
+
+        @media print {
+            .header-branding {
+                color: #24292E;
+            }
         }
 
         /* Main Container */
@@ -126,27 +138,27 @@
             border-radius: 8px;
         }
 
+        /* Ghost Button — matches landing page */
         .btn-print {
             display: inline-block;
             padding: 14px 28px;
-            background-color: #8F4A4C;
-            color: #E6E6E6;
+            background-color: transparent;
+            color: var(--accent-color);
             text-decoration: none;
             font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
+            font-weight: 600;
             font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
             border-radius: 0;
             text-align: center;
             transition: all 0.3s ease;
-            border: 1px solid #8F4A4C;
+            border: 1px solid var(--accent-color);
             cursor: pointer;
         }
 
         .btn-print:hover {
-            background-color: #2F353B;
-            color: #8F4A4C;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(143, 74, 76, 0.3), 0 0 15px rgba(143, 74, 76, 0.2);
+            background-color: rgba(143, 74, 76, 0.05);
         }
 
         /* Section Styles */
