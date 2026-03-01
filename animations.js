@@ -12,21 +12,6 @@ requestAnimationFrame(raf);
 // Cascading Text Animation - top to bottom (paragraphs cascade down)
 document.addEventListener('DOMContentLoaded', () => {
     document.body.classList.add('ink-bleed-loaded');
-    const container = document.getElementById('hero-paragraph-1');
-    if (container) {
-        const text = container.textContent.trim();
-        const paragraphs = text.split(/\n\s*\n/).map(p => p.trim()).filter(Boolean);
-
-        container.textContent = '';
-
-        paragraphs.forEach((paraText, index) => {
-            const p = document.createElement('p');
-            p.textContent = paraText;
-            p.className = 'cascading-paragraph';
-            p.style.animationDelay = `${1.5 + index * 0.4}s`;
-            container.appendChild(p);
-        });
-    }
 
     // Cinematic Aperture Reveal — .film-image enters viewport
     const wrappers = document.querySelectorAll('.film-image-wrapper');
@@ -38,6 +23,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
     wrappers.forEach((el) => observer.observe(el));
+
+    // Quiet Authority — .pedagogy-oversight quote reveal on scroll
+    const pedagogySection = document.querySelector('.pedagogy-oversight');
+    if (pedagogySection) {
+        const pedagogyObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('pedagogy-revealed');
+                }
+            });
+        }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+        pedagogyObserver.observe(pedagogySection);
+    }
 
     // Architectural header — frosted glass after 50px scroll
     const header = document.querySelector('.header');

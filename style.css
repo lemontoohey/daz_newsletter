@@ -344,14 +344,12 @@ img.header-logo {
 
 .hero-description {
     font-family: 'Inter', sans-serif;
-    font-size: clamp(1rem, 1.5vw, 1.125rem);
     font-weight: 400;
     color: var(--text-color);
-    opacity: 0.9;
-    line-height: 1.7;
-    max-width: var(--text-max-width);
+    max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: var(--spacing-lg);
 }
 
 /* ============================================
@@ -359,32 +357,55 @@ img.header-logo {
    ============================================ */
 
 .hero-cascade-container {
-    margin-bottom: var(--spacing-md);
     margin-left: auto;
     margin-right: auto;
     text-align: center;
 }
 
-.hero-cascade-container .cascading-paragraph {
-    margin-bottom: var(--spacing-md);
-}
-
-.hero-cascade-container .cascading-paragraph:last-child {
-    margin-bottom: 0;
-}
-
-.cascading-paragraph {
-    display: block;
+/* Cinematic Prologue — stanza cascade */
+.hero-text-stanza {
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
     opacity: 0;
-    transform: translateY(-20px);
+    transform: translateY(20px);
     animation: cascade-down 1.2s ease-out forwards;
 }
+
+.hero-text-stanza:last-child {
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+.hero-text-stanza:not(:last-child) {
+    animation-name: cascade-down-subtle;
+}
+
+.hero-text-stanza:nth-child(1) { animation-delay: 0s; }
+.hero-text-stanza:nth-child(2) { animation-delay: 0.2s; }
+.hero-text-stanza:nth-child(3) { animation-delay: 0.4s; }
 
 @keyframes cascade-down {
     to {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+@keyframes cascade-down-subtle {
+    to {
+        opacity: 0.85;
+        transform: translateY(0);
+    }
+}
+
+/* Legacy cascade (if used elsewhere) */
+.cascading-paragraph {
+    display: block;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: cascade-down 1.2s ease-out forwards;
 }
 
 /* Timeline Container */
@@ -432,6 +453,8 @@ img.header-logo {
     border-radius: 8px;
     border: 0.5px solid var(--glaze-border);
     box-shadow: var(--shadow-atelier-stack);
+    will-change: transform, backdrop-filter;
+    transform: translateZ(0);
 }
 
 .timeline-content::after {
@@ -1067,9 +1090,15 @@ img.header-logo {
     line-height: 1.6;
 }
 
+/* Pedagogy section wrapper — Gallery Wall spacing */
+.pedagogy-oversight-wrap {
+    margin-top: 15vh;
+    margin-bottom: 15vh;
+}
+
 /* Pedagogical Oversight — Executive two-column */
 .pedagogy-oversight {
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: 0;
 }
 
 .pedagogy-oversight-title {
@@ -1099,6 +1128,7 @@ img.header-logo {
     border-radius: 50%;
     border: 2px solid rgba(143, 74, 76, 0.3);
     display: block;
+    transition: border-color 0.3s ease;
 }
 
 .pedagogy-oversight-content {
@@ -1129,6 +1159,7 @@ img.header-logo {
     line-height: 1.5;
 }
 
+/* Quiet Authority scroll reveal — initial state */
 .pedagogy-oversight-quote {
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-size: 0.95rem;
@@ -1139,6 +1170,23 @@ img.header-logo {
     margin: 0;
     padding-left: 0;
     border: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+
+.pedagogy-oversight.pedagogy-revealed .pedagogy-oversight-quote {
+    opacity: 0.95;
+    transform: translateY(0);
+}
+
+/* Interactive signature hover — photo & quote brighten */
+.pedagogy-oversight:hover .pedagogy-oversight-photo {
+    border-color: var(--accent-color);
+}
+
+.pedagogy-oversight:hover .pedagogy-oversight-quote {
+    opacity: 1;
 }
 
 .pedagogy-oversight-quote::before {
@@ -1178,6 +1226,8 @@ img.header-logo {
     position: relative;
     z-index: 1;
     overflow: visible;
+    will-change: transform, backdrop-filter;
+    transform: translateZ(0);
 }
 
 .pricing-header {
