@@ -262,6 +262,7 @@ img.header-logo {
 /* Hero Section */
 .hero-section {
     padding: var(--spacing-xl) var(--spacing-md);
+    padding-bottom: 0;
     text-align: center;
     background-color: var(--bg-color);
     margin-bottom: 5vh;
