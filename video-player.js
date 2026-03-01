@@ -20,7 +20,6 @@
     });
 
     function createTheaterMode() {
-        console.log('Creating theater mode elements');
         theaterOverlay = document.createElement('div');
         theaterOverlay.className = 'theater-mode-overlay';
         theaterOverlay.id = 'theater-mode-overlay';
@@ -53,12 +52,10 @@
         theaterOverlay.appendChild(theaterContainer);
         
         document.body.appendChild(theaterOverlay);
-        console.log('Theater mode elements created');
     }
 
     function initializeWatchTrailerButtons() {
         const buttons = document.querySelectorAll('.watch-trailer-btn');
-        console.log('Found', buttons.length, 'Watch Trailer buttons');
         
         buttons.forEach(function(button, index) {
             // Remove any existing listeners by cloning and replacing
@@ -66,17 +63,13 @@
             button.parentNode.replaceChild(newButton, button);
             
             newButton.addEventListener('click', function(e) {
-                console.log('Watch Trailer button clicked!', index);
                 e.preventDefault();
                 e.stopPropagation();
                 
                 const videoId = newButton.getAttribute('data-video-id');
                 const videoType = newButton.getAttribute('data-video-type');
                 
-                console.log('Opening theater mode with:', { videoId, videoType });
-                
                 if (!videoId || !videoType) {
-                    console.error('Missing video data:', { videoId, videoType });
                     return;
                 }
                 
@@ -97,7 +90,6 @@
         
         const videoContainer = theaterContainer.querySelector('.video-container');
         if (!videoContainer) {
-            console.error('Video container not found');
             return;
         }
         
@@ -116,7 +108,6 @@
             }
             // Ensure we have a valid video ID
             if (!videoId || videoId.length !== 11) {
-                console.error('Invalid YouTube video ID:', videoId);
                 return;
             }
             videoElement = document.createElement('iframe');
@@ -200,7 +191,6 @@
         
         // Show theater mode
         setTimeout(function() {
-            console.log('Activating theater mode overlay');
             if (theaterOverlay) {
                 theaterOverlay.style.display = 'flex';
                 theaterOverlay.style.pointerEvents = 'auto';
@@ -213,16 +203,12 @@
                 if (videoElement) {
                     videoElement.offsetHeight;
                 }
-            } else {
-                console.error('Theater overlay not found when trying to activate');
             }
         }, 10);
     }
 
     function closeTheaterMode() {
-        console.log('closeTheaterMode called');
         if (!theaterOverlay || !theaterOverlay.classList.contains('active')) {
-            console.log('Theater mode not active, skipping close');
             return;
         }
         
@@ -253,9 +239,7 @@
             try {
                 theaterPlayer.pause();
                 theaterPlayer.destroy();
-            } catch (e) {
-                console.log('Error destroying player:', e);
-            }
+            } catch (e) {}
             theaterPlayer = null;
         }
         
@@ -490,7 +474,7 @@
         }
 
         const iframe = document.createElement('iframe');
-        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&showinfo=0&controls=0&playsinline=1&enablejsapi=1&origin=${window.location.origin}`;
+        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&enablejsapi=1`;
         iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
         iframe.allowFullscreen = true;
         iframe.style.width = '100%';

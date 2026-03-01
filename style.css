@@ -264,7 +264,7 @@ img.header-logo {
     padding: var(--spacing-xl) var(--spacing-md);
     text-align: center;
     background-color: var(--bg-color);
-    margin-bottom: 15vh;
+    margin-bottom: 5vh;
 }
 
 .hero-content {
@@ -344,12 +344,23 @@ img.header-logo {
 
 .hero-description {
     font-family: 'Inter', sans-serif;
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
     font-weight: 400;
     color: var(--text-color);
+    opacity: 0.9;
+    line-height: 1.7;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: var(--spacing-lg);
+}
+
+.hero-description p {
+    margin-bottom: 1rem;
+}
+
+.hero-description p:last-child {
+    margin-bottom: 0;
 }
 
 /* ============================================
@@ -362,30 +373,6 @@ img.header-logo {
     text-align: center;
 }
 
-/* Cinematic Prologue — stanza cascade */
-.hero-text-stanza {
-    font-size: clamp(1.1rem, 2vw, 1.35rem);
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    color: var(--text-color);
-    opacity: 0;
-    transform: translateY(20px);
-    animation: cascade-down 1.2s ease-out forwards;
-}
-
-.hero-text-stanza:last-child {
-    margin-bottom: 0;
-    font-weight: 500;
-}
-
-.hero-text-stanza:not(:last-child) {
-    animation-name: cascade-down-subtle;
-}
-
-.hero-text-stanza:nth-child(1) { animation-delay: 0s; }
-.hero-text-stanza:nth-child(2) { animation-delay: 0.2s; }
-.hero-text-stanza:nth-child(3) { animation-delay: 0.4s; }
-
 @keyframes cascade-down {
     to {
         opacity: 1;
@@ -393,14 +380,6 @@ img.header-logo {
     }
 }
 
-@keyframes cascade-down-subtle {
-    to {
-        opacity: 0.85;
-        transform: translateY(0);
-    }
-}
-
-/* Legacy cascade (if used elsewhere) */
 .cascading-paragraph {
     display: block;
     opacity: 0;
@@ -411,7 +390,8 @@ img.header-logo {
 /* Timeline Container */
 .timeline-container {
     position: relative;
-    padding: var(--spacing-xl) 0;
+    padding-top: var(--spacing-md);
+    padding-bottom: var(--spacing-xl);
     min-height: 100vh;
 }
 
