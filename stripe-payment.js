@@ -1,6 +1,6 @@
 /**
  * Stripe Payment Handler
- * Handles "Activate School Enrollment" button clicks
+ * Handles "Purchase Now" button clicks
  */
 
 (function() {
@@ -9,21 +9,20 @@
     // Stripe Payment Link - Replace with your actual Stripe Payment Link URL
     // To create: Stripe Dashboard > Products > Payment Links > Create Payment Link
     // Set price to $990 AUD, one-time payment
-    const STRIPE_PAYMENT_LINK = 'https://buy.stripe.com/YOUR_PAYMENT_LINK_ID';
+    const STRIPE_PAYMENT_LINK = 'https://buy.stripe.com/bJe14n3XGdRYeyU5sWd3i01';
 
     document.addEventListener('DOMContentLoaded', function() {
-        // Find all "Activate School Enrollment" buttons
-        const enrollmentButtons = document.querySelectorAll('.btn-pricing-primary');
+        // Find all "Purchase Now" / enrollment buttons
+        const enrollmentButtons = document.querySelectorAll('.btn-pricing-primary, #activate-enrollment-btn');
         
         enrollmentButtons.forEach(function(button) {
-            // Check if this is the enrollment button (not other primary buttons)
-            if (button.textContent.trim().includes('Activate School Enrollment') || 
-                button.textContent.trim().includes('Enrollment')) {
+            if (button.textContent.trim().includes('Purchase Now') || 
+                button.textContent.trim().includes('Enrollment') ||
+                button.id === 'activate-enrollment-btn') {
                 
                 button.addEventListener('click', function(e) {
                     e.preventDefault();
                     
-                    // Redirect to Stripe Payment Link
                     if (STRIPE_PAYMENT_LINK && STRIPE_PAYMENT_LINK !== 'https://buy.stripe.com/YOUR_PAYMENT_LINK_ID') {
                         window.location.href = STRIPE_PAYMENT_LINK;
                     } else {

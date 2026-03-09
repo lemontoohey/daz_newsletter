@@ -448,7 +448,7 @@ img.header-logo {
     font-weight: 400;
     letter-spacing: 0.15em;
     color: var(--text-color);
-    opacity: 0.2;
+    opacity: 0.05;
     pointer-events: none;
 }
 
@@ -1523,6 +1523,62 @@ img.header-logo {
     .enrollment-content-wrap {
         margin-left: calc(30px + 40px);
         max-width: calc(100% - (30px + 40px));
+    }
+}
+
+@media (max-width: 768px) {
+    /* Hero symmetry */
+    .hero-content,
+    .hero-description,
+    .hero-title {
+        text-align: center;
+    }
+    .hero-cta-group {
+        justify-content: center;
+    }
+
+    /* Timeline: stacked card view — hide line and markers */
+    .timeline-line,
+    .timeline-marker {
+        display: none;
+    }
+    .timeline-item,
+    .series-02-content,
+    .enrollment-content-wrap {
+        margin-left: 0;
+        padding-left: 0;
+        width: 100%;
+    }
+    .timeline-item {
+        display: flex;
+        justify-content: center;
+    }
+    .timeline-content {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* Pedagogy alignment */
+    .pedagogy-oversight-inner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: var(--spacing-md);
+    }
+    .pedagogy-oversight-content {
+        padding-left: 0;
+    }
+
+    /* Footer */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* Container balance */
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
     }
 }
 
