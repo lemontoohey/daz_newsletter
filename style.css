@@ -8,8 +8,8 @@
     --bg-color: #0B0810;
     --text-color: #E6E6E6;
     --accent-color: #B06838;
-    --card-bg: rgba(14, 25, 24, 0.88);
-    --card-bg-glass: rgba(14, 25, 24, 0.45);
+    --card-bg: rgba(14, 24, 25, 0.88);      /* 5% more blue than previous */
+    --card-bg-glass: rgba(14, 24, 25, 0.45);
     --text-secondary: #8A928F;
     --glaze-border: rgba(143, 74, 76, 0.3);
     --shadow-atelier: 0 40px 100px rgba(14, 12, 18, 0.8);
@@ -153,16 +153,28 @@ p {
 }
 
 .header.header-scrolled {
-    background: rgba(14, 25, 24, 0.6);
+    background: rgba(14, 24, 25, 0.6);       /* 5% more blue */
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom-color: var(--glaze-border);
+}
+
+/* Magenta glaze at 15% on top of header when scrolled */
+.header.header-scrolled::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: rgba(200, 0, 128, 0.15);
+    pointer-events: none;
 }
 
 .header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    z-index: 1;
 }
 
 .header .header-logo {
@@ -436,6 +448,18 @@ img.header-logo {
     box-shadow: var(--shadow-atelier-stack);
     will-change: transform, backdrop-filter;
     transform: translateZ(0);
+    overflow: hidden;
+}
+
+/* Magenta glaze at 15% on top of artist boxes */
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: rgba(200, 0, 128, 0.15);
+    pointer-events: none;
+    border-radius: 8px;
 }
 
 .timeline-content::after {
@@ -443,6 +467,7 @@ img.header-logo {
     position: absolute;
     bottom: 12px;
     right: 16px;
+    z-index: 2;
     font-family: 'Montserrat', sans-serif;
     font-size: 9px;
     font-weight: 400;
