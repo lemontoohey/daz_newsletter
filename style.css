@@ -7,7 +7,7 @@
 :root {
     --bg-color: #0E0C12;
     --text-color: #E6E6E6;
-    --accent-color: #8F4A4C;
+    --accent-color: #E07A2F;
     --card-bg: rgba(14, 25, 24, 0.88);
     --card-bg-glass: rgba(14, 25, 24, 0.45);
     --text-secondary: #8A928F;
@@ -242,7 +242,7 @@ img.header-logo {
 }
 
 .header-nav-link:hover {
-    color: #8F4A4C;
+    color: #E07A2F;
 }
 
 .header-login-link {
@@ -747,7 +747,7 @@ img.header-logo {
     display: inline-block;
     width: 14px;
     height: 14px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238F4A4C' stroke-opacity='0.55' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2L15 8L22 9L17 14L18 21L12 18L6 21L7 14L2 9L9 8L12 2Z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23E07A2F' stroke-opacity='0.55' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2L15 8L22 9L17 14L18 21L12 18L6 21L7 14L2 9L9 8L12 2Z'/%3E%3C/svg%3E");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -992,7 +992,7 @@ img.header-logo {
 }
 
 .footer-text .footer-link:hover {
-    color: #8F4A4C;
+    color: #E07A2F;
 }
 
 .footer-link {
@@ -1010,7 +1010,7 @@ img.header-logo {
 }
 
 .footer-link:hover {
-    color: #8F4A4C;
+    color: #E07A2F;
 }
 
 .footer-link:hover .footer-arrow {
@@ -1028,7 +1028,7 @@ img.header-logo {
 }
 
 .footer-link:hover .footer-separator {
-    color: #8F4A4C;
+    color: #E07A2F;
     opacity: 0.5;
 }
 
@@ -1231,7 +1231,7 @@ img.header-logo {
     transform: translateX(-50%);
     width: 60px;
     height: 0.5px;
-    background-color: #8F4A4C;
+    background-color: #E07A2F;
 }
 
 .pricing-price-container {
@@ -1247,7 +1247,7 @@ img.header-logo {
     font-family: 'Montserrat', sans-serif;
     font-weight: 900;
     font-size: 48px;
-    color: #8F4A4C;
+    color: #E07A2F;
     line-height: 1;
     margin: 0;
 }
@@ -1258,21 +1258,21 @@ img.header-logo {
     gap: 6px;
     padding: 6px 14px;
     background-color: rgba(143, 74, 76, 0.15);
-    border: 1px solid #8F4A4C;
+    border: 1px solid #E07A2F;
     border-radius: 4px;
     font-family: 'Inter', sans-serif;
     font-weight: 600;
     font-size: 11px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: #8F4A4C;
+    color: #E07A2F;
     box-shadow: 0 2px 8px rgba(143, 74, 76, 0.2);
 }
 
 .pricing-badge-icon {
     width: 14px;
     height: 14px;
-    fill: #8F4A4C;
+    fill: #E07A2F;
 }
 
 .pricing-subtext {
@@ -1322,7 +1322,7 @@ img.header-logo {
     content: '✓';
     position: absolute;
     left: 0;
-    color: #8F4A4C;
+    color: #E07A2F;
     font-size: 20px;
     font-weight: bold;
     width: 24px;
@@ -1765,7 +1765,7 @@ img.header-logo {
 
 .theater-mode-close:hover {
     background-color: rgba(143, 74, 76, 0.9);
-    border-color: #8F4A4C;
+    border-color: #E07A2F;
     transform: rotate(90deg) scale(1.1);
 }
 
@@ -1865,7 +1865,7 @@ img.header-logo {
 
 .video-player-close:hover {
     background-color: rgba(143, 74, 76, 0.9);
-    border-color: #8F4A4C;
+    border-color: #E07A2F;
     transform: rotate(90deg);
 }
 
@@ -1915,7 +1915,7 @@ img.header-logo {
 }
 
 .video-player-fullscreen-btn:hover {
-    background-color: #8F4A4C;
+    background-color: #E07A2F;
     border-color: #FFFFFF;
     transform: scale(1.1);
     box-shadow: 0 6px 16px rgba(143, 74, 76, 0.6);
@@ -1981,7 +1981,7 @@ img.header-logo {
     transform: translate(-50%, -50%);
     width: 80px;
     height: 80px;
-    background-color: #8F4A4C;
+    background-color: #E07A2F;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -2120,7 +2120,7 @@ img.header-logo {
 
 .theater-close-button:hover {
     background-color: rgba(143, 74, 76, 0.8);
-    border-color: #8F4A4C;
+    border-color: #E07A2F;
     transform: rotate(90deg);
 }
 
@@ -2140,7 +2140,7 @@ img.header-logo {
 
 /* Plyr Custom Branding */
 .plyr {
-    --plyr-color-main: #8F4A4C;
+    --plyr-color-main: #E07A2F;
     --plyr-video-background: #000;
     --plyr-control-icon-size: 18px;
     --plyr-control-spacing: 12px;
@@ -2154,7 +2154,7 @@ img.header-logo {
 }
 
 .plyr__control--overlaid {
-    background-color: #8F4A4C !important;
+    background-color: #E07A2F !important;
     border: 3px solid rgba(255, 255, 255, 0.1) !important;
     box-shadow: 0 8px 24px rgba(143, 74, 76, 0.4) !important;
 }
@@ -2167,7 +2167,7 @@ img.header-logo {
 
 .plyr__progress__played,
 .plyr__volume__progress {
-    background-color: #8F4A4C !important;
+    background-color: #E07A2F !important;
 }
 
 .plyr__control[aria-expanded="true"],
@@ -2187,14 +2187,14 @@ img.header-logo {
 
 .plyr__control[data-plyr="fullscreen"]:hover {
     background-color: rgba(143, 74, 76, 0.6) !important;
-    border-color: #8F4A4C !important;
+    border-color: #E07A2F !important;
     transform: scale(1.1) !important;
 }
 
 .plyr__control[data-plyr="fullscreen"] svg {
     width: 20px !important;
     height: 20px !important;
-    fill: #8F4A4C !important;
+    fill: #E07A2F !important;
 }
 
 .plyr__control[data-plyr="fullscreen"]:hover svg {
@@ -2287,4 +2287,167 @@ img.header-logo {
         border-top-width: 9px;
         border-bottom-width: 9px;
     }
+}
+
+/* ============================================
+   ULTRA-PREMIUM DEPTH MAKEOVER (Subtle)
+   No layout or color changes. Only Light/Mass.
+   ============================================ */
+
+/* 1. CINEMATIC MASS FOR IMAGES & VIDEO 
+   Adds a 1px "glass edge" to images and a deep, multi-layered shadow 
+   to make them feel like heavy, physical monitors or mounted prints. */
+.hero-image, 
+.film-image,
+.video-player-wrapper,
+.pedagogy-oversight-photo {
+    box-shadow: 
+        0 25px 50px -12px rgba(0, 0, 0, 0.6), 
+        0 0 0 1px rgba(255, 255, 255, 0.05) !important;
+    transform: translateZ(0); /* Hardware acceleration for buttery scrolling */
+}
+
+/* 2. THE GLASS EDGE & LEVITATION FOR CARDS
+   Adds an invisible linear gradient to simulate top-down lighting,
+   an inner stroke to simulate acrylic/glass thickness, and a soft hover lift. */
+.curriculum-box, 
+.teacher-pack-card, 
+.pricing-card, 
+.timeline-content {
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.02), transparent);
+    box-shadow: 
+        inset 0 1px 1px rgba(255, 255, 255, 0.06), 
+        0 15px 35px -10px rgba(0, 0, 0, 0.4) !important;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    will-change: transform, box-shadow;
+}
+
+/* The Buttery Hover: Lifts the card slightly and deepens the shadow */
+.curriculum-box:hover, 
+.teacher-pack-card:hover, 
+.pricing-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 
+        inset 0 1px 1px rgba(255, 255, 255, 0.08), 
+        0 30px 50px -12px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* 3. TACTILE BUTTONS (Micro-lighting)
+   Makes solid buttons look 3D with a subtle top highlight,
+   and gives outline buttons a glowing inner shadow on hover. */
+.btn-watch-trailer, 
+.watch-trailer-btn, 
+.btn-download, 
+.btn-pricing-primary {
+    box-shadow: 
+        inset 0 1px 1px rgba(255, 255, 255, 0.25), 
+        0 8px 16px -4px rgba(0, 0, 0, 0.3) !important;
+}
+
+.btn-watch-trailer:hover, 
+.watch-trailer-btn:hover, 
+.btn-download:hover, 
+.btn-pricing-primary:hover {
+    box-shadow: 
+        inset 0 1px 1px rgba(255, 255, 255, 0.1), 
+        0 12px 24px -6px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* 4. GROUNDING THE TYPOGRAPHY
+   Adds a microscopic drop shadow to major headings so they don't look 
+   like flat pixels, but rather like ink floating just above the background. */
+.artist-name, 
+.film-title, 
+.hero-title,
+.cover-title {
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* 5. SOFT ELEVATION FOR PRINT/RESOURCE PAGES (White Backgrounds)
+   The white resource worksheets need shadow too, but very soft grey ones 
+   so they look like physical paper stacked on a desk. */
+@media screen {
+    .worksheet-question, 
+    .practical-box, 
+    .essay-prompt-box {
+        box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+        transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .worksheet-question:hover, 
+    .practical-box:hover, 
+    .essay-prompt-box:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.08);
+    }
+}
+
+/* ============================================
+   THE OLD MASTER GLAZE SYSTEM
+   Cool underpainting + Warm base + Earth/Cadmium glazes
+   ============================================ */
+
+/* 1. TEXT GLAZING (Headings & Accents)
+   Uses multiple text-shadows to simulate optical color bleed.
+   Bottom: Ultramarine (65%), Mid: Benzi Brown (35%), Top: Cadmium Glow (50%) */
+.curriculum-title, 
+.section-subtitle, 
+.question-number, 
+.pricing-price,
+.artist-name,
+h3, h4 {
+    position: relative;
+    /* Base Vermillion/Accent */
+    color: #E07A2F; 
+    text-shadow: 
+        0 6px 12px rgba(18, 10, 143, 0.65), /* Ultramarine Underpainting */
+        0 1px 3px rgba(58, 23, 0, 0.35),    /* Benzi Brown mid-glaze */
+        0 0 18px rgba(176, 0, 32, 0.50);    /* Cadmium Red over-glow */
+}
+
+/* 2. BUTTON GLAZING (Physical Paint Layers)
+   Uses pseudo-elements to physically stack semi-transparent gradients 
+   over the base color, using mix-blend-mode to interact like wet oil paint. */
+.btn-watch-trailer, 
+.watch-trailer-btn, 
+.btn-primary, 
+.btn-pricing-primary, 
+.btn-download {
+    position: relative;
+    background-color: #E07A2F !important; /* Base Vermillion */
+    /* Ultramarine Underpainting as a drop shadow */
+    box-shadow: 0 12px 24px -6px rgba(18, 10, 143, 0.65), inset 0 1px 1px rgba(255,255,255,0.1) !important;
+    border: none !important;
+    overflow: hidden;
+    z-index: 1;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.btn-watch-trailer::before, 
+.watch-trailer-btn::before, 
+.btn-primary::before, 
+.btn-pricing-primary::before, 
+.btn-download::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    /* Benzi Brown (35%) and Cadmium Deep (50%) mixed together */
+    background: 
+        linear-gradient(rgba(176, 0, 32, 0.5), rgba(176, 0, 32, 0.5)),
+        linear-gradient(rgba(58, 23, 0, 0.35), rgba(58, 23, 0, 0.35));
+    mix-blend-mode: multiply; /* Forces the glazes to darken and enrich the base */
+    transition: opacity 0.4s ease;
+}
+
+/* The Breathing Glow Hover */
+.btn-watch-trailer:hover, 
+.btn-primary:hover, 
+.btn-pricing-primary:hover, 
+.btn-download:hover {
+    transform: translateY(-3px) !important;
+    /* Ultramarine shadow deepens, Cadmium glow flares out */
+    box-shadow: 
+        0 20px 30px -8px rgba(18, 10, 143, 0.75), 
+        0 0 20px 2px rgba(176, 0, 32, 0.4) !important;
 }
