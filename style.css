@@ -2385,38 +2385,69 @@ img.header-logo {
 /* ============================================
    THE OLD MASTER GLAZE SYSTEM
    Cool underpainting + Warm base + Earth/Cadmium glazes
+   Layered accent colour: Ultramarine → Benzi Brown → Cadmium
    ============================================ */
 
-/* 1. TEXT GLAZING (Headings & Accents)
-   Uses multiple text-shadows to simulate optical color bleed.
-   Bottom: Ultramarine (65%), Mid: Benzi Brown (35%), Top: Cadmium Glow (50%) */
+/* Glaze colour tokens */
+:root {
+    --glaze-ultramarine: rgba(18, 10, 143, 0.65);
+    --glaze-ultramarine-deep: rgba(18, 10, 143, 0.75);
+    --glaze-benzibrown: rgba(58, 23, 0, 0.35);
+    --glaze-cadmium: rgba(176, 0, 32, 0.5);
+    --glaze-cadmium-glow: rgba(176, 0, 32, 0.4);
+}
+
+/* 1. TEXT GLAZING (All accent-coloured text)
+   Multiple text-shadows simulate optical colour bleed. */
 .curriculum-title, 
 .section-subtitle, 
 .question-number, 
 .pricing-price,
 .artist-name,
-h3, h4 {
-    position: relative;
-    /* Base Vermillion/Accent */
-    color: #E07A2F; 
+.film-title,
+.film-subtitle,
+.hero-title,
+.cover-title,
+h3, h4,
+.credits strong,
+.metadata-label,
+.series-02-list li strong,
+.pedagogy-oversight-credentials,
+.curriculum-tags .tag:not(:last-child)::after,
+.header-nav-link-faculty:hover,
+.header-nav-link:hover,
+.footer-link:hover,
+.footer-text .footer-link:hover,
+.footer-link:hover .footer-separator,
+.section-title,
+.key-themes-table th {
+    color: #E07A2F !important; /* Base Vermillion */
     text-shadow: 
-        0 6px 12px rgba(18, 10, 143, 0.65), /* Ultramarine Underpainting */
-        0 1px 3px rgba(58, 23, 0, 0.35),    /* Benzi Brown mid-glaze */
-        0 0 18px rgba(176, 0, 32, 0.50);    /* Cadmium Red over-glow */
+        0 6px 12px var(--glaze-ultramarine),
+        0 1px 3px var(--glaze-benzibrown),
+        0 0 18px var(--glaze-cadmium);
 }
 
-/* 2. BUTTON GLAZING (Physical Paint Layers)
-   Uses pseudo-elements to physically stack semi-transparent gradients 
-   over the base color, using mix-blend-mode to interact like wet oil paint. */
+/* Quote marks — drop-shadow for pseudo-elements */
+.pedagogy-oversight-quote::before,
+.pedagogy-oversight-quote::after {
+    color: #E07A2F;
+    filter: drop-shadow(0 2px 4px var(--glaze-ultramarine)) drop-shadow(0 0 8px var(--glaze-cadmium-glow));
+}
+
+/* 2. SOLID BUTTON GLAZING (Physical paint layers)
+   Base Vermillion + Ultramarine shadow + ::before glaze overlay. */
 .btn-watch-trailer, 
 .watch-trailer-btn, 
 .btn-primary, 
 .btn-pricing-primary, 
-.btn-download {
+.btn-download,
+.btn-hero-primary,
+.btn-success {
     position: relative;
-    background-color: #E07A2F !important; /* Base Vermillion */
-    /* Ultramarine Underpainting as a drop shadow */
-    box-shadow: 0 12px 24px -6px rgba(18, 10, 143, 0.65), inset 0 1px 1px rgba(255,255,255,0.1) !important;
+    background-color: #E07A2F !important;
+    color: #fff !important;
+    box-shadow: 0 12px 24px -6px var(--glaze-ultramarine), inset 0 1px 1px rgba(255,255,255,0.1) !important;
     border: none !important;
     overflow: hidden;
     z-index: 1;
@@ -2427,27 +2458,132 @@ h3, h4 {
 .watch-trailer-btn::before, 
 .btn-primary::before, 
 .btn-pricing-primary::before, 
-.btn-download::before {
+.btn-download::before,
+.btn-hero-primary::before,
+.btn-success::before {
     content: '';
     position: absolute;
     inset: 0;
     z-index: -1;
-    /* Benzi Brown (35%) and Cadmium Deep (50%) mixed together */
     background: 
         linear-gradient(rgba(176, 0, 32, 0.5), rgba(176, 0, 32, 0.5)),
         linear-gradient(rgba(58, 23, 0, 0.35), rgba(58, 23, 0, 0.35));
-    mix-blend-mode: multiply; /* Forces the glazes to darken and enrich the base */
+    mix-blend-mode: multiply;
     transition: opacity 0.4s ease;
 }
 
-/* The Breathing Glow Hover */
 .btn-watch-trailer:hover, 
+.watch-trailer-btn:hover, 
 .btn-primary:hover, 
 .btn-pricing-primary:hover, 
-.btn-download:hover {
+.btn-download:hover,
+.btn-hero-primary:hover,
+.btn-success:hover {
     transform: translateY(-3px) !important;
-    /* Ultramarine shadow deepens, Cadmium glow flares out */
+    box-shadow: 0 20px 30px -8px var(--glaze-ultramarine-deep), 0 0 20px 2px var(--glaze-cadmium-glow) !important;
+}
+
+/* 3. GHOST/OUTLINE BUTTON GLAZING
+   Transparent base — glaze on text + border glow. */
+.btn-hero-secondary,
+.btn-faculty-required,
+.btn-sample-preview,
+.btn-pricing-secondary,
+.btn-secondary {
+    color: #E07A2F !important;
+    border-color: #E07A2F !important;
+    text-shadow: 
+        0 2px 6px var(--glaze-ultramarine),
+        0 0 12px var(--glaze-cadmium-glow);
+    box-shadow: 0 0 0 1px rgba(18, 10, 143, 0.15) !important;
+}
+
+.btn-hero-primary:hover,
+.btn-hero-secondary:hover,
+.btn-faculty-required:hover,
+.btn-sample-preview:hover,
+.btn-pricing-secondary:hover,
+.btn-secondary:hover {
     box-shadow: 
-        0 20px 30px -8px rgba(18, 10, 143, 0.75), 
-        0 0 20px 2px rgba(176, 0, 32, 0.4) !important;
+        0 0 0 1px rgba(18, 10, 143, 0.2),
+        0 0 20px 2px var(--glaze-cadmium-glow) !important;
+}
+
+/* 4. TIMELINE & MARKER GLAZE
+   Ultramarine drop + Cadmium edge glow. */
+.timeline-line,
+.timeline-marker {
+    background-color: #E07A2F !important;
+    box-shadow: 
+        0 0 12px var(--glaze-ultramarine),
+        0 0 24px var(--glaze-cadmium-glow);
+}
+
+/* 5. BORDER / DIVIDER GLAZE
+   Ink divider, pedagogy photo border on hover. */
+.ink-divider {
+    background: linear-gradient(to right, transparent, rgba(176, 0, 32, 0.25), transparent) !important;
+    box-shadow: 0 0 8px var(--glaze-cadmium-glow);
+}
+
+.pedagogy-oversight:hover .pedagogy-oversight-photo {
+    border-color: #E07A2F;
+    box-shadow: 0 0 12px var(--glaze-cadmium-glow);
+}
+
+/* ============================================
+   ATMOSPHERIC VIOLET DEPTH SYSTEM
+   Subliminal dust motes — institutional depth
+   ============================================ */
+
+.atmospheric-layers {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.atmos-layer {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background-size: 800px 800px;
+    opacity: 0.08;
+    mix-blend-mode: screen;
+}
+
+.layer-1 {
+    background-image: radial-gradient(circle at center, #3b2553 1px, transparent 1px);
+    animation: drift-slow 60s linear infinite;
+}
+
+.layer-2 {
+    background-image: radial-gradient(circle at center, #4b3068 1.5px, transparent 1.5px);
+    animation: drift-medium 45s linear infinite;
+}
+
+.layer-3 {
+    background-image: radial-gradient(circle at center, #6a4793 2px, transparent 2px);
+    animation: drift-fast 30s linear infinite;
+}
+
+@keyframes drift-slow {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    100% { transform: translate(-10%, -10%) rotate(5deg); }
+}
+
+@keyframes drift-medium {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    100% { transform: translate(10%, -5%) rotate(-5deg); }
+}
+
+@keyframes drift-fast {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    100% { transform: translate(-5%, 10%) rotate(2deg); }
 }
