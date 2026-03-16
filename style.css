@@ -1246,7 +1246,9 @@ img.header-logo {
     height: 0.5px;
     background: linear-gradient(rgba(18, 10, 143, 0.20), rgba(18, 10, 143, 0.20)),
         linear-gradient(rgba(58, 23, 0, 0.20), rgba(58, 23, 0, 0.20)),
-        linear-gradient(rgba(176, 0, 32, 0.42), rgba(176, 0, 32, 0.42));
+        linear-gradient(rgba(176, 0, 32, 0.42), rgba(176, 0, 32, 0.42)),
+        linear-gradient(rgba(200, 0, 128, 0.15), rgba(200, 0, 128, 0.15)),
+        linear-gradient(rgba(176, 0, 32, 0.10), rgba(176, 0, 32, 0.10)); /* Cadmium top 10% */
     mix-blend-mode: multiply;
 }
 
@@ -2020,7 +2022,9 @@ img.header-logo {
     background:
         linear-gradient(rgba(18, 10, 143, 0.20), rgba(18, 10, 143, 0.20)),
         linear-gradient(rgba(58, 23, 0, 0.20), rgba(58, 23, 0, 0.20)),
-        linear-gradient(rgba(176, 0, 32, 0.42), rgba(176, 0, 32, 0.42));
+        linear-gradient(rgba(176, 0, 32, 0.42), rgba(176, 0, 32, 0.42)),
+        linear-gradient(rgba(200, 0, 128, 0.15), rgba(200, 0, 128, 0.15)),
+        linear-gradient(rgba(176, 0, 32, 0.10), rgba(176, 0, 32, 0.10)); /* Cadmium top 10% */
     mix-blend-mode: multiply;
     pointer-events: none;
 }
@@ -2201,7 +2205,9 @@ img.header-logo {
     background:
         linear-gradient(rgba(18, 10, 143, 0.20), rgba(18, 10, 143, 0.20)),
         linear-gradient(rgba(58, 23, 0, 0.20), rgba(58, 23, 0, 0.20)),
-        linear-gradient(rgba(176, 0, 32, 0.42), rgba(176, 0, 32, 0.42));
+        linear-gradient(rgba(176, 0, 32, 0.42), rgba(176, 0, 32, 0.42)),
+        linear-gradient(rgba(200, 0, 128, 0.15), rgba(200, 0, 128, 0.15)),
+        linear-gradient(rgba(176, 0, 32, 0.10), rgba(176, 0, 32, 0.10)); /* Cadmium top 10% */
     mix-blend-mode: multiply;
     pointer-events: none;
 }
@@ -2227,7 +2233,9 @@ img.header-logo {
     background:
         linear-gradient(rgba(18, 10, 143, 0.20), rgba(18, 10, 143, 0.20)),
         linear-gradient(rgba(58, 23, 0, 0.20), rgba(58, 23, 0, 0.20)),
-        linear-gradient(rgba(176, 0, 32, 0.42), rgba(176, 0, 32, 0.42));
+        linear-gradient(rgba(176, 0, 32, 0.42), rgba(176, 0, 32, 0.42)),
+        linear-gradient(rgba(200, 0, 128, 0.15), rgba(200, 0, 128, 0.15)),
+        linear-gradient(rgba(176, 0, 32, 0.10), rgba(176, 0, 32, 0.10)); /* Cadmium top 10% */
     mix-blend-mode: multiply;
     pointer-events: none;
 }
@@ -2449,11 +2457,12 @@ img.header-logo {
    Base: Vermillion | Glazes: Ultramarine, Benzi, Cadmium
    ============================================ */
 
-/* Glaze colour tokens — Cadmium 12% more opaque (0.42) for archival depth */
+/* Glaze colour tokens — Cadmium 12% more opaque (0.42), Magenta on top at 15% */
 :root {
     --glaze-ultramarine: rgba(18, 10, 143, 0.20);
     --glaze-benzibrown: rgba(58, 23, 0, 0.20);
     --glaze-cadmium: rgba(176, 0, 32, 0.42);
+    --glaze-magenta: rgba(200, 0, 128, 0.15);
     --accent-unified: #B06838; /* Desaturated vermillion — uniform across site, no burnt look */
 }
 
@@ -2528,7 +2537,9 @@ h1, h2 {
     background: 
         linear-gradient(rgba(18, 10, 143, 0.20), rgba(18, 10, 143, 0.20)),
         linear-gradient(rgba(58, 23, 0, 0.20), rgba(58, 23, 0, 0.20)),
-        linear-gradient(rgba(176, 0, 32, 0.42), rgba(176, 0, 32, 0.42)); /* Cadmium +12% opaque */
+        linear-gradient(rgba(176, 0, 32, 0.42), rgba(176, 0, 32, 0.42)),
+        linear-gradient(rgba(200, 0, 128, 0.15), rgba(200, 0, 128, 0.15)),
+        linear-gradient(rgba(176, 0, 32, 0.10), rgba(176, 0, 32, 0.10)); /* Cadmium top 10% */
     mix-blend-mode: multiply;
     pointer-events: none;
 }
@@ -2627,7 +2638,9 @@ h1, h2 {
     background: 
         linear-gradient(rgba(18, 10, 143, 0.20), rgba(18, 10, 143, 0.20)),
         linear-gradient(rgba(58, 23, 0, 0.20), rgba(58, 23, 0, 0.20)),
-        linear-gradient(rgba(176, 0, 32, 0.42), rgba(176, 0, 32, 0.42));
+        linear-gradient(rgba(176, 0, 32, 0.42), rgba(176, 0, 32, 0.42)),
+        linear-gradient(rgba(200, 0, 128, 0.15), rgba(200, 0, 128, 0.15)),
+        linear-gradient(rgba(176, 0, 32, 0.10), rgba(176, 0, 32, 0.10)); /* Cadmium top 10% */
     mix-blend-mode: multiply;
     pointer-events: none;
 }
@@ -2668,7 +2681,9 @@ h1, h2 {
     background: 
         linear-gradient(rgba(18, 10, 143, 0.20), rgba(18, 10, 143, 0.20)),
         linear-gradient(rgba(58, 23, 0, 0.20), rgba(58, 23, 0, 0.20)),
-        linear-gradient(rgba(176, 0, 32, 0.42), rgba(176, 0, 32, 0.42));
+        linear-gradient(rgba(176, 0, 32, 0.42), rgba(176, 0, 32, 0.42)),
+        linear-gradient(rgba(200, 0, 128, 0.15), rgba(200, 0, 128, 0.15)),
+        linear-gradient(rgba(176, 0, 32, 0.10), rgba(176, 0, 32, 0.10)); /* Cadmium top 10% */
     mix-blend-mode: multiply;
     pointer-events: none;
 }
