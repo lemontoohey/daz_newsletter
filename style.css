@@ -2383,9 +2383,8 @@ img.header-logo {
 }
 
 /* ============================================
-   THE OLD MASTER GLAZE SYSTEM
-   Cool underpainting + Warm base + Earth/Cadmium glazes
-   Layered accent colour: Ultramarine → Benzi Brown → Cadmium
+   THE OLD MASTER LAYER STACK
+   Base: Ultramarine (Opaque) | Glaze 1: Benzi (35%) | Glaze 2: Cadmium (35%)
    ============================================ */
 
 /* Glaze colour tokens */
@@ -2393,12 +2392,11 @@ img.header-logo {
     --glaze-ultramarine: rgba(18, 10, 143, 0.65);
     --glaze-ultramarine-deep: rgba(18, 10, 143, 0.75);
     --glaze-benzibrown: rgba(58, 23, 0, 0.35);
-    --glaze-cadmium: rgba(176, 0, 32, 0.5);
+    --glaze-cadmium: rgba(176, 0, 32, 0.35);
     --glaze-cadmium-glow: rgba(176, 0, 32, 0.4);
 }
 
-/* 1. TEXT GLAZING (All accent-coloured text)
-   Multiple text-shadows simulate optical colour bleed. */
+/* 1. TYPOGRAPHY: Parchment Text (Original #E6E6E6) */
 .curriculum-title, 
 .section-subtitle, 
 .question-number, 
@@ -2414,62 +2412,84 @@ h3, h4,
 .series-02-list li strong,
 .pedagogy-oversight-credentials,
 .curriculum-tags .tag:not(:last-child)::after,
-.header-nav-link-faculty:hover,
+.section-title,
+.key-themes-table th {
+    color: #E6E6E6 !important; /* Parchment */
+    text-shadow: none !important;
+}
+
+h1, h2 {
+    color: #E6E6E6 !important;
+}
+
 .header-nav-link:hover,
 .footer-link:hover,
 .footer-text .footer-link:hover,
-.footer-link:hover .footer-separator,
-.section-title,
-.key-themes-table th {
-    color: #E07A2F !important; /* Base Vermillion */
-    text-shadow: 
-        0 6px 12px var(--glaze-ultramarine),
-        0 1px 3px var(--glaze-benzibrown),
-        0 0 18px var(--glaze-cadmium);
+.footer-link:hover .footer-separator {
+    color: #E6E6E6 !important;
 }
 
-/* Quote marks — drop-shadow for pseudo-elements */
+/* Quote marks — parchment */
 .pedagogy-oversight-quote::before,
 .pedagogy-oversight-quote::after {
-    color: #E07A2F;
-    filter: drop-shadow(0 2px 4px var(--glaze-ultramarine)) drop-shadow(0 0 8px var(--glaze-cadmium-glow));
+    color: #E6E6E6;
 }
 
-/* 2. SOLID BUTTON GLAZING (Physical paint layers)
-   Base Vermillion + Ultramarine shadow + ::before glaze overlay. */
+/* 2. THE STACKED LAYER SYSTEM (Buttons & UI Elements)
+   Base Layer: Ultramarine (#120A8F)
+   Glaze 1 (Benzi Brown): 35% opacity
+   Glaze 2 (Cadmium Red/Vermillion): 35% opacity */
 .btn-watch-trailer, 
 .watch-trailer-btn, 
 .btn-primary, 
 .btn-pricing-primary, 
 .btn-download,
 .btn-hero-primary,
-.btn-success {
+.btn-success,
+.header-nav-link-faculty {
     position: relative;
-    background-color: #E07A2F !important;
-    color: #fff !important;
-    box-shadow: 0 12px 24px -6px var(--glaze-ultramarine), inset 0 1px 1px rgba(255,255,255,0.1) !important;
+    border-radius: 0 !important; /* SHARP EDGE */
     border: none !important;
     overflow: hidden;
     z-index: 1;
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    /* Base: Deep Opaque Ultramarine */
+    background-color: #120A8F !important;
+    color: #fff !important;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-.btn-watch-trailer::before, 
-.watch-trailer-btn::before, 
-.btn-primary::before, 
-.btn-pricing-primary::before, 
-.btn-download::before,
-.btn-hero-primary::before,
-.btn-success::before {
+/* The Glaze Layers (Physical Paint Stacking) */
+.btn-watch-trailer::after, 
+.watch-trailer-btn::after, 
+.btn-primary::after, 
+.btn-pricing-primary::after, 
+.btn-download::after,
+.btn-hero-primary::after,
+.btn-success::after,
+.header-nav-link-faculty::after {
     content: '';
     position: absolute;
     inset: 0;
-    z-index: -1;
+    z-index: 1;
+    /* Stack: Benzi Brown (35%) + Cadmium (35%) */
     background: 
-        linear-gradient(rgba(176, 0, 32, 0.5), rgba(176, 0, 32, 0.5)),
-        linear-gradient(rgba(58, 23, 0, 0.35), rgba(58, 23, 0, 0.35));
+        linear-gradient(rgba(176, 0, 32, 0.35), rgba(176, 0, 32, 0.35)), /* Cadmium Layer */
+        linear-gradient(rgba(58, 23, 0, 0.35), rgba(58, 23, 0, 0.35));  /* Benzi Brown Layer */
     mix-blend-mode: multiply;
+    pointer-events: none;
     transition: opacity 0.4s ease;
+}
+
+/* On hover, we brighten to simulate light hitting the varnish */
+.btn-watch-trailer:hover::after, 
+.watch-trailer-btn:hover::after, 
+.btn-primary:hover::after, 
+.btn-pricing-primary:hover::after, 
+.btn-download:hover::after,
+.btn-hero-primary:hover::after,
+.btn-success:hover::after,
+.header-nav-link-faculty:hover::after {
+    opacity: 0.7;
 }
 
 .btn-watch-trailer:hover, 
@@ -2480,55 +2500,45 @@ h3, h4,
 .btn-hero-primary:hover,
 .btn-success:hover {
     transform: translateY(-3px) !important;
-    box-shadow: 0 20px 30px -8px var(--glaze-ultramarine-deep), 0 0 20px 2px var(--glaze-cadmium-glow) !important;
 }
 
-/* 3. GHOST/OUTLINE BUTTON GLAZING
-   Transparent base — glaze on text + border glow. */
+/* 3. GHOST/OUTLINE BUTTONS
+   Parchment text, subtle border. */
 .btn-hero-secondary,
 .btn-faculty-required,
 .btn-sample-preview,
 .btn-pricing-secondary,
 .btn-secondary {
-    color: #E07A2F !important;
-    border-color: #E07A2F !important;
-    text-shadow: 
-        0 2px 6px var(--glaze-ultramarine),
-        0 0 12px var(--glaze-cadmium-glow);
-    box-shadow: 0 0 0 1px rgba(18, 10, 143, 0.15) !important;
+    background: transparent !important;
+    color: #E6E6E6 !important;
+    border: 1px solid rgba(230, 230, 230, 0.5) !important;
 }
 
-.btn-hero-primary:hover,
 .btn-hero-secondary:hover,
 .btn-faculty-required:hover,
 .btn-sample-preview:hover,
 .btn-pricing-secondary:hover,
 .btn-secondary:hover {
-    box-shadow: 
-        0 0 0 1px rgba(18, 10, 143, 0.2),
-        0 0 20px 2px var(--glaze-cadmium-glow) !important;
+    border-color: #E6E6E6 !important;
 }
 
-/* 4. TIMELINE & MARKER GLAZE
-   Ultramarine drop + Cadmium edge glow. */
+/* 4. TIMELINE & MARKER
+   Ultramarine base with glaze tone. */
 .timeline-line,
 .timeline-marker {
-    background-color: #E07A2F !important;
+    background-color: #120A8F !important;
     box-shadow: 
         0 0 12px var(--glaze-ultramarine),
         0 0 24px var(--glaze-cadmium-glow);
 }
 
-/* 5. BORDER / DIVIDER GLAZE
-   Ink divider, pedagogy photo border on hover. */
+/* 5. BORDER / DIVIDER */
 .ink-divider {
     background: linear-gradient(to right, transparent, rgba(176, 0, 32, 0.25), transparent) !important;
-    box-shadow: 0 0 8px var(--glaze-cadmium-glow);
 }
 
 .pedagogy-oversight:hover .pedagogy-oversight-photo {
-    border-color: #E07A2F;
-    box-shadow: 0 0 12px var(--glaze-cadmium-glow);
+    border-color: #E6E6E6;
 }
 
 /* ============================================
