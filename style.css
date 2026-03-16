@@ -1138,6 +1138,18 @@ img.header-logo {
 
 .pedagogy-oversight-image {
     flex-shrink: 0;
+    position: relative;
+}
+
+/* Karena Gregory portrait — ring on hover uses same accent as other reds (no burnt orange) */
+.pedagogy-oversight:hover .pedagogy-oversight-image::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 50%;
+    border: 2px solid var(--accent-unified);
+    pointer-events: none;
+    z-index: 1;
 }
 
 .pedagogy-oversight-photo {
@@ -1377,20 +1389,15 @@ img.header-logo {
 }
 
 .pricing-features li::before {
-    content: '✓';
+    content: '–';
     position: absolute;
     left: 0;
     color: var(--accent-unified);
-    font-size: 20px;
-    font-weight: bold;
-    width: 24px;
-    height: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(143, 74, 76, 0.1);
-    border-radius: 50%;
-    border: 1px solid rgba(143, 74, 76, 0.3);
+    font-size: 0.85em;
+    font-weight: 400;
+    width: auto;
+    height: auto;
+    line-height: 1.8;
 }
 
 .pricing-buttons {
@@ -2445,8 +2452,7 @@ img.header-logo {
    and gives outline buttons a glowing inner shadow on hover. */
 .btn-watch-trailer, 
 .watch-trailer-btn, 
-.btn-download, 
-.btn-pricing-primary {
+.btn-download {
     box-shadow: 
         inset 0 1px 1px rgba(255, 255, 255, 0.25), 
         0 8px 16px -4px rgba(0, 0, 0, 0.3) !important;
@@ -2454,8 +2460,7 @@ img.header-logo {
 
 .btn-watch-trailer:hover, 
 .watch-trailer-btn:hover, 
-.btn-download:hover, 
-.btn-pricing-primary:hover {
+.btn-download:hover {
     box-shadow: 
         inset 0 1px 1px rgba(255, 255, 255, 0.1), 
         0 12px 24px -6px rgba(0, 0, 0, 0.5) !important;
@@ -2542,12 +2547,25 @@ h1, h2 {
     color: #E6E6E6;
 }
 
-/* 2. STACKED BUTTONS — Base Vermillion + 3 glaze layers
-   GPU: will-change + translateZ for layer promotion */
+/* Box content — parchment white for all text inside artist/pricing/pedagogy boxes */
+.timeline-content p,
+.timeline-content .film-intro,
+.timeline-content .film-description,
+.timeline-content .curriculum-label,
+.timeline-content .tag,
+.pricing-card p,
+.pricing-card .pricing-header,
+.pricing-features li,
+.pedagogy-oversight-quote,
+.pedagogy-oversight-name,
+.pedagogy-oversight-role {
+    color: #E6E6E6 !important;
+}
+
+/* 2. STACKED BUTTONS — Base Vermillion + glaze layers (only inside artist boxes) */
 .btn-watch-trailer, 
 .watch-trailer-btn, 
 .btn-primary, 
-.btn-pricing-primary, 
 .btn-download {
     position: relative;
     background-color: var(--accent-unified) !important; /* Uniform desaturated base */
@@ -2564,7 +2582,6 @@ h1, h2 {
 .btn-watch-trailer::after, 
 .watch-trailer-btn::after, 
 .btn-primary::after, 
-.btn-pricing-primary::after, 
 .btn-download::after {
     content: '';
     position: absolute;
@@ -2585,7 +2602,6 @@ h1, h2 {
 .btn-watch-trailer:hover, 
 .watch-trailer-btn:hover, 
 .btn-primary:hover, 
-.btn-pricing-primary:hover, 
 .btn-download:hover {
     transform: translateY(-2px) translateZ(0) !important;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
@@ -2596,11 +2612,7 @@ h1, h2 {
     .btn-watch-trailer::after, 
     .watch-trailer-btn::after, 
     .btn-primary::after, 
-    .btn-pricing-primary::after, 
     .btn-download::after,
-    .btn-hero-primary::after,
-    .btn-success::after,
-    .header-nav-link-faculty::after,
     .timeline-line::after,
     .timeline-marker::after,
     .video-play-button::after,
@@ -2613,11 +2625,7 @@ h1, h2 {
     .btn-watch-trailer, 
     .watch-trailer-btn, 
     .btn-primary, 
-    .btn-pricing-primary, 
     .btn-download,
-    .btn-hero-primary,
-    .btn-success,
-    .header-nav-link-faculty,
     .timeline-line,
     .timeline-marker,
     .video-play-button,
@@ -2634,11 +2642,7 @@ h1, h2 {
     .btn-watch-trailer::after,
     .watch-trailer-btn::after,
     .btn-primary::after,
-    .btn-pricing-primary::after,
     .btn-download::after,
-    .btn-hero-primary::after,
-    .btn-success::after,
-    .header-nav-link-faculty::after,
     .timeline-line::after,
     .timeline-marker::after,
     .video-play-button::after,
@@ -2650,37 +2654,22 @@ h1, h2 {
     }
 }
 
-/* Hero/Success/Header buttons — same layer stack as trailer button (Vermillion + Ultramarine + Benzi + Cadmium) */
+/* Hero/Success/Header buttons — red outline only (no solid fill) */
 .btn-hero-primary,
 .btn-success,
 .header-nav-link-faculty {
-    position: relative;
-    background-color: var(--accent-unified) !important;
-    color: #fff !important;
+    background: transparent !important;
+    color: var(--accent-unified) !important;
+    border: 1px solid var(--accent-unified) !important;
     border-radius: 0 !important;
-    border: none !important;
-    overflow: hidden;
-    will-change: transform, opacity;
-    transform: translateZ(0);
 }
 
-.btn-hero-primary::after,
-.btn-success::after,
-.header-nav-link-faculty::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    will-change: opacity;
-    transform: translateZ(0);
-    background: 
-        linear-gradient(rgba(18, 10, 143, 0.20), rgba(18, 10, 143, 0.20)),
-        linear-gradient(rgba(58, 23, 0, 0.20), rgba(58, 23, 0, 0.20)),
-        linear-gradient(rgba(176, 0, 32, 0.42), rgba(176, 0, 32, 0.42)),
-        linear-gradient(rgba(200, 0, 128, 0.15), rgba(200, 0, 128, 0.15)),
-        linear-gradient(rgba(176, 0, 32, 0.10), rgba(176, 0, 32, 0.10)); /* Cadmium top 10% */
-    mix-blend-mode: multiply;
-    pointer-events: none;
+.btn-hero-primary:hover,
+.btn-success:hover,
+.header-nav-link-faculty:hover {
+    border-color: var(--accent-unified) !important;
+    color: var(--accent-unified) !important;
+    background: rgba(176, 68, 56, 0.06) !important;
 }
 
 /* 3. GHOST/OUTLINE BUTTONS */
@@ -2730,9 +2719,7 @@ h1, h2 {
     background: linear-gradient(to right, transparent, rgba(176, 104, 56, 0.3), transparent) !important;
 }
 
-.pedagogy-oversight:hover .pedagogy-oversight-photo {
-    border-color: var(--accent-unified);
-}
+/* Pedagogy photo ring: defined in .pedagogy-oversight-image::before above */
 
 /* Diagnostic: Add .heavy-layer to elements to detect over-layering */
 .heavy-layer {
