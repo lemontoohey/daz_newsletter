@@ -165,7 +165,7 @@ p {
     position: absolute;
     inset: 0;
     z-index: 0;
-    background: rgba(200, 0, 128, 0.025);
+    background: rgba(200, 0, 128, 0.015);
     pointer-events: none;
 }
 
@@ -457,7 +457,7 @@ img.header-logo {
     position: absolute;
     inset: 0;
     z-index: 1;
-    background: rgba(200, 0, 128, 0.025);
+    background: rgba(200, 0, 128, 0.015);
     pointer-events: none;
     border-radius: 8px;
 }
