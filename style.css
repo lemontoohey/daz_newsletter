@@ -7,7 +7,7 @@
 :root {
     --bg-color: #0B0810;
     --text-color: #E6E6E6;
-    --accent-color: #E07A2F;
+    --accent-color: #B06838;
     --card-bg: rgba(14, 25, 24, 0.88);
     --card-bg-glass: rgba(14, 25, 24, 0.45);
     --text-secondary: #8A928F;
@@ -242,7 +242,7 @@ img.header-logo {
 }
 
 .header-nav-link:hover {
-    color: #E07A2F;
+    color: var(--accent-unified);
 }
 
 .header-login-link {
@@ -992,7 +992,7 @@ img.header-logo {
 }
 
 .footer-text .footer-link:hover {
-    color: #E07A2F;
+    color: var(--accent-unified);
 }
 
 .footer-link {
@@ -1010,7 +1010,7 @@ img.header-logo {
 }
 
 .footer-link:hover {
-    color: #E07A2F;
+    color: var(--accent-unified);
 }
 
 .footer-link:hover .footer-arrow {
@@ -1028,7 +1028,7 @@ img.header-logo {
 }
 
 .footer-link:hover .footer-separator {
-    color: #E07A2F;
+    color: var(--accent-unified);
     opacity: 0.5;
 }
 
@@ -1231,7 +1231,7 @@ img.header-logo {
     transform: translateX(-50%);
     width: 60px;
     height: 0.5px;
-    background-color: #E07A2F;
+    background-color: var(--accent-unified);
 }
 
 .pricing-price-container {
@@ -1247,7 +1247,7 @@ img.header-logo {
     font-family: 'Montserrat', sans-serif;
     font-weight: 900;
     font-size: 48px;
-    color: #E07A2F;
+    color: var(--accent-unified);
     line-height: 1;
     margin: 0;
 }
@@ -1258,21 +1258,21 @@ img.header-logo {
     gap: 6px;
     padding: 6px 14px;
     background-color: rgba(143, 74, 76, 0.15);
-    border: 1px solid #E07A2F;
+    border: 1px solid var(--accent-unified);
     border-radius: 4px;
     font-family: 'Inter', sans-serif;
     font-weight: 600;
     font-size: 11px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: #E07A2F;
+    color: var(--accent-unified);
     box-shadow: 0 2px 8px rgba(143, 74, 76, 0.2);
 }
 
 .pricing-badge-icon {
     width: 14px;
     height: 14px;
-    fill: #E07A2F;
+    fill: var(--accent-unified);
 }
 
 .pricing-subtext {
@@ -1322,7 +1322,7 @@ img.header-logo {
     content: '✓';
     position: absolute;
     left: 0;
-    color: #E07A2F;
+    color: var(--accent-unified);
     font-size: 20px;
     font-weight: bold;
     width: 24px;
@@ -1765,7 +1765,7 @@ img.header-logo {
 
 .theater-mode-close:hover {
     background-color: rgba(143, 74, 76, 0.9);
-    border-color: #E07A2F;
+    border-color: var(--accent-unified);
     transform: rotate(90deg) scale(1.1);
 }
 
@@ -1865,7 +1865,7 @@ img.header-logo {
 
 .video-player-close:hover {
     background-color: rgba(143, 74, 76, 0.9);
-    border-color: #E07A2F;
+    border-color: var(--accent-unified);
     transform: rotate(90deg);
 }
 
@@ -1915,7 +1915,7 @@ img.header-logo {
 }
 
 .video-player-fullscreen-btn:hover {
-    background-color: #E07A2F;
+    background-color: var(--accent-unified);
     border-color: #FFFFFF;
     transform: scale(1.1);
     box-shadow: 0 6px 16px rgba(143, 74, 76, 0.6);
@@ -1981,7 +1981,7 @@ img.header-logo {
     transform: translate(-50%, -50%);
     width: 80px;
     height: 80px;
-    background-color: #E07A2F;
+    background-color: var(--accent-unified);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -2120,7 +2120,7 @@ img.header-logo {
 
 .theater-close-button:hover {
     background-color: rgba(143, 74, 76, 0.8);
-    border-color: #E07A2F;
+    border-color: var(--accent-unified);
     transform: rotate(90deg);
 }
 
@@ -2140,7 +2140,7 @@ img.header-logo {
 
 /* Plyr Custom Branding */
 .plyr {
-    --plyr-color-main: #E07A2F;
+    --plyr-color-main: #B06838;
     --plyr-video-background: #000;
     --plyr-control-icon-size: 18px;
     --plyr-control-spacing: 12px;
@@ -2154,7 +2154,7 @@ img.header-logo {
 }
 
 .plyr__control--overlaid {
-    background-color: #E07A2F !important;
+    background-color: var(--accent-unified) !important;
     border: 3px solid rgba(255, 255, 255, 0.1) !important;
     box-shadow: 0 8px 24px rgba(143, 74, 76, 0.4) !important;
 }
@@ -2167,7 +2167,7 @@ img.header-logo {
 
 .plyr__progress__played,
 .plyr__volume__progress {
-    background-color: #E07A2F !important;
+    background-color: var(--accent-unified) !important;
 }
 
 .plyr__control[aria-expanded="true"],
@@ -2187,14 +2187,14 @@ img.header-logo {
 
 .plyr__control[data-plyr="fullscreen"]:hover {
     background-color: rgba(143, 74, 76, 0.6) !important;
-    border-color: #E07A2F !important;
+    border-color: var(--accent-unified) !important;
     transform: scale(1.1) !important;
 }
 
 .plyr__control[data-plyr="fullscreen"] svg {
     width: 20px !important;
     height: 20px !important;
-    fill: #E07A2F !important;
+    fill: var(--accent-unified) !important;
 }
 
 .plyr__control[data-plyr="fullscreen"]:hover svg {
@@ -2387,11 +2387,12 @@ img.header-logo {
    Base: Vermillion | Glazes: Ultramarine, Benzi, Cadmium
    ============================================ */
 
-/* Glaze colour tokens */
+/* Glaze colour tokens — Cadmium 12% more opaque (0.42) for archival depth */
 :root {
     --glaze-ultramarine: rgba(18, 10, 143, 0.20);
     --glaze-benzibrown: rgba(58, 23, 0, 0.20);
-    --glaze-cadmium: rgba(176, 0, 32, 0.30);
+    --glaze-cadmium: rgba(176, 0, 32, 0.42);
+    --accent-unified: #B06838; /* Desaturated vermillion — uniform across site, no burnt look */
 }
 
 /* 1. TYPOGRAPHY: Parchment (#E6E6E6) */
@@ -2440,7 +2441,7 @@ h1, h2 {
 .btn-pricing-primary, 
 .btn-download {
     position: relative;
-    background-color: #E07A2F !important;
+    background-color: var(--accent-unified) !important; /* Uniform desaturated base */
     border-radius: 0 !important;
     border: none !important;
     overflow: hidden;
@@ -2465,7 +2466,7 @@ h1, h2 {
     background: 
         linear-gradient(rgba(18, 10, 143, 0.20), rgba(18, 10, 143, 0.20)),
         linear-gradient(rgba(58, 23, 0, 0.20), rgba(58, 23, 0, 0.20)),
-        linear-gradient(rgba(176, 0, 32, 0.30), rgba(176, 0, 32, 0.30));
+        linear-gradient(rgba(176, 0, 32, 0.42), rgba(176, 0, 32, 0.42)); /* Cadmium +12% opaque */
     mix-blend-mode: multiply;
     pointer-events: none;
 }
@@ -2493,7 +2494,7 @@ h1, h2 {
     .btn-primary, 
     .btn-pricing-primary, 
     .btn-download {
-        background-color: #B00020 !important;
+        background-color: var(--accent-unified) !important;
     }
 }
 
@@ -2508,12 +2509,12 @@ h1, h2 {
     }
 }
 
-/* Hero/Success/Header buttons — solid Vermillion (simpler stack) */
+/* Hero/Success/Header buttons — unified desaturated accent */
 .btn-hero-primary,
 .btn-success,
 .header-nav-link-faculty {
     position: relative;
-    background-color: #E07A2F !important;
+    background-color: var(--accent-unified) !important;
     color: #fff !important;
     border-radius: 0 !important;
     border: none !important;
@@ -2539,18 +2540,18 @@ h1, h2 {
     border-color: #E6E6E6 !important;
 }
 
-/* 4. TIMELINE & MARKER */
+/* 4. TIMELINE & MARKER — unified accent */
 .timeline-line,
 .timeline-marker {
-    background-color: #E07A2F !important;
+    background-color: var(--accent-unified) !important;
 }
 
 .ink-divider {
-    background: linear-gradient(to right, transparent, rgba(176, 0, 32, 0.25), transparent) !important;
+    background: linear-gradient(to right, transparent, rgba(176, 104, 56, 0.3), transparent) !important;
 }
 
 .pedagogy-oversight:hover .pedagogy-oversight-photo {
-    border-color: #E6E6E6;
+    border-color: var(--accent-unified);
 }
 
 /* Diagnostic: Add .heavy-layer to elements to detect over-layering */
