@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
       fps = Math.round(frames * 1000 / (now - lastTime));
       frames = 0;
       lastTime = now;
-      const blendEls = document.querySelectorAll('[style*="mix-blend-mode"], .btn-watch-trailer, .watch-trailer-btn, .btn-primary, .btn-pricing-primary, .btn-download');
+      const blendEls = document.querySelectorAll('[style*="mix-blend-mode"], .btn-watch-trailer, .watch-trailer-btn, .btn-primary, .btn-pricing-primary, .btn-download, .btn-hero-primary, .btn-success, .header-nav-link-faculty, .timeline-line, .timeline-marker, .video-play-button, .plyr__control--overlaid, .video-player-fullscreen-btn');
       overlay.innerHTML = `<b>FPS: ${fps}</b><br>mix-blend elements: ${blendEls.length}`;
     }
     requestAnimationFrame(tick);

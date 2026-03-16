@@ -1223,7 +1223,10 @@ img.header-logo {
     padding-bottom: 16px;
 }
 
-.pricing-header::after {
+.pricing-header {
+    position: relative;
+}
+.pricing-header::before {
     content: '';
     position: absolute;
     bottom: 0;
@@ -1232,6 +1235,19 @@ img.header-logo {
     width: 60px;
     height: 0.5px;
     background-color: var(--accent-unified);
+}
+.pricing-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 0.5px;
+    background: linear-gradient(rgba(18, 10, 143, 0.20), rgba(18, 10, 143, 0.20)),
+        linear-gradient(rgba(58, 23, 0, 0.20), rgba(58, 23, 0, 0.20)),
+        linear-gradient(rgba(176, 0, 32, 0.42), rgba(176, 0, 32, 0.42));
+    mix-blend-mode: multiply;
 }
 
 .pricing-price-container {
@@ -1257,9 +1273,11 @@ img.header-logo {
     align-items: center;
     gap: 6px;
     padding: 6px 14px;
-    background-color: rgba(143, 74, 76, 0.15);
+    background-color: var(--accent-unified);
     border: 1px solid var(--accent-unified);
     border-radius: 4px;
+    position: relative;
+    overflow: hidden;
     font-family: 'Inter', sans-serif;
     font-weight: 600;
     font-size: 11px;
@@ -1973,7 +1991,7 @@ img.header-logo {
     opacity: 0.7;
 }
 
-/* Custom Play Button */
+/* Custom Play Button — same layer stack as trailer button */
 .video-play-button {
     position: absolute;
     top: 50%;
@@ -1991,12 +2009,25 @@ img.header-logo {
     z-index: 10;
     box-shadow: 0 8px 24px rgba(143, 74, 76, 0.4);
     border: 3px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+.video-play-button::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background:
+        linear-gradient(rgba(18, 10, 143, 0.20), rgba(18, 10, 143, 0.20)),
+        linear-gradient(rgba(58, 23, 0, 0.20), rgba(58, 23, 0, 0.20)),
+        linear-gradient(rgba(176, 0, 32, 0.42), rgba(176, 0, 32, 0.42));
+    mix-blend-mode: multiply;
+    pointer-events: none;
 }
 
 .video-play-button:hover {
     transform: translate(-50%, -50%) scale(1.1);
     box-shadow: 0 12px 32px rgba(143, 74, 76, 0.6);
-    background-color: #F08A3F;
 }
 
 .video-play-button::before {
@@ -2153,21 +2184,52 @@ img.header-logo {
     visibility: visible !important;
 }
 
+/* Plyr play button — same layer stack as trailer button */
 .plyr__control--overlaid {
+    position: relative !important;
+    overflow: hidden !important;
     background-color: var(--accent-unified) !important;
     border: 3px solid rgba(255, 255, 255, 0.1) !important;
     box-shadow: 0 8px 24px rgba(143, 74, 76, 0.4) !important;
 }
 
+.plyr__control--overlaid::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background:
+        linear-gradient(rgba(18, 10, 143, 0.20), rgba(18, 10, 143, 0.20)),
+        linear-gradient(rgba(58, 23, 0, 0.20), rgba(58, 23, 0, 0.20)),
+        linear-gradient(rgba(176, 0, 32, 0.42), rgba(176, 0, 32, 0.42));
+    mix-blend-mode: multiply;
+    pointer-events: none;
+}
+
 .plyr__control--overlaid:hover {
-    background-color: #F08A3F !important;
     transform: scale(1.1) !important;
     box-shadow: 0 12px 32px rgba(143, 74, 76, 0.6) !important;
 }
 
 .plyr__progress__played,
 .plyr__volume__progress {
+    position: relative !important;
+    overflow: hidden !important;
     background-color: var(--accent-unified) !important;
+}
+
+.plyr__progress__played::after,
+.plyr__volume__progress::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+        linear-gradient(rgba(18, 10, 143, 0.20), rgba(18, 10, 143, 0.20)),
+        linear-gradient(rgba(58, 23, 0, 0.20), rgba(58, 23, 0, 0.20)),
+        linear-gradient(rgba(176, 0, 32, 0.42), rgba(176, 0, 32, 0.42));
+    mix-blend-mode: multiply;
+    pointer-events: none;
 }
 
 .plyr__control[aria-expanded="true"],
@@ -2486,30 +2548,60 @@ h1, h2 {
     .watch-trailer-btn::after, 
     .btn-primary::after, 
     .btn-pricing-primary::after, 
-    .btn-download::after {
+    .btn-download::after,
+    .btn-hero-primary::after,
+    .btn-success::after,
+    .header-nav-link-faculty::after,
+    .timeline-line::after,
+    .timeline-marker::after,
+    .video-play-button::after,
+    .plyr__control--overlaid::after,
+    .plyr__progress__played::after,
+    .plyr__volume__progress::after,
+    .video-player-fullscreen-btn::after {
         display: none;
     }
     .btn-watch-trailer, 
     .watch-trailer-btn, 
     .btn-primary, 
     .btn-pricing-primary, 
-    .btn-download {
+    .btn-download,
+    .btn-hero-primary,
+    .btn-success,
+    .header-nav-link-faculty,
+    .timeline-line,
+    .timeline-marker,
+    .video-play-button,
+    .plyr__control--overlaid,
+    .plyr__progress__played,
+    .plyr__volume__progress,
+    .video-player-fullscreen-btn:hover {
         background-color: var(--accent-unified) !important;
     }
 }
 
-/* Reduced motion — disable glaze animations */
+/* Reduced motion — disable glaze blend for lower GPU */
 @media (prefers-reduced-motion: reduce) {
     .btn-watch-trailer::after,
     .watch-trailer-btn::after,
     .btn-primary::after,
     .btn-pricing-primary::after,
-    .btn-download::after {
+    .btn-download::after,
+    .btn-hero-primary::after,
+    .btn-success::after,
+    .header-nav-link-faculty::after,
+    .timeline-line::after,
+    .timeline-marker::after,
+    .video-play-button::after,
+    .plyr__control--overlaid::after,
+    .plyr__progress__played::after,
+    .plyr__volume__progress::after,
+    .video-player-fullscreen-btn::after {
         mix-blend-mode: normal;
     }
 }
 
-/* Hero/Success/Header buttons — unified desaturated accent */
+/* Hero/Success/Header buttons — same layer stack as trailer button (Vermillion + Ultramarine + Benzi + Cadmium) */
 .btn-hero-primary,
 .btn-success,
 .header-nav-link-faculty {
@@ -2519,6 +2611,25 @@ h1, h2 {
     border-radius: 0 !important;
     border: none !important;
     overflow: hidden;
+    will-change: transform, opacity;
+    transform: translateZ(0);
+}
+
+.btn-hero-primary::after,
+.btn-success::after,
+.header-nav-link-faculty::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    will-change: opacity;
+    transform: translateZ(0);
+    background: 
+        linear-gradient(rgba(18, 10, 143, 0.20), rgba(18, 10, 143, 0.20)),
+        linear-gradient(rgba(58, 23, 0, 0.20), rgba(58, 23, 0, 0.20)),
+        linear-gradient(rgba(176, 0, 32, 0.42), rgba(176, 0, 32, 0.42));
+    mix-blend-mode: multiply;
+    pointer-events: none;
 }
 
 /* 3. GHOST/OUTLINE BUTTONS */
@@ -2540,10 +2651,26 @@ h1, h2 {
     border-color: #E6E6E6 !important;
 }
 
-/* 4. TIMELINE & MARKER — unified accent */
+/* 4. TIMELINE & MARKER — same layer stack as trailer button */
 .timeline-line,
 .timeline-marker {
+    position: absolute;
     background-color: var(--accent-unified) !important;
+    overflow: hidden;
+}
+
+.timeline-line::after,
+.timeline-marker::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: 
+        linear-gradient(rgba(18, 10, 143, 0.20), rgba(18, 10, 143, 0.20)),
+        linear-gradient(rgba(58, 23, 0, 0.20), rgba(58, 23, 0, 0.20)),
+        linear-gradient(rgba(176, 0, 32, 0.42), rgba(176, 0, 32, 0.42));
+    mix-blend-mode: multiply;
+    pointer-events: none;
 }
 
 .ink-divider {
