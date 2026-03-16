@@ -3,9 +3,9 @@
    Modern Cinematic & Architectural Aesthetic
    ============================================ */
 
-/* CSS Variables - Atelier / Underwater Glass (Prussian Teal, Heavy Blur) */
+/* CSS Variables - Dioxazine-Deep palette */
 :root {
-    --bg-color: #0E0C12;
+    --bg-color: #0B0810;
     --text-color: #E6E6E6;
     --accent-color: #E07A2F;
     --card-bg: rgba(14, 25, 24, 0.88);
@@ -2383,20 +2383,18 @@ img.header-logo {
 }
 
 /* ============================================
-   THE OLD MASTER LAYER STACK
-   Base: Ultramarine (Opaque) | Glaze 1: Benzi (35%) | Glaze 2: Cadmium (35%)
+   REVISED OLD MASTER LAYER STACK
+   Base: Vermillion | Glazes: Ultramarine, Benzi, Cadmium
    ============================================ */
 
 /* Glaze colour tokens */
 :root {
-    --glaze-ultramarine: rgba(18, 10, 143, 0.65);
-    --glaze-ultramarine-deep: rgba(18, 10, 143, 0.75);
-    --glaze-benzibrown: rgba(58, 23, 0, 0.35);
-    --glaze-cadmium: rgba(176, 0, 32, 0.35);
-    --glaze-cadmium-glow: rgba(176, 0, 32, 0.4);
+    --glaze-ultramarine: rgba(18, 10, 143, 0.20);
+    --glaze-benzibrown: rgba(58, 23, 0, 0.20);
+    --glaze-cadmium: rgba(176, 0, 32, 0.30);
 }
 
-/* 1. TYPOGRAPHY: Parchment Text (Original #E6E6E6) */
+/* 1. TYPOGRAPHY: Parchment (#E6E6E6) */
 .curriculum-title, 
 .section-subtitle, 
 .question-number, 
@@ -2414,7 +2412,7 @@ h3, h4,
 .curriculum-tags .tag:not(:last-child)::after,
 .section-title,
 .key-themes-table th {
-    color: #E6E6E6 !important; /* Parchment */
+    color: #E6E6E6 !important;
     text-shadow: none !important;
 }
 
@@ -2429,81 +2427,100 @@ h1, h2 {
     color: #E6E6E6 !important;
 }
 
-/* Quote marks — parchment */
 .pedagogy-oversight-quote::before,
 .pedagogy-oversight-quote::after {
     color: #E6E6E6;
 }
 
-/* 2. THE STACKED LAYER SYSTEM (Buttons & UI Elements)
-   Base Layer: Ultramarine (#120A8F)
-   Glaze 1 (Benzi Brown): 35% opacity
-   Glaze 2 (Cadmium Red/Vermillion): 35% opacity */
+/* 2. STACKED BUTTONS — Base Vermillion + 3 glaze layers
+   GPU: will-change + translateZ for layer promotion */
 .btn-watch-trailer, 
 .watch-trailer-btn, 
 .btn-primary, 
 .btn-pricing-primary, 
-.btn-download,
-.btn-hero-primary,
-.btn-success,
-.header-nav-link-faculty {
+.btn-download {
     position: relative;
-    border-radius: 0 !important; /* SHARP EDGE */
+    background-color: #E07A2F !important;
+    border-radius: 0 !important;
     border: none !important;
     overflow: hidden;
     z-index: 1;
-    /* Base: Deep Opaque Ultramarine */
-    background-color: #120A8F !important;
     color: #fff !important;
+    will-change: transform, opacity;
+    transform: translateZ(0);
     transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-/* The Glaze Layers (Physical Paint Stacking) */
 .btn-watch-trailer::after, 
 .watch-trailer-btn::after, 
 .btn-primary::after, 
 .btn-pricing-primary::after, 
-.btn-download::after,
-.btn-hero-primary::after,
-.btn-success::after,
-.header-nav-link-faculty::after {
+.btn-download::after {
     content: '';
     position: absolute;
     inset: 0;
     z-index: 1;
-    /* Stack: Benzi Brown (35%) + Cadmium (35%) */
+    will-change: opacity;
+    transform: translateZ(0);
     background: 
-        linear-gradient(rgba(176, 0, 32, 0.35), rgba(176, 0, 32, 0.35)), /* Cadmium Layer */
-        linear-gradient(rgba(58, 23, 0, 0.35), rgba(58, 23, 0, 0.35));  /* Benzi Brown Layer */
+        linear-gradient(rgba(18, 10, 143, 0.20), rgba(18, 10, 143, 0.20)),
+        linear-gradient(rgba(58, 23, 0, 0.20), rgba(58, 23, 0, 0.20)),
+        linear-gradient(rgba(176, 0, 32, 0.30), rgba(176, 0, 32, 0.30));
     mix-blend-mode: multiply;
     pointer-events: none;
-    transition: opacity 0.4s ease;
-}
-
-/* On hover, we brighten to simulate light hitting the varnish */
-.btn-watch-trailer:hover::after, 
-.watch-trailer-btn:hover::after, 
-.btn-primary:hover::after, 
-.btn-pricing-primary:hover::after, 
-.btn-download:hover::after,
-.btn-hero-primary:hover::after,
-.btn-success:hover::after,
-.header-nav-link-faculty:hover::after {
-    opacity: 0.7;
 }
 
 .btn-watch-trailer:hover, 
 .watch-trailer-btn:hover, 
 .btn-primary:hover, 
 .btn-pricing-primary:hover, 
-.btn-download:hover,
-.btn-hero-primary:hover,
-.btn-success:hover {
-    transform: translateY(-3px) !important;
+.btn-download:hover {
+    transform: translateY(-2px) translateZ(0) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
 }
 
-/* 3. GHOST/OUTLINE BUTTONS
-   Parchment text, subtle border. */
+/* Low-power / Touch / Small screens — solid fallback (no mix-blend GPU load) */
+@media (hover: none), (max-width: 768px) {
+    .btn-watch-trailer::after, 
+    .watch-trailer-btn::after, 
+    .btn-primary::after, 
+    .btn-pricing-primary::after, 
+    .btn-download::after {
+        display: none;
+    }
+    .btn-watch-trailer, 
+    .watch-trailer-btn, 
+    .btn-primary, 
+    .btn-pricing-primary, 
+    .btn-download {
+        background-color: #B00020 !important;
+    }
+}
+
+/* Reduced motion — disable glaze animations */
+@media (prefers-reduced-motion: reduce) {
+    .btn-watch-trailer::after,
+    .watch-trailer-btn::after,
+    .btn-primary::after,
+    .btn-pricing-primary::after,
+    .btn-download::after {
+        mix-blend-mode: normal;
+    }
+}
+
+/* Hero/Success/Header buttons — solid Vermillion (simpler stack) */
+.btn-hero-primary,
+.btn-success,
+.header-nav-link-faculty {
+    position: relative;
+    background-color: #E07A2F !important;
+    color: #fff !important;
+    border-radius: 0 !important;
+    border: none !important;
+    overflow: hidden;
+}
+
+/* 3. GHOST/OUTLINE BUTTONS */
 .btn-hero-secondary,
 .btn-faculty-required,
 .btn-sample-preview,
@@ -2522,23 +2539,23 @@ h1, h2 {
     border-color: #E6E6E6 !important;
 }
 
-/* 4. TIMELINE & MARKER
-   Ultramarine base with glaze tone. */
+/* 4. TIMELINE & MARKER */
 .timeline-line,
 .timeline-marker {
-    background-color: #120A8F !important;
-    box-shadow: 
-        0 0 12px var(--glaze-ultramarine),
-        0 0 24px var(--glaze-cadmium-glow);
+    background-color: #E07A2F !important;
 }
 
-/* 5. BORDER / DIVIDER */
 .ink-divider {
     background: linear-gradient(to right, transparent, rgba(176, 0, 32, 0.25), transparent) !important;
 }
 
 .pedagogy-oversight:hover .pedagogy-oversight-photo {
     border-color: #E6E6E6;
+}
+
+/* Diagnostic: Add .heavy-layer to elements to detect over-layering */
+.heavy-layer {
+    outline: 2px solid red;
 }
 
 /* ============================================
@@ -2566,11 +2583,20 @@ h1, h2 {
     background-size: 800px 800px;
     opacity: 0.08;
     mix-blend-mode: screen;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .layer-1 {
     background-image: radial-gradient(circle at center, #3b2553 1px, transparent 1px);
     animation: drift-slow 60s linear infinite;
+}
+
+/* Pause atmos when reduced motion preferred */
+@media (prefers-reduced-motion: reduce) {
+    .layer-1, .layer-2, .layer-3 {
+        animation: none;
+    }
 }
 
 .layer-2 {

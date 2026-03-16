@@ -9,7 +9,55 @@ function raf(time) {
 
 requestAnimationFrame(raf);
 
-// Cascading Text Animation - top to bottom (paragraphs cascade down)
+// Low-power devices: disable atmospheric layers to prevent GPU stalling
+document.addEventListener('DOMContentLoaded', () => {
+  const atmosEl = document.querySelector('.atmospheric-layers');
+  if (atmosEl && navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4) {
+    atmosEl.style.display = 'none';
+  }
+});
+
+// Pause atmospheric layers when tab is hidden (Page Visibility API — saves GPU)
+document.addEventListener('DOMContentLoaded', () => {
+  const atmosEl = document.querySelector('.atmospheric-layers');
+  if (!atmosEl) return;
+  const layers = atmosEl.querySelectorAll('.atmos-layer');
+  const setPlayState = (playing) => {
+    layers.forEach((layer) => {
+      layer.style.animationPlayState = playing ? 'running' : 'paused';
+    });
+  };
+  document.addEventListener('visibilitychange', () => {
+    setPlayState(document.visibilityState === 'visible');
+  });
+});
+
+// Debug overlay: FPS + mix-blend elements (toggle with ?debug=1 or localStorage)
+document.addEventListener('DOMContentLoaded', () => {
+  const showDebug = () => window.location.search.includes('debug=1') || localStorage.getItem('anthology-debug') === '1';
+  if (!showDebug()) return;
+  const overlay = document.createElement('div');
+  overlay.id = 'anthology-debug-overlay';
+  overlay.style.cssText = 'position:fixed;bottom:10px;left:10px;background:rgba(0,0,0,0.85);color:#0f0;font:11px monospace;padding:8px;z-index:99999;border:1px solid #0f0;max-height:150px;overflow:auto;';
+  let lastTime = performance.now();
+  let frames = 0;
+  let fps = 0;
+  function tick() {
+    frames++;
+    const now = performance.now();
+    if (now - lastTime >= 500) {
+      fps = Math.round(frames * 1000 / (now - lastTime));
+      frames = 0;
+      lastTime = now;
+      const blendEls = document.querySelectorAll('[style*="mix-blend-mode"], .btn-watch-trailer, .watch-trailer-btn, .btn-primary, .btn-pricing-primary, .btn-download');
+      overlay.innerHTML = `<b>FPS: ${fps}</b><br>mix-blend elements: ${blendEls.length}`;
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+  document.body.appendChild(overlay);
+});
+
 document.addEventListener('DOMContentLoaded', () => {
     document.body.classList.add('ink-bleed-loaded');
 
