@@ -2792,13 +2792,13 @@ h1, h2 {
    ============================================ */
 
 :root {
-    /* EXACT 5-layer Red Glaze Stack provided by user. No extra solid base layers. */
     --red-glaze-gradient: 
         linear-gradient(rgba(18, 10, 143, 0.20), rgba(18, 10, 143, 0.20)),
         linear-gradient(rgba(58, 23, 0, 0.20), rgba(58, 23, 0, 0.20)),
         linear-gradient(rgba(176, 0, 32, 0.42), rgba(176, 0, 32, 0.42)),
         linear-gradient(rgba(200, 0, 128, 0.15), rgba(200, 0, 128, 0.15)),
-        linear-gradient(rgba(176, 0, 32, 0.10), rgba(176, 0, 32, 0.10));
+        linear-gradient(rgba(176, 0, 32, 0.10), rgba(176, 0, 32, 0.10)),
+        linear-gradient(rgb(176, 0, 32), rgb(176, 0, 32)); /* Solid Cadmium Base */
 }
 
 /* Base shape for all 3 buttons */
@@ -2862,7 +2862,6 @@ h1, h2 {
 /* 3. Red Glaze Solid Fill (Solid Fill & Parchment Text) */
 .btn-master-solid {
     background: var(--red-glaze-gradient) !important;
-    mix-blend-mode: multiply !important;
     border: none !important;
     color: #E6E6E6 !important;
     -webkit-text-fill-color: #E6E6E6 !important;
