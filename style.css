@@ -2911,8 +2911,8 @@ h1, h2 {
     display: block !important;
     content: '' !important;
     position: absolute !important;
-    inset: -2px !important;
-    padding: 2px !important;
+    inset: -1px !important;
+    padding: 1px !important;
     background-image: var(--glaze-layers), linear-gradient(#B06838, #B06838) !important;
     background-blend-mode: multiply, multiply, multiply, multiply, multiply, normal !important;
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0) !important;
@@ -2959,6 +2959,27 @@ h1, h2 {
     border-radius: 0 !important;
 }
 .theater-mode-container::after {
+    display: block !important;
+    content: '' !important;
+    position: absolute !important;
+    inset: -1px !important;
+    padding: 1px !important;
+    background-image: var(--glaze-layers), linear-gradient(#B06838, #B06838) !important;
+    background-blend-mode: multiply, multiply, multiply, multiply, multiply, normal !important;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0) !important;
+    -webkit-mask-composite: xor !important;
+    mask-composite: exclude !important;
+    pointer-events: none !important;
+    z-index: 100 !important;
+}
+
+/* Inline Video Player Outline */
+.video-player-wrapper {
+    position: relative !important;
+    border: 1px solid transparent !important;
+    border-radius: 0 !important;
+}
+.video-player-wrapper::after {
     display: block !important;
     content: '' !important;
     position: absolute !important;
@@ -3096,7 +3117,9 @@ p, .series-02-text, .series-02-list li, .teacher-pack-features li, .bio-text {
 .pricing-card, 
 .curriculum-box, 
 .teacher-pack-card,
-.theater-mode-container {
+.theater-mode-container,
+.pedagogy-oversight-photo,
+.video-player-wrapper {
     box-shadow: 
         inset 0 1px 0 rgba(255, 255, 255, 0.08), /* The Light Catch */
         0 40px 100px rgba(14, 12, 18, 0.8) !important; /* Original deep shadow */
