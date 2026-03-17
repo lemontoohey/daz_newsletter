@@ -2788,11 +2788,17 @@ h1, h2 {
 }
 
 /* ============================================
-   FORCED OVERRIDES: NEW BUTTON INVENTORY
+   FINAL BUTTON INVENTORY & RED GLAZE OVERRIDES
    ============================================ */
 
 :root {
-    --red-glaze-gradient: linear-gradient(rgba(18, 10, 143, 0.20), rgba(18, 10, 143, 0.20)), linear-gradient(rgba(58, 23, 0, 0.20), rgba(58, 23, 0, 0.20)), linear-gradient(rgba(176, 0, 32, 0.42), rgba(176, 0, 32, 0.42)), linear-gradient(rgba(200, 0, 128, 0.15), rgba(200, 0, 128, 0.15)), linear-gradient(rgba(176, 0, 32, 0.10), rgba(176, 0, 32, 0.10));
+    /* EXACT 5-layer Red Glaze Stack provided by user. No extra solid base layers. */
+    --red-glaze-gradient: 
+        linear-gradient(rgba(18, 10, 143, 0.20), rgba(18, 10, 143, 0.20)),
+        linear-gradient(rgba(58, 23, 0, 0.20), rgba(58, 23, 0, 0.20)),
+        linear-gradient(rgba(176, 0, 32, 0.42), rgba(176, 0, 32, 0.42)),
+        linear-gradient(rgba(200, 0, 128, 0.15), rgba(200, 0, 128, 0.15)),
+        linear-gradient(rgba(176, 0, 32, 0.10), rgba(176, 0, 32, 0.10));
 }
 
 /* Base shape for all 3 buttons */
@@ -2817,26 +2823,35 @@ h1, h2 {
     z-index: 10 !important;
 }
 
-.btn-master-stack:hover, 
-.btn-parchment-clean:hover, 
-.btn-master-solid:hover {
-    transform: translateY(-2px) !important;
+/* KILL GHOST LAYERS: Destroys the old ::after solid color blocks from original CSS */
+.btn-master-stack::before,
+.btn-master-stack::after,
+.btn-parchment-clean::before,
+.btn-parchment-clean::after {
+    display: none !important;
+    content: none !important;
+    background: none !important;
 }
 
 /* 1. Red Glaze Stack (Outline & Text) */
 .btn-master-stack {
     background: transparent !important;
-    border: 1px solid transparent !important;
-    border-image: var(--red-glaze-gradient) 1 !important;
+    border: 1px solid transparent !important; /* Required for border-image to attach */
+    border-image-source: var(--red-glaze-gradient) !important;
+    border-image-slice: 1 !important;
+    color: transparent !important; /* Hide original text color */
 }
+
+/* Apply Red Glaze Stack to the text */
 .btn-master-stack span {
     background: var(--red-glaze-gradient) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
     color: transparent !important;
 }
 
-/* 2. Parchment Clean */
+/* 2. Parchment Clean (Outline & Text) */
 .btn-parchment-clean {
     background: transparent !important;
     border: 1px solid #E6E6E6 !important;
@@ -2844,9 +2859,10 @@ h1, h2 {
     -webkit-text-fill-color: #E6E6E6 !important;
 }
 
-/* 3. Red Glaze Solid Fill */
+/* 3. Red Glaze Solid Fill (Solid Fill & Parchment Text) */
 .btn-master-solid {
     background: var(--red-glaze-gradient) !important;
+    mix-blend-mode: multiply !important;
     border: none !important;
     color: #E6E6E6 !important;
     -webkit-text-fill-color: #E6E6E6 !important;
@@ -2856,15 +2872,26 @@ h1, h2 {
    SPECIFIC TARGET OVERRIDES (Red Glaze)
    ============================================ */
 
-/* Karena Gregory Hover (Mask Hack for circles) */
-.pedagogy-oversight:hover .pedagogy-oversight-image::before {
+/* Karena Gregory Hover - Removes old orange border and applies Red Glaze */
+.pedagogy-oversight-photo, 
+.pedagogy-oversight:hover .pedagogy-oversight-photo {
     border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.pedagogy-oversight-image::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
     padding: 2px !important; /* Border thickness */
     background: var(--red-glaze-gradient) !important;
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0) !important;
     -webkit-mask-composite: xor !important;
     mask-composite: exclude !important;
     border-radius: 50% !important;
+    pointer-events: none;
+    z-index: 1;
 }
 
 /* Pricing List Hyphens */
@@ -2898,76 +2925,4 @@ h1, h2 {
     pointer-events: none;
     z-index: 1;
     mix-blend-mode: normal !important;
-}
-
-/* ============================================
-   FINAL COLOR AND BUTTON CORRECTIONS
-   ============================================ */
-
-:root {
-    /* Includes the exact 5 Red Glaze layers requested, PLUS the solid base color (#B06838) at the very bottom. 
-       Without this solid base, the transparent glazes disappear against the black website background. */
-    --red-glaze-gradient: 
-        linear-gradient(rgba(18, 10, 143, 0.20), rgba(18, 10, 143, 0.20)), 
-        linear-gradient(rgba(58, 23, 0, 0.20), rgba(58, 23, 0, 0.20)), 
-        linear-gradient(rgba(176, 0, 32, 0.42), rgba(176, 0, 32, 0.42)), 
-        linear-gradient(rgba(200, 0, 128, 0.15), rgba(200, 0, 128, 0.15)), 
-        linear-gradient(rgba(176, 0, 32, 0.10), rgba(176, 0, 32, 0.10)), 
-        linear-gradient(#B06838, #B06838);
-}
-
-/* 1. Red Glaze Stack (Outline) with PARCHMENT WHITE Text */
-.btn-master-stack {
-    background: transparent !important;
-    border: 1px solid transparent !important;
-    border-image: var(--red-glaze-gradient) 1 !important;
-    color: #E6E6E6 !important;
-    -webkit-text-fill-color: #E6E6E6 !important;
-}
-
-/* Force inner text to be Parchment White (reverting previous text-color hacks) */
-.btn-master-stack span {
-    background: none !important;
-    -webkit-background-clip: border-box !important;
-    -webkit-text-fill-color: #E6E6E6 !important;
-    color: #E6E6E6 !important;
-}
-
-/* 2. Karena Gregory Hack - Remove the original double-border completely */
-.pedagogy-oversight-photo, 
-.pedagogy-oversight:hover .pedagogy-oversight-photo {
-    border: none !important;
-    outline: none !important;
-    box-shadow: none !important;
-}
-
-/* Red Glaze Line for Karena (Only this one will remain) */
-.pedagogy-oversight-image::before {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    padding: 2px !important; /* Thickness untouched */
-    background: var(--red-glaze-gradient) !important;
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0) !important;
-    -webkit-mask-composite: xor !important;
-    mask-composite: exclude !important;
-    border-radius: 50% !important;
-    pointer-events: none;
-    z-index: 1;
-}
-
-/* 3. Solid Button Fill */
-.btn-master-solid {
-    background: var(--red-glaze-gradient) !important;
-    border: none !important;
-    color: #E6E6E6 !important;
-    -webkit-text-fill-color: #E6E6E6 !important;
-}
-
-/* 4. Pricing List Hyphens */
-.pricing-features li::before {
-    background: var(--red-glaze-gradient) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    color: transparent !important;
 }
