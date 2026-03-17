@@ -2792,18 +2792,13 @@ h1, h2 {
    ============================================ */
 
 :root {
-    /* The 5 glazes exactly as requested (used for multiplying) */
-    --red-glaze-pure: 
+    /* The 5 translucent glazes */
+    --glaze-layers: 
         linear-gradient(rgba(18, 10, 143, 0.20), rgba(18, 10, 143, 0.20)),
         linear-gradient(rgba(58, 23, 0, 0.20), rgba(58, 23, 0, 0.20)),
         linear-gradient(rgba(176, 0, 32, 0.42), rgba(176, 0, 32, 0.42)),
         linear-gradient(rgba(200, 0, 128, 0.15), rgba(200, 0, 128, 0.15)),
         linear-gradient(rgba(176, 0, 32, 0.10), rgba(176, 0, 32, 0.10));
-        
-    /* The glazes pre-baked with the Burnt Orange base (used for text & outlines) */
-    --red-glaze-combined: 
-        var(--red-glaze-pure),
-        linear-gradient(#B06838, #B06838);
 }
 
 /* Base shape for all 3 buttons */
@@ -2829,11 +2824,12 @@ h1, h2 {
     z-index: 10 !important;
 }
 
-/* Destroys conflicting ghost layers from original CSS */
+/* Hard-kill any old ghost layers globally */
 .btn-master-stack::before, .btn-master-stack::after,
 .btn-parchment-clean::before, .btn-parchment-clean::after,
 .btn-master-solid::before, .btn-master-solid::after {
-    display: none; 
+    display: none !important; 
+    content: none !important;
 }
 
 /* =======================================
@@ -2841,21 +2837,33 @@ h1, h2 {
    ======================================= */
 .btn-master-stack {
     background: transparent !important;
-    /* Force a native solid border to catch the gradient image */
-    border-width: 1px !important;
-    border-style: solid !important;
-    border-image: var(--red-glaze-combined) 1 stretch !important;
+    border: 1px solid transparent !important; /* Holds physical space */
 }
 
-/* Ensure the previous buggy cut-out mask is completely disabled */
+/* The Old Master Border Outline */
 .btn-master-stack::before {
-    display: none !important;
-    content: none !important;
+    display: block !important;
+    content: '' !important;
+    position: absolute !important;
+    inset: -1px !important; /* Locks onto the transparent border */
+    padding: 1px !important; /* The 1px line thickness */
+    
+    /* Mix the 5 glazes with the Burnt Orange base */
+    background-image: var(--glaze-layers), linear-gradient(#B06838, #B06838) !important;
+    background-blend-mode: multiply, multiply, multiply, multiply, multiply, normal !important;
+    
+    /* Cut out the center to make it an outline */
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0) !important;
+    -webkit-mask-composite: xor !important;
+    mask-composite: exclude !important;
+    pointer-events: none !important;
+    z-index: 1 !important;
 }
 
-/* The Colored Text (Untouched) */
+/* The Old Master Text */
 .btn-master-stack span {
-    background: var(--red-glaze-combined) !important;
+    background-image: var(--glaze-layers), linear-gradient(#B06838, #B06838) !important;
+    background-blend-mode: multiply, multiply, multiply, multiply, multiply, normal !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
     color: transparent !important;
@@ -2877,29 +2885,15 @@ h1, h2 {
    3. MASTER SOLID (Solid Base + Multiply Glaze Overlay)
    ======================================= */
 .btn-master-solid {
-    background: #B06838 !important; /* Solid Burnt Orange Base */
+    background-image: var(--glaze-layers), linear-gradient(#B06838, #B06838) !important;
+    background-blend-mode: multiply, multiply, multiply, multiply, multiply, normal !important;
     border: none !important;
     color: #E6E6E6 !important;
     -webkit-text-fill-color: #E6E6E6 !important;
-    overflow: hidden !important;
 }
-
-/* Replicating the exact Timeline Margin structural overlay */
-.btn-master-solid::after {
-    display: block !important;
-    content: '' !important;
-    position: absolute !important;
-    inset: 0 !important;
-    background: var(--red-glaze-pure) !important;
-    mix-blend-mode: multiply !important;
-    pointer-events: none !important;
-    z-index: 1 !important;
-}
-
-/* Keep text safe above the multiply layer */
 .btn-master-solid span {
     position: relative !important;
-    z-index: 2 !important; 
+    z-index: 2 !important;
 }
 
 /* ============================================
@@ -2913,14 +2907,14 @@ h1, h2 {
     outline: none !important;
     box-shadow: none !important;
 }
-
 .pedagogy-oversight-image::before {
     display: block !important;
     content: '' !important;
     position: absolute !important;
     inset: -2px !important;
     padding: 2px !important;
-    background: var(--red-glaze-combined) !important;
+    background-image: var(--glaze-layers), linear-gradient(#B06838, #B06838) !important;
+    background-blend-mode: multiply, multiply, multiply, multiply, multiply, normal !important;
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0) !important;
     -webkit-mask-composite: xor !important;
     mask-composite: exclude !important;
@@ -2931,7 +2925,8 @@ h1, h2 {
 
 /* Pricing List Hyphens */
 .pricing-features li::before {
-    background: var(--red-glaze-combined) !important;
+    background-image: var(--glaze-layers), linear-gradient(#B06838, #B06838) !important;
+    background-blend-mode: multiply, multiply, multiply, multiply, multiply, normal !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
     color: transparent !important;
@@ -2948,10 +2943,32 @@ h1, h2 {
     inset: 0 !important;
     border-radius: 50% !important;
     padding: 3px !important;
-    background: var(--red-glaze-combined) !important;
+    background-image: var(--glaze-layers), linear-gradient(#B06838, #B06838) !important;
+    background-blend-mode: multiply, multiply, multiply, multiply, multiply, normal !important;
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0) !important;
     -webkit-mask-composite: xor !important;
     mask-composite: exclude !important;
     pointer-events: none;
     z-index: 1;
+}
+
+/* Video Player Container Outline */
+.theater-mode-container {
+    position: relative !important;
+    border: 1px solid transparent !important;
+    border-radius: 0 !important;
+}
+.theater-mode-container::after {
+    display: block !important;
+    content: '' !important;
+    position: absolute !important;
+    inset: -1px !important;
+    padding: 1px !important;
+    background-image: var(--glaze-layers), linear-gradient(#B06838, #B06838) !important;
+    background-blend-mode: multiply, multiply, multiply, multiply, multiply, normal !important;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0) !important;
+    -webkit-mask-composite: xor !important;
+    mask-composite: exclude !important;
+    pointer-events: none !important;
+    z-index: 100 !important;
 }
