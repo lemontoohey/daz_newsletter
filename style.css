@@ -2972,3 +2972,26 @@ h1, h2 {
     pointer-events: none !important;
     z-index: 100 !important;
 }
+
+/* ============================================
+   GLOBAL BUTTON SHADOW & OUTLINE CONSISTENCY
+   ============================================ */
+
+/* 
+   Removes the legacy "light source" (inset bevel) so the 1px Red Glaze outline 
+   is perfectly visible. Simultaneously applies a consistent, cinematic drop shadow 
+   to ALL buttons (including "Contact Us"). 
+*/
+a.btn-master-stack, button.btn-master-stack,
+a.btn-parchment-clean, button.btn-parchment-clean,
+a.btn-master-solid, button.btn-master-solid {
+    /* ONLY an external drop shadow. The inset light source is deliberately removed. */
+    box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.4) !important;
+}
+
+a.btn-master-stack:hover, button.btn-master-stack:hover,
+a.btn-parchment-clean:hover, button.btn-parchment-clean:hover,
+a.btn-master-solid:hover, button.btn-master-solid:hover {
+    /* Deeper drop shadow on hover, but still no inset light source */
+    box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.6) !important;
+}
