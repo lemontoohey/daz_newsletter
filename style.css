@@ -2798,7 +2798,7 @@ h1, h2 {
         linear-gradient(rgba(176, 0, 32, 0.42), rgba(176, 0, 32, 0.42)),
         linear-gradient(rgba(200, 0, 128, 0.15), rgba(200, 0, 128, 0.15)),
         linear-gradient(rgba(176, 0, 32, 0.10), rgba(176, 0, 32, 0.10)),
-        linear-gradient(rgb(176, 0, 32), rgb(176, 0, 32)); /* Solid Cadmium Base */
+        linear-gradient(#B06838, #B06838); /* The warm "underpainting" base */
 }
 
 /* Base shape for all 3 buttons */
