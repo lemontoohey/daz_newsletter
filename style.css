@@ -22,19 +22,6 @@
     --max-content-width: 1200px;
     --timeline-offset: 60px;
     --text-max-width: 65ch;
-    /* Red Glaze Stack — single gradient for border-image (5 layers as color stops) */
-    --red-glaze-stack-border: linear-gradient(to bottom,
-        rgba(18, 10, 143, 0.20),
-        rgba(58, 23, 0, 0.20),
-        rgba(176, 0, 32, 0.42),
-        rgba(200, 0, 128, 0.15),
-        rgba(176, 0, 32, 0.10)
-    );
-    --red-glaze-stack-bg: linear-gradient(rgba(18, 10, 143, 0.20), rgba(18, 10, 143, 0.20)),
-        linear-gradient(rgba(58, 23, 0, 0.20), rgba(58, 23, 0, 0.20)),
-        linear-gradient(rgba(176, 0, 32, 0.42), rgba(176, 0, 32, 0.42)),
-        linear-gradient(rgba(200, 0, 128, 0.15), rgba(200, 0, 128, 0.15)),
-        linear-gradient(rgba(176, 0, 32, 0.10), rgba(176, 0, 32, 0.10));
 }
 
 /* Reset & Base Styles */
@@ -1154,14 +1141,13 @@ img.header-logo {
     position: relative;
 }
 
-/* Karena Gregory portrait — ring on hover uses Red Glaze Stack */
+/* Karena Gregory portrait — ring on hover (overridden by FORCED OVERRIDES block) */
 .pedagogy-oversight:hover .pedagogy-oversight-image::before {
     content: '';
     position: absolute;
     inset: -2px;
     border-radius: 50%;
-    border: 2px solid transparent;
-    border-image: var(--red-glaze-stack-border) 2;
+    border: 2px solid var(--accent-unified);
     pointer-events: none;
     z-index: 1;
 }
@@ -1406,17 +1392,12 @@ img.header-logo {
     content: '–';
     position: absolute;
     left: 0;
+    color: var(--accent-unified);
     font-size: 0.85em;
     font-weight: 400;
     width: auto;
     height: auto;
     line-height: 1.8;
-    background: var(--red-glaze-stack-bg), #E07A2F;
-    background-blend-mode: multiply;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
 }
 
 .pricing-buttons {
@@ -1443,6 +1424,7 @@ img.header-logo {
     justify-content: center;
     padding: 16px 32px;
     background: transparent;
+    color: var(--accent-color);
     text-decoration: none;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
@@ -1451,8 +1433,7 @@ img.header-logo {
     text-transform: uppercase;
     border-radius: 0 !important;
     transition: all 0.3s ease;
-    border: 1px solid transparent;
-    border-image: var(--red-glaze-stack-border) 1;
+    border: 1px solid var(--accent-color);
     min-height: 48px;
     position: relative;
     z-index: 10;
@@ -1937,9 +1918,8 @@ img.header-logo {
     width: 36px;
     height: 36px;
     background-color: rgba(0, 0, 0, 0.7);
-    border: 2px solid transparent;
-    border-image: var(--red-glaze-stack-border) 2;
-    border-radius: 0 !important;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1950,8 +1930,7 @@ img.header-logo {
 
 .video-player-close:hover {
     background-color: rgba(143, 74, 76, 0.9);
-    border: 2px solid transparent;
-    border-image: var(--red-glaze-stack-border) 2;
+    border-color: var(--accent-unified);
     transform: rotate(90deg);
 }
 
@@ -1975,10 +1954,9 @@ img.header-logo {
     right: 16px;
     width: 44px;
     height: 44px;
-    background-color: #E07A2F;
-    border: 2px solid transparent;
-    border-image: var(--red-glaze-stack-border) 2;
-    border-radius: 0 !important;
+    background-color: rgba(143, 74, 76, 0.9);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
     display: none;
     align-items: center;
     justify-content: center;
@@ -2002,9 +1980,8 @@ img.header-logo {
 }
 
 .video-player-fullscreen-btn:hover {
-    background-color: #E07A2F;
-    border: 2px solid transparent;
-    border-image: var(--red-glaze-stack-border) 2;
+    background-color: var(--accent-unified);
+    border-color: #FFFFFF;
     transform: scale(1.1);
     box-shadow: 0 6px 16px rgba(143, 74, 76, 0.6);
 }
@@ -2061,7 +2038,7 @@ img.header-logo {
     opacity: 0.7;
 }
 
-/* Custom Play Button — Red Glaze Stack, straight edges */
+/* Custom Play Button (overridden by FORCED OVERRIDES block) */
 .video-play-button {
     position: absolute;
     top: 50%;
@@ -2069,8 +2046,8 @@ img.header-logo {
     transform: translate(-50%, -50%);
     width: 80px;
     height: 80px;
-    background-color: #E07A2F;
-    border-radius: 0 !important;
+    background-color: var(--accent-unified);
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2078,8 +2055,7 @@ img.header-logo {
     transition: all 0.3s ease;
     z-index: 10;
     box-shadow: 0 8px 24px rgba(143, 74, 76, 0.4);
-    border: 3px solid transparent;
-    border-image: var(--red-glaze-stack-border) 3;
+    border: 3px solid rgba(255, 255, 255, 0.1);
     overflow: hidden;
 }
 
@@ -2261,10 +2237,9 @@ img.header-logo {
 .plyr__control--overlaid {
     position: relative !important;
     overflow: hidden !important;
-    background-color: #E07A2F !important;
-    border: 3px solid transparent !important;
-    border-image: var(--red-glaze-stack-border) 3 !important;
-    border-radius: 0 !important;
+    background-color: var(--accent-unified) !important;
+    border: 3px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 50% !important;
     box-shadow: 0 8px 24px rgba(143, 74, 76, 0.4) !important;
 }
 
@@ -2318,9 +2293,8 @@ img.header-logo {
 
 /* Make Fullscreen Button More Prominent */
 .plyr__control[data-plyr="fullscreen"] {
-    background-color: #E07A2F !important;
-    border: 2px solid transparent !important;
-    border-image: var(--red-glaze-stack-border) 2 !important;
+    background-color: rgba(143, 74, 76, 0.5) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
     border-radius: 0 !important;
     padding: 8px !important;
     margin-left: 8px !important;
@@ -2328,9 +2302,8 @@ img.header-logo {
 }
 
 .plyr__control[data-plyr="fullscreen"]:hover {
-    background-color: #E07A2F !important;
-    border: 2px solid transparent !important;
-    border-image: var(--red-glaze-stack-border) 2 !important;
+    background-color: var(--accent-unified) !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
     transform: scale(1.1) !important;
 }
 
@@ -2537,58 +2510,6 @@ img.header-logo {
     --accent-unified: #B06838; /* Desaturated vermillion — uniform across site, no burnt look */
 }
 
-/* ============================================
-   RED GLAZE STACK — 3 BUTTON CLASSES
-   Text: background-clip | Border: border-image | No rounded corners
-   ============================================ */
-
-/* 1. btn-master-stack: Transparent bg, Red Glaze text + border */
-.btn-master-stack {
-    background-color: transparent !important;
-    background-image: var(--red-glaze-stack-bg), #E07A2F !important;
-    background-blend-mode: multiply !important;
-    -webkit-background-clip: text !important;
-    background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    color: transparent !important;
-    border: 1px solid transparent !important;
-    border-image: var(--red-glaze-stack-border) 1 !important;
-    border-radius: 0 !important;
-}
-
-/* 2. btn-parchment-clean: Transparent bg, Parchment text + border */
-.btn-parchment-clean {
-    background: transparent !important;
-    color: #E6E6E6 !important;
-    border: 1px solid #E6E6E6 !important;
-    border-radius: 0 !important;
-}
-
-.btn-parchment-clean:hover {
-    background: #E6E6E6 !important;
-    color: #0B0810 !important;
-}
-
-/* 3. btn-master-solid: Red Glaze bg (base + multiply stack), Parchment text, no border */
-.btn-master-solid {
-    position: relative;
-    background-color: #E07A2F !important;
-    color: #E6E6E6 !important;
-    border: none !important;
-    border-radius: 0 !important;
-    overflow: hidden;
-}
-
-.btn-master-solid::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    background: var(--red-glaze-stack-bg);
-    mix-blend-mode: multiply;
-}
-
 /* 1. TYPOGRAPHY: Parchment (#E6E6E6) */
 .curriculum-title, 
 .section-subtitle, 
@@ -2736,13 +2657,12 @@ h1, h2 {
     }
 }
 
-/* Hero/Success/Header buttons — legacy; replaced by btn-master-stack in HTML */
+/* Hero/Success/Header buttons — legacy fallback */
 .btn-hero-primary,
 .btn-success,
 .header-nav-link-faculty {
     background: transparent !important;
-    border: 1px solid transparent !important;
-    border-image: var(--red-glaze-stack-border) 1 !important;
+    border: 1px solid var(--accent-unified) !important;
     border-radius: 0 !important;
 }
 
@@ -2865,4 +2785,117 @@ h1, h2 {
 @keyframes drift-fast {
     0% { transform: translate(0, 0) rotate(0deg); }
     100% { transform: translate(-5%, 10%) rotate(2deg); }
+}
+
+/* ============================================
+   FORCED OVERRIDES: NEW BUTTON INVENTORY
+   ============================================ */
+
+:root {
+    --red-glaze-gradient: linear-gradient(rgba(18, 10, 143, 0.20), rgba(18, 10, 143, 0.20)), linear-gradient(rgba(58, 23, 0, 0.20), rgba(58, 23, 0, 0.20)), linear-gradient(rgba(176, 0, 32, 0.42), rgba(176, 0, 32, 0.42)), linear-gradient(rgba(200, 0, 128, 0.15), rgba(200, 0, 128, 0.15)), linear-gradient(rgba(176, 0, 32, 0.10), rgba(176, 0, 32, 0.10));
+}
+
+/* Base shape for all 3 buttons */
+.btn-master-stack, 
+.btn-parchment-clean, 
+.btn-master-solid {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 14px 28px !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 13px !important;
+    letter-spacing: 0.1em !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    border-radius: 0 !important; /* Forces sharp edges globally */
+    box-sizing: border-box !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    min-height: 48px !important;
+    cursor: pointer !important;
+    z-index: 10 !important;
+}
+
+.btn-master-stack:hover, 
+.btn-parchment-clean:hover, 
+.btn-master-solid:hover {
+    transform: translateY(-2px) !important;
+}
+
+/* 1. Red Glaze Stack (Outline & Text) */
+.btn-master-stack {
+    background: transparent !important;
+    border: 1px solid transparent !important;
+    border-image: var(--red-glaze-gradient) 1 !important;
+}
+.btn-master-stack span {
+    background: var(--red-glaze-gradient) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    color: transparent !important;
+}
+
+/* 2. Parchment Clean */
+.btn-parchment-clean {
+    background: transparent !important;
+    border: 1px solid #E6E6E6 !important;
+    color: #E6E6E6 !important;
+    -webkit-text-fill-color: #E6E6E6 !important;
+}
+
+/* 3. Red Glaze Solid Fill */
+.btn-master-solid {
+    background: var(--red-glaze-gradient) !important;
+    border: none !important;
+    color: #E6E6E6 !important;
+    -webkit-text-fill-color: #E6E6E6 !important;
+}
+
+/* ============================================
+   SPECIFIC TARGET OVERRIDES (Red Glaze)
+   ============================================ */
+
+/* Karena Gregory Hover (Mask Hack for circles) */
+.pedagogy-oversight:hover .pedagogy-oversight-image::before {
+    border: none !important;
+    padding: 2px !important; /* Border thickness */
+    background: var(--red-glaze-gradient) !important;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0) !important;
+    -webkit-mask-composite: xor !important;
+    mask-composite: exclude !important;
+    border-radius: 50% !important;
+}
+
+/* Pricing List Hyphens */
+.pricing-features li::before {
+    background: var(--red-glaze-gradient) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    color: transparent !important;
+}
+
+/* Video Player Outlines & Circular Play Button */
+.theater-mode-container {
+    border: 1px solid transparent !important;
+    border-image: var(--red-glaze-gradient) 1 !important;
+    border-radius: 0 !important;
+}
+
+.video-play-button {
+    border: none !important;
+}
+.video-play-button::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50% !important;
+    padding: 3px !important;
+    background: var(--red-glaze-gradient) !important;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0) !important;
+    -webkit-mask-composite: xor !important;
+    mask-composite: exclude !important;
+    pointer-events: none;
+    z-index: 1;
+    mix-blend-mode: normal !important;
 }
