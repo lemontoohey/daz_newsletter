@@ -2974,24 +2974,42 @@ h1, h2 {
 }
 
 /* ============================================
-   GLOBAL BUTTON SHADOW & OUTLINE CONSISTENCY
+   ORGANIC HOVER PULSE & BURIED GLAZE GLOW
    ============================================ */
 
-/* 
-   Removes the legacy "light source" (inset bevel) so the 1px Red Glaze outline 
-   is perfectly visible. Simultaneously applies a consistent, cinematic drop shadow 
-   to ALL buttons (including "Contact Us"). 
-*/
+/* The Lazy 4-Second Breathing Loop */
+@keyframes buried-glaze-pulse {
+    0% {
+        /* Resting State: Standard drop shadow, no glow, baseline scale */
+        box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.4), 0 0 0px 0px rgba(224, 73, 22, 0);
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        /* Peak State: Deeper drop shadow, 1.5% scale up, 5% Cadmium Orange/Red halo */
+        box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.7), 0 0 35px 5px rgba(224, 73, 22, 0.05);
+        transform: translateY(-2px) scale(1.015);
+    }
+    100% {
+        /* Return to Resting State */
+        box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.4), 0 0 0px 0px rgba(224, 73, 22, 0);
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Apply the resting state and a smooth, luxurious release transition */
 a.btn-master-stack, button.btn-master-stack,
 a.btn-parchment-clean, button.btn-parchment-clean,
 a.btn-master-solid, button.btn-master-solid {
-    /* ONLY an external drop shadow. The inset light source is deliberately removed. */
     box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.4) !important;
+    /* When the mouse leaves, it takes 0.8s to slowly sink back down */
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.8s cubic-bezier(0.25, 1, 0.5, 1) !important;
 }
 
+/* Trigger the breathing animation infinitely while hovered */
 a.btn-master-stack:hover, button.btn-master-stack:hover,
 a.btn-parchment-clean:hover, button.btn-parchment-clean:hover,
 a.btn-master-solid:hover, button.btn-master-solid:hover {
-    /* Deeper drop shadow on hover, but still no inset light source */
-    box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.6) !important;
+    animation: buried-glaze-pulse 4s ease-in-out infinite !important;
+    /* Ensure the transition doesn't fight the animation */
+    transition: none !important;
 }
