@@ -3013,3 +3013,30 @@ a.btn-master-solid:hover, button.btn-master-solid:hover {
     /* Ensure the transition doesn't fight the animation */
     transition: none !important;
 }
+
+/* ============================================
+   GLOBAL 1PX OUTLINE ENFORCEMENT
+   ============================================ */
+
+/* Lock the physical border thickness globally for outlined buttons */
+a.btn-master-stack, button.btn-master-stack,
+a.btn-parchment-clean, button.btn-parchment-clean {
+    border-width: 1px !important;
+    border-style: solid !important;
+}
+
+/* Ensure Parchment Clean is perfectly white */
+a.btn-parchment-clean, button.btn-parchment-clean {
+    border-color: #E6E6E6 !important;
+}
+
+/* Ensure Master Stack physical border stays invisible so the Red Glaze pseudo-element can render */
+a.btn-master-stack, button.btn-master-stack {
+    border-color: transparent !important;
+}
+
+/* Neutralize any lingering legacy classes that might attempt to add solid backgrounds or borders */
+.watch-trailer-btn, .btn-hero, .btn-view-teacher-pack {
+    background-color: transparent !important;
+    border-radius: 0 !important;
+}
