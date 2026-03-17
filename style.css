@@ -3068,6 +3068,14 @@ a.btn-master-stack, button.btn-master-stack {
     border-radius: 0 !important;
 }
 
+/* When watch-trailer-btn is used with btn-master-stack, kill the legacy ::after overlay
+   so the Red Glaze outline (::before) renders correctly instead of a solid fill */
+button.btn-master-stack.watch-trailer-btn::after,
+a.btn-master-stack.watch-trailer-btn::after {
+    display: none !important;
+    content: none !important;
+}
+
 /* ============================================
    FINAL CINEMATIC POLISH & MICRO-INTERACTIONS
    ============================================ */
