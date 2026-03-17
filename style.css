@@ -2841,25 +2841,19 @@ h1, h2 {
    ======================================= */
 .btn-master-stack {
     background: transparent !important;
-    border: 1px solid transparent !important; /* Invisible structural boundary */
+    /* Force a native solid border to catch the gradient image */
+    border-width: 1px !important;
+    border-style: solid !important;
+    border-image: var(--red-glaze-combined) 1 stretch !important;
 }
 
-/* The Invincible Outline Hack (replaces buggy border-image) */
+/* Ensure the previous buggy cut-out mask is completely disabled */
 .btn-master-stack::before {
-    display: block !important;
-    content: '' !important;
-    position: absolute !important;
-    inset: -1px !important; /* Stretches over the transparent border */
-    padding: 1px !important; /* Outline thickness */
-    background: var(--red-glaze-combined) !important;
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0) !important;
-    -webkit-mask-composite: xor !important;
-    mask-composite: exclude !important;
-    pointer-events: none !important;
-    z-index: 1 !important;
+    display: none !important;
+    content: none !important;
 }
 
-/* The Colored Text */
+/* The Colored Text (Untouched) */
 .btn-master-stack span {
     background: var(--red-glaze-combined) !important;
     -webkit-background-clip: text !important;
