@@ -2788,23 +2788,29 @@ h1, h2 {
 }
 
 /* ============================================
-   FINAL BUTTON INVENTORY & RED GLAZE OVERRIDES
+   ULTIMATE BUTTON INVENTORY & RED GLAZE
    ============================================ */
 
 :root {
-    --red-glaze-gradient: 
+    /* The 5 glazes exactly as requested (used for multiplying) */
+    --red-glaze-pure: 
         linear-gradient(rgba(18, 10, 143, 0.20), rgba(18, 10, 143, 0.20)),
         linear-gradient(rgba(58, 23, 0, 0.20), rgba(58, 23, 0, 0.20)),
         linear-gradient(rgba(176, 0, 32, 0.42), rgba(176, 0, 32, 0.42)),
         linear-gradient(rgba(200, 0, 128, 0.15), rgba(200, 0, 128, 0.15)),
-        linear-gradient(rgba(176, 0, 32, 0.10), rgba(176, 0, 32, 0.10)),
-        linear-gradient(#B06838, #B06838); /* The warm "underpainting" base */
+        linear-gradient(rgba(176, 0, 32, 0.10), rgba(176, 0, 32, 0.10));
+        
+    /* The glazes pre-baked with the Burnt Orange base (used for text & outlines) */
+    --red-glaze-combined: 
+        var(--red-glaze-pure),
+        linear-gradient(#B06838, #B06838);
 }
 
 /* Base shape for all 3 buttons */
 .btn-master-stack, 
 .btn-parchment-clean, 
 .btn-master-solid {
+    position: relative !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -2815,7 +2821,7 @@ h1, h2 {
     letter-spacing: 0.1em !important;
     text-transform: uppercase !important;
     text-decoration: none !important;
-    border-radius: 0 !important; /* Forces sharp edges globally */
+    border-radius: 0 !important;
     box-sizing: border-box !important;
     transition: transform 0.3s ease, box-shadow 0.3s ease !important;
     min-height: 48px !important;
@@ -2823,35 +2829,49 @@ h1, h2 {
     z-index: 10 !important;
 }
 
-/* KILL GHOST LAYERS: Destroys the old ::after solid color blocks from original CSS */
-.btn-master-stack::before,
-.btn-master-stack::after,
-.btn-parchment-clean::before,
-.btn-parchment-clean::after {
-    display: none !important;
-    content: none !important;
-    background: none !important;
+/* Destroys conflicting ghost layers from original CSS */
+.btn-master-stack::before, .btn-master-stack::after,
+.btn-parchment-clean::before, .btn-parchment-clean::after,
+.btn-master-solid::before, .btn-master-solid::after {
+    display: none; 
 }
 
-/* 1. Red Glaze Stack (Outline & Text) */
+/* =======================================
+   1. RED GLAZE STACK (Transparent button, Colored Outline & Text)
+   ======================================= */
 .btn-master-stack {
     background: transparent !important;
-    border: 1px solid transparent !important; /* Required for border-image to attach */
-    border-image-source: var(--red-glaze-gradient) !important;
-    border-image-slice: 1 !important;
-    color: transparent !important; /* Hide original text color */
+    border: 1px solid transparent !important; /* Invisible structural boundary */
 }
 
-/* Apply Red Glaze Stack to the text */
+/* The Invincible Outline Hack (replaces buggy border-image) */
+.btn-master-stack::before {
+    display: block !important;
+    content: '' !important;
+    position: absolute !important;
+    inset: -1px !important; /* Stretches over the transparent border */
+    padding: 1px !important; /* Outline thickness */
+    background: var(--red-glaze-combined) !important;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0) !important;
+    -webkit-mask-composite: xor !important;
+    mask-composite: exclude !important;
+    pointer-events: none !important;
+    z-index: 1 !important;
+}
+
+/* The Colored Text */
 .btn-master-stack span {
-    background: var(--red-glaze-gradient) !important;
+    background: var(--red-glaze-combined) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
-    background-clip: text !important;
     color: transparent !important;
+    position: relative !important;
+    z-index: 2 !important;
 }
 
-/* 2. Parchment Clean (Outline & Text) */
+/* =======================================
+   2. PARCHMENT CLEAN (White outline, white text)
+   ======================================= */
 .btn-parchment-clean {
     background: transparent !important;
     border: 1px solid #E6E6E6 !important;
@@ -2859,19 +2879,40 @@ h1, h2 {
     -webkit-text-fill-color: #E6E6E6 !important;
 }
 
-/* 3. Red Glaze Solid Fill (Solid Fill & Parchment Text) */
+/* =======================================
+   3. MASTER SOLID (Solid Base + Multiply Glaze Overlay)
+   ======================================= */
 .btn-master-solid {
-    background: var(--red-glaze-gradient) !important;
+    background: #B06838 !important; /* Solid Burnt Orange Base */
     border: none !important;
     color: #E6E6E6 !important;
     -webkit-text-fill-color: #E6E6E6 !important;
+    overflow: hidden !important;
+}
+
+/* Replicating the exact Timeline Margin structural overlay */
+.btn-master-solid::after {
+    display: block !important;
+    content: '' !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background: var(--red-glaze-pure) !important;
+    mix-blend-mode: multiply !important;
+    pointer-events: none !important;
+    z-index: 1 !important;
+}
+
+/* Keep text safe above the multiply layer */
+.btn-master-solid span {
+    position: relative !important;
+    z-index: 2 !important; 
 }
 
 /* ============================================
-   SPECIFIC TARGET OVERRIDES (Red Glaze)
+   SPECIFIC TARGET OVERRIDES (Mask Hacks)
    ============================================ */
 
-/* Karena Gregory Hover - Removes old orange border and applies Red Glaze */
+/* Karena Gregory Profile Ring */
 .pedagogy-oversight-photo, 
 .pedagogy-oversight:hover .pedagogy-oversight-photo {
     border: none !important;
@@ -2880,11 +2921,12 @@ h1, h2 {
 }
 
 .pedagogy-oversight-image::before {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    padding: 2px !important; /* Border thickness */
-    background: var(--red-glaze-gradient) !important;
+    display: block !important;
+    content: '' !important;
+    position: absolute !important;
+    inset: -2px !important;
+    padding: 2px !important;
+    background: var(--red-glaze-combined) !important;
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0) !important;
     -webkit-mask-composite: xor !important;
     mask-composite: exclude !important;
@@ -2895,33 +2937,27 @@ h1, h2 {
 
 /* Pricing List Hyphens */
 .pricing-features li::before {
-    background: var(--red-glaze-gradient) !important;
+    background: var(--red-glaze-combined) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
     color: transparent !important;
 }
 
-/* Video Player Outlines & Circular Play Button */
-.theater-mode-container {
-    border: 1px solid transparent !important;
-    border-image: var(--red-glaze-gradient) 1 !important;
-    border-radius: 0 !important;
-}
-
+/* Circular Play Button Outline */
 .video-play-button {
     border: none !important;
 }
 .video-play-button::after {
-    content: '';
-    position: absolute;
-    inset: 0;
+    display: block !important;
+    content: '' !important;
+    position: absolute !important;
+    inset: 0 !important;
     border-radius: 50% !important;
     padding: 3px !important;
-    background: var(--red-glaze-gradient) !important;
+    background: var(--red-glaze-combined) !important;
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0) !important;
     -webkit-mask-composite: xor !important;
     mask-composite: exclude !important;
     pointer-events: none;
     z-index: 1;
-    mix-blend-mode: normal !important;
 }
