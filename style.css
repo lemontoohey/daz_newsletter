@@ -22,6 +22,8 @@
     --max-content-width: 1200px;
     --timeline-offset: 60px;
     --text-max-width: 65ch;
+    --border-thin: 1px;
+    --parchment-white: #E6E6E6;
 }
 
 /* Reset & Base Styles */
@@ -2821,15 +2823,15 @@ h1, h2 {
         linear-gradient(rgba(176, 0, 32, 0.10), rgba(176, 0, 32, 0.10));
 }
 
-/* Base shape for all 3 buttons */
-.btn-master-stack, 
-.btn-parchment-clean, 
-.btn-master-solid {
+/* Unified Button Geometry */
+a.btn-master-stack, button.btn-master-stack,
+a.btn-parchment-clean, button.btn-parchment-clean,
+a.btn-master-solid, button.btn-master-solid {
     position: relative !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    padding: 14px 28px !important;
+    padding: 14px 28px !important; /* Identical padding for all */
     font-family: 'Montserrat', sans-serif !important;
     font-weight: 700 !important;
     font-size: 13px !important;
@@ -2837,11 +2839,13 @@ h1, h2 {
     text-transform: uppercase !important;
     text-decoration: none !important;
     border-radius: 0 !important;
-    box-sizing: border-box !important;
-    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    border-width: var(--border-thin) !important;
+    border-style: solid !important;
     min-height: 48px !important;
+    box-sizing: border-box !important;
     cursor: pointer !important;
     z-index: 10 !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
 }
 
 /* Hard-kill any old ghost layers globally */
@@ -2855,9 +2859,10 @@ h1, h2 {
 /* =======================================
    1. RED GLAZE STACK (Forced Identity for ALL buttons)
    ======================================= */
+/* Red Glaze Buttons (Master Stack) */
 .btn-master-stack {
     background: transparent !important;
-    border: 1px solid transparent !important; 
+    border-color: transparent !important; /* Border rendered by mask */
     /* Remove any lingering shadows or bevels that make it look 'heavy' */
     box-shadow: none !important;
 }
@@ -2899,22 +2904,24 @@ h1, h2 {
 /* =======================================
    2. PARCHMENT CLEAN (White outline, white text)
    ======================================= */
+/* Parchment Clean Buttons */
 .btn-parchment-clean {
     background: transparent !important;
-    border: 1px solid #E6E6E6 !important;
-    color: #E6E6E6 !important;
-    -webkit-text-fill-color: #E6E6E6 !important;
+    border-color: var(--parchment-white) !important;
+    color: var(--parchment-white) !important;
+    -webkit-text-fill-color: var(--parchment-white) !important;
 }
 
 /* =======================================
    3. MASTER SOLID (Solid Base + Multiply Glaze Overlay)
    ======================================= */
+/* Master Solid Buttons */
 .btn-master-solid {
     background-image: var(--glaze-layers), linear-gradient(#B06838, #B06838) !important;
     background-blend-mode: multiply, multiply, multiply, multiply, multiply, normal !important;
     border: none !important;
-    color: #E6E6E6 !important;
-    -webkit-text-fill-color: #E6E6E6 !important;
+    color: var(--parchment-white) !important;
+    -webkit-text-fill-color: var(--parchment-white) !important;
 }
 .btn-master-solid span {
     position: relative !important;
@@ -3077,13 +3084,13 @@ a.btn-master-stack:hover, button.btn-master-stack:hover {
 /* Lock the physical border thickness globally for outlined buttons */
 a.btn-master-stack, button.btn-master-stack,
 a.btn-parchment-clean, button.btn-parchment-clean {
-    border-width: 1px !important;
+    border-width: var(--border-thin) !important;
     border-style: solid !important;
 }
 
-/* Ensure Parchment Clean is perfectly white */
+/* Ensure Parchment Clean uses locked parchment white */
 a.btn-parchment-clean, button.btn-parchment-clean {
-    border-color: #E6E6E6 !important;
+    border-color: var(--parchment-white) !important;
 }
 
 /* Ensure Master Stack physical border stays invisible so the Red Glaze pseudo-element can render */
@@ -3147,7 +3154,7 @@ p, .series-02-text, .series-02-list li, .teacher-pack-features li, .bio-text {
 }
 /* Keep strong elements bright */
 .pedagogy-oversight-quote, .film-intro {
-    color: #E6E6E6 !important; 
+    color: var(--parchment-white) !important; 
 }
 
 /* 2.4. THE MUSEUM GLASS EDGE (Tactile Card Bevel) */
