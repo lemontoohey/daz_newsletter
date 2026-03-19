@@ -924,8 +924,7 @@ img.header-logo {
 }
 
 /* Ghost UI — outlined buttons, hover tint + glow */
-.btn-primary,
-.watch-trailer-btn {
+.btn-primary {
     display: inline-block;
     padding: 14px 28px;
     background: transparent;
@@ -942,7 +941,23 @@ img.header-logo {
     border: 1px solid var(--accent-color);
 }
 
+/* watch-trailer-btn: no legacy border/box-shadow — Red Glaze comes from .btn-master-stack */
 .watch-trailer-btn {
+    display: inline-block;
+    padding: 14px 28px;
+    background: transparent;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 0 !important;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: none;
     cursor: pointer;
     position: relative;
     z-index: 10;
@@ -951,8 +966,7 @@ img.header-logo {
     user-select: none;
 }
 
-.btn-primary:hover,
-.watch-trailer-btn:hover {
+.btn-primary:hover {
     background: rgba(143, 74, 76, 0.05);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
@@ -2452,7 +2466,6 @@ img.header-logo {
    Makes solid buttons look 3D with a subtle top highlight,
    and gives outline buttons a glowing inner shadow on hover. */
 .btn-watch-trailer, 
-.watch-trailer-btn, 
 .btn-download {
     box-shadow: 
         inset 0 1px 1px rgba(255, 255, 255, 0.25), 
@@ -2460,7 +2473,6 @@ img.header-logo {
 }
 
 .btn-watch-trailer:hover, 
-.watch-trailer-btn:hover, 
 .btn-download:hover {
     box-shadow: 
         inset 0 1px 1px rgba(255, 255, 255, 0.1), 
@@ -2563,9 +2575,8 @@ h1, h2 {
     color: #E6E6E6 !important;
 }
 
-/* 2. STACKED BUTTONS — Base Vermillion + glaze layers (only inside artist boxes) */
+/* 2. STACKED BUTTONS — Base Vermillion + glaze layers (legacy solid buttons only; not .watch-trailer-btn + .btn-master-stack) */
 .btn-watch-trailer, 
-.watch-trailer-btn, 
 .btn-primary, 
 .btn-download {
     position: relative;
@@ -2581,7 +2592,6 @@ h1, h2 {
 }
 
 .btn-watch-trailer::after, 
-.watch-trailer-btn::after, 
 .btn-primary::after, 
 .btn-download::after {
     content: '';
@@ -2601,7 +2611,6 @@ h1, h2 {
 }
 
 .btn-watch-trailer:hover, 
-.watch-trailer-btn:hover, 
 .btn-primary:hover, 
 .btn-download:hover {
     transform: translateY(-2px) translateZ(0) !important;
@@ -2611,7 +2620,6 @@ h1, h2 {
 /* Low-power / Touch / Small screens — solid fallback (no mix-blend GPU load) */
 @media (hover: none), (max-width: 768px) {
     .btn-watch-trailer::after, 
-    .watch-trailer-btn::after, 
     .btn-primary::after, 
     .btn-download::after,
     .btn-master-solid::after,
@@ -2625,7 +2633,6 @@ h1, h2 {
         display: none;
     }
     .btn-watch-trailer, 
-    .watch-trailer-btn, 
     .btn-primary, 
     .btn-download,
     .timeline-line,
@@ -2642,7 +2649,6 @@ h1, h2 {
 /* Reduced motion — disable glaze blend for lower GPU */
 @media (prefers-reduced-motion: reduce) {
     .btn-watch-trailer::after,
-    .watch-trailer-btn::after,
     .btn-primary::after,
     .btn-download::after,
     .btn-master-solid::after,
@@ -2833,11 +2839,13 @@ h1, h2 {
 }
 
 /* =======================================
-   1. RED GLAZE STACK (Transparent button, Colored Outline & Text)
+   1. RED GLAZE STACK (Forced Identity for ALL buttons)
    ======================================= */
 .btn-master-stack {
     background: transparent !important;
-    border: 1px solid transparent !important; /* Holds physical space */
+    border: 1px solid transparent !important; 
+    /* Remove any lingering shadows or bevels that make it look 'heavy' */
+    box-shadow: none !important;
 }
 
 /* The Old Master Border Outline */
@@ -2845,14 +2853,10 @@ h1, h2 {
     display: block !important;
     content: '' !important;
     position: absolute !important;
-    inset: -1px !important; /* Locks onto the transparent border */
-    padding: 1px !important; /* The 1px line thickness */
-    
-    /* Mix the 5 glazes with the Burnt Orange base */
+    inset: -1px !important;
+    padding: 1px !important;
     background-image: var(--glaze-layers), linear-gradient(#B06838, #B06838) !important;
     background-blend-mode: multiply, multiply, multiply, multiply, multiply, normal !important;
-    
-    /* Cut out the center to make it an outline */
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0) !important;
     -webkit-mask-composite: xor !important;
     mask-composite: exclude !important;
@@ -2869,6 +2873,13 @@ h1, h2 {
     color: transparent !important;
     position: relative !important;
     z-index: 2 !important;
+    /* Ensure no text-shadows or extra effects */
+    text-shadow: none !important;
+}
+
+/* Add the hover pulse effect specifically to the outline */
+.btn-master-stack:hover::before {
+    animation: buried-glaze-pulse 4s ease-in-out infinite !important;
 }
 
 /* =======================================
@@ -3024,20 +3035,24 @@ h1, h2 {
 }
 
 /* Apply the resting state and a smooth, luxurious release transition */
-a.btn-master-stack, button.btn-master-stack,
+/* Outline stack: no drop shadow (matches header Contact Us); pulse lives on ::before */
+a.btn-master-stack, button.btn-master-stack {
+    box-shadow: none !important;
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.8s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
 a.btn-parchment-clean, button.btn-parchment-clean,
 a.btn-master-solid, button.btn-master-solid {
     box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.4) !important;
-    /* When the mouse leaves, it takes 0.8s to slowly sink back down */
     transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.8s cubic-bezier(0.25, 1, 0.5, 1) !important;
 }
 
-/* Trigger the breathing animation infinitely while hovered */
-a.btn-master-stack:hover, button.btn-master-stack:hover,
+/* Trigger the breathing animation on parchment/solid only (stack uses ::before pulse) */
 a.btn-parchment-clean:hover, button.btn-parchment-clean:hover,
 a.btn-master-solid:hover, button.btn-master-solid:hover {
     animation: buried-glaze-pulse 4s ease-in-out infinite !important;
-    /* Ensure the transition doesn't fight the animation */
+    transition: none !important;
+}
+a.btn-master-stack:hover, button.btn-master-stack:hover {
     transition: none !important;
 }
 
@@ -3066,6 +3081,8 @@ a.btn-master-stack, button.btn-master-stack {
 .watch-trailer-btn, .btn-hero, .btn-view-teacher-pack {
     background-color: transparent !important;
     border-radius: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
 }
 
 /* When watch-trailer-btn is used with btn-master-stack, kill the legacy ::after overlay
@@ -3297,5 +3314,8 @@ a.btn-master-solid:hover, button.btn-master-solid:hover {
     a.btn-master-solid:hover, button.btn-master-solid:hover {
         animation: none !important;
         transform: translateY(-2px) scale(1) !important; /* Static lift only */
+    }
+    .btn-master-stack:hover::before {
+        animation: none !important;
     }
 }
