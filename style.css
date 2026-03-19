@@ -2845,7 +2845,7 @@ a.btn-master-solid, button.btn-master-solid {
     box-sizing: border-box !important;
     cursor: pointer !important;
     z-index: 10 !important;
-    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.8s cubic-bezier(0.25, 1, 0.5, 1) !important;
 }
 
 /* Hard-kill any old ghost layers globally */
@@ -3081,21 +3081,26 @@ a.btn-master-stack:hover, button.btn-master-stack:hover {
    GLOBAL 1PX OUTLINE ENFORCEMENT
    ============================================ */
 
-/* Lock the physical border thickness globally for outlined buttons */
+/* Apply to both classes to force identical geometry */
 a.btn-master-stack, button.btn-master-stack,
 a.btn-parchment-clean, button.btn-parchment-clean {
-    border-width: var(--border-thin) !important;
+    border-width: 1px !important;
     border-style: solid !important;
+    padding: 14px 28px !important;
+    min-height: 48px !important;
+    box-sizing: border-box !important;
+    border-radius: 0 !important;
 }
 
-/* Ensure Parchment Clean uses locked parchment white */
-a.btn-parchment-clean, button.btn-parchment-clean {
-    border-color: var(--parchment-white) !important;
-}
-
-/* Ensure Master Stack physical border stays invisible so the Red Glaze pseudo-element can render */
+/* Force specific colors */
 a.btn-master-stack, button.btn-master-stack {
-    border-color: transparent !important;
+    border-color: transparent !important; /* Managed by the mask */
+    background: transparent !important;
+}
+
+a.btn-parchment-clean, button.btn-parchment-clean {
+    border-color: #E6E6E6 !important;
+    background: transparent !important;
 }
 
 /* Neutralize any lingering legacy classes that might attempt to add solid backgrounds or borders */
