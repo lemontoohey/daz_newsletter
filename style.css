@@ -3132,3 +3132,170 @@ p, .series-02-text, .series-02-list li, .teacher-pack-features li, .bio-text {
         inset 0 1px 0 rgba(255, 255, 255, 0.08), /* The Light Catch */
         0 40px 100px rgba(14, 12, 18, 0.8) !important; /* Original deep shadow */
 }
+
+/* ============================================
+   FINAL LAYOUT POLISH & BUG FIXES
+   ============================================ */
+
+/* 1. KARENA GREGORY HOVER FIX (Crush the old orange border) */
+.pedagogy-oversight:hover .pedagogy-oversight-image::before {
+    border: none !important; /* Kills the rogue 2px solid orange rule */
+    inset: -1px !important;
+    padding: 1px !important;
+    background-image: var(--glaze-layers), linear-gradient(#B06838, #B06838) !important;
+    background-blend-mode: multiply, multiply, multiply, multiply, multiply, normal !important;
+}
+
+/* 2. THE FOOTER GLAZE (Match the Artist Boxes) */
+.footer, .teacher-pack-footer {
+    background: var(--card-bg-glass) !important;
+    backdrop-filter: blur(25px) !important;
+    -webkit-backdrop-filter: blur(25px) !important;
+    border-top: 0.5px solid var(--glaze-border) !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+/* Magenta & Green Pseudo Glazes */
+.footer::before, .teacher-pack-footer::before {
+    content: '' !important; position: absolute !important; inset: 0 !important; z-index: 0 !important;
+    background: rgba(200, 0, 128, 0.015) !important; pointer-events: none !important;
+}
+.footer::after, .teacher-pack-footer::after {
+    content: '' !important; position: absolute !important; inset: 0 !important; z-index: 0 !important;
+    background: rgba(10, 22, 21, 0.05) !important; pointer-events: none !important;
+}
+/* Protect content from being glazed over */
+.footer-content, .footer-text-teacher {
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+/* 3. JUDY CASSAB PORTRAIT ADJUSTMENT (Crop out cigarette) */
+img.upcoming-image-img[src*="judycassab.png"] {
+    object-position: center 10% !important; /* Pulls the image down, cropping the bottom */
+}
+
+/* 4. VENDOR APPROVAL TEXT CENTERING */
+.pricing-card p:last-child {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* 5 & 6. HERO CENTERING & ELEGANT LOAD ANIMATION */
+@keyframes elegant-fade-up {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-title, .hero-description {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* Staggered load-in sequence */
+.hero-title {
+    animation: elegant-fade-up 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both !important;
+}
+.hero-description {
+    animation: elegant-fade-up 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both !important;
+}
+.hero-cta-group {
+    justify-content: center !important;
+    animation: elegant-fade-up 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both !important;
+}
+
+/* ============================================
+   FINAL AUDIT: MOBILE, GPU CACHE & FALLBACKS
+   ============================================ */
+
+/* 1. AGGRESSIVE RENDER CACHING (Performance) */
+/* Prevents the browser from calculating heavy blurs and math on elements off-screen */
+.timeline-item, .pricing-card, .video-player-wrapper {
+    content-visibility: auto;
+    contain-intrinsic-size: 500px;
+    /* Force GPU hardware acceleration for heavy blurred/glazed elements */
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* Optimize the 4s animation so it doesn't drain battery */
+a.btn-master-stack, button.btn-master-stack,
+a.btn-parchment-clean, button.btn-parchment-clean,
+a.btn-master-solid, button.btn-master-solid {
+    will-change: auto; /* Clears RAM when resting */
+}
+a.btn-master-stack:hover, button.btn-master-stack:hover,
+a.btn-parchment-clean:hover, button.btn-parchment-clean:hover,
+a.btn-master-solid:hover, button.btn-master-solid:hover {
+    will-change: transform, box-shadow; /* Dedicates GPU memory only when hovered */
+}
+
+/* 2. MOBILE FORMATTING (Button Stacking) */
+@media (max-width: 600px) {
+    /* Ensure the new master classes span full width on phones for easy tapping */
+    a.btn-master-stack, button.btn-master-stack,
+    a.btn-parchment-clean, button.btn-parchment-clean,
+    a.btn-master-solid, button.btn-master-solid {
+        width: 100% !important;
+        display: flex !important;
+    }
+    
+    /* Ensure cta-groups stack neatly instead of side-by-side */
+    .cta-group, .hero-cta-group, .pricing-buttons {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 12px !important;
+    }
+}
+
+/* 3. DOWN-SAMPLING FOR OLD TECH & BATTERY SAVER */
+/* If the browser is too old to understand advanced background-blend-mode or masks */
+@supports not (background-blend-mode: multiply) {
+    /* Fallback to a solid, pre-calculated rich red/orange */
+    .btn-master-stack::before {
+        background: #B06838 !important; /* Solid fallback outline */
+        -webkit-mask: none !important;
+        border: 1px solid #B06838 !important;
+    }
+    .btn-master-stack span {
+        background: none !important;
+        color: #B06838 !important;
+        -webkit-text-fill-color: #B06838 !important;
+    }
+    .btn-master-solid {
+        background: #B06838 !important;
+    }
+    .btn-master-solid::after {
+        display: none !important; /* Kill the multiply layer */
+    }
+    .pedagogy-oversight-image::before,
+    .video-play-button::after {
+        background: transparent !important;
+        border: 1px solid #B06838 !important;
+        -webkit-mask: none !important;
+    }
+}
+
+/* Disable the atmospheric dust and heavy breathing animation if device is in Low Power Mode */
+@media (prefers-reduced-motion: reduce) {
+    .atmos-layer {
+        display: none !important;
+    }
+    a.btn-master-stack:hover, button.btn-master-stack:hover,
+    a.btn-parchment-clean:hover, button.btn-parchment-clean:hover,
+    a.btn-master-solid:hover, button.btn-master-solid:hover {
+        animation: none !important;
+        transform: translateY(-2px) scale(1) !important; /* Static lift only */
+    }
+}
