@@ -42,7 +42,7 @@ If you want to use Stripe Checkout Sessions (requires backend):
 
 ## Current Configuration
 
-- **Email**: admin@greenturtleproductions.com.au
+- **Email**: liam.toohey@scalarmaterials.com.au
 - **Payment Amount**: $990 AUD (including GST)
 - **Payment Type**: One-time payment
 - **License Term**: 24 months
