@@ -24,6 +24,7 @@
     --text-max-width: 65ch;
     --border-thin: 1px;
     --parchment-white: #E6E6E6;
+    --cadmium-glow: #E34234;
 }
 
 /* Reset & Base Styles */
@@ -258,7 +259,7 @@ img.header-logo {
     font-size: 14px;
     color: var(--text-secondary);
     text-decoration: none;
-    transition: color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     letter-spacing: 0.05em;
 }
 
@@ -272,12 +273,6 @@ img.header-logo {
     color: var(--text-color);
 }
 
-.header-nav-link-faculty:hover {
-    color: var(--accent-color);
-    border-color: rgba(143, 74, 76, 0.6);
-    box-shadow: 0 0 0 1px rgba(143, 74, 76, 0.15);
-}
-
 .header-nav-link:hover {
     color: var(--accent-unified);
 }
@@ -288,12 +283,8 @@ img.header-logo {
     font-size: 14px;
     color: var(--text-secondary);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     letter-spacing: 0.05em;
-}
-
-.header-login-link:hover {
-    color: var(--accent-color);
 }
 
 /* Hero Section */
@@ -333,7 +324,7 @@ img.header-logo {
     text-transform: uppercase;
     text-decoration: none;
     border-radius: 0;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     border: 0.5px solid var(--glaze-border);
     background: transparent;
     color: var(--text-color);
@@ -344,21 +335,9 @@ img.header-logo {
     color: var(--accent-color);
 }
 
-.btn-hero-primary:hover,
-.btn-hero-secondary:hover {
-    background: rgba(143, 74, 76, 0.06);
-    border-color: var(--accent-color);
-    color: var(--accent-color);
-}
-
 .btn-hero-secondary {
     color: var(--text-color);
     border-color: var(--glaze-border);
-}
-
-.btn-hero-secondary:hover {
-    border-color: var(--accent-color);
-    color: var(--accent-color);
 }
 
 .hero-title {
@@ -892,17 +871,8 @@ img.header-logo {
     background: transparent;
     padding: 8px 16px;
     border-radius: 4px;
-    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     display: inline-block;
-}
-
-.btn-sample-preview:hover {
-    color: var(--accent-color);
-    border-color: var(--accent-color);
-    background: rgba(143, 74, 76, 0.05);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    box-shadow: 0 0 20px rgba(143, 74, 76, 0.12);
 }
 
 /* Razor-thin prestige button (Preview Resource Pack) */
@@ -921,13 +891,7 @@ img.header-logo {
     background: transparent;
     padding: 10px 18px;
     border-radius: 0;
-    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-}
-
-.btn-faculty-required:hover {
-    color: var(--accent-color);
-    border-color: var(--accent-color);
-    background: rgba(143, 74, 76, 0.05);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .btn-faculty-icon {
@@ -954,7 +918,7 @@ img.header-logo {
     text-transform: uppercase;
     border-radius: 0 !important;
     text-align: center;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     border: 1px solid var(--accent-color);
 }
 
@@ -972,7 +936,7 @@ img.header-logo {
     text-transform: uppercase;
     border-radius: 0 !important;
     text-align: center;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     border: none;
     box-shadow: none;
     cursor: pointer;
@@ -981,13 +945,6 @@ img.header-logo {
     pointer-events: auto;
     -webkit-user-select: none;
     user-select: none;
-}
-
-.btn-primary:hover {
-    background: rgba(143, 74, 76, 0.05);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    box-shadow: 0 0 20px rgba(143, 74, 76, 0.15);
 }
 
 .btn-secondary {
@@ -1002,18 +959,9 @@ img.header-logo {
     text-transform: uppercase;
     border-radius: 0 !important;
     text-align: center;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     border: 1px solid rgba(230, 230, 230, 0.4);
     background: transparent;
-}
-
-.btn-secondary:hover {
-    color: var(--accent-color);
-    border-color: var(--accent-color);
-    background: rgba(143, 74, 76, 0.05);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    box-shadow: 0 0 20px rgba(143, 74, 76, 0.15);
 }
 
 /* Footer */
@@ -1464,18 +1412,11 @@ img.header-logo {
     letter-spacing: 0.1em;
     text-transform: uppercase;
     border-radius: 0 !important;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     border: 1px solid var(--accent-color);
     min-height: 48px;
     position: relative;
     z-index: 10;
-}
-
-.btn-pricing-primary:hover {
-    background: rgba(143, 74, 76, 0.05);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    box-shadow: 0 0 20px rgba(143, 74, 76, 0.15);
 }
 
 .btn-pricing-secondary {
@@ -1491,7 +1432,7 @@ img.header-logo {
     letter-spacing: 0.1em;
     text-transform: uppercase;
     border-radius: 0 !important;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     border: 1px solid rgba(230, 230, 230, 0.4);
     background: transparent;
     min-height: 48px;
@@ -1499,24 +1440,9 @@ img.header-logo {
     z-index: 10;
 }
 
-.btn-pricing-secondary:hover {
-    color: var(--accent-color);
-    border-color: var(--accent-color);
-    background: rgba(143, 74, 76, 0.05);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    box-shadow: 0 0 20px rgba(143, 74, 76, 0.15);
-}
-
 .btn-pricing-quote {
     border-color: rgba(143, 74, 76, 0.6);
     background: transparent;
-}
-
-.btn-pricing-quote:hover {
-    background: rgba(143, 74, 76, 0.05);
-    border-color: var(--accent-color);
-    box-shadow: 0 0 15px rgba(143, 74, 76, 0.2);
 }
 
 /* Responsive Pricing */
@@ -2501,13 +2427,6 @@ img.header-logo {
         0 8px 16px -4px rgba(0, 0, 0, 0.3) !important;
 }
 
-.btn-watch-trailer:hover, 
-.btn-download:hover {
-    box-shadow: 
-        inset 0 1px 1px rgba(255, 255, 255, 0.1), 
-        0 12px 24px -6px rgba(0, 0, 0, 0.5) !important;
-}
-
 /* 4. GROUNDING THE TYPOGRAPHY
    Adds a microscopic drop shadow to major headings so they don't look 
    like flat pixels, but rather like ink floating just above the background. */
@@ -2617,7 +2536,7 @@ h1, h2 {
     color: #fff !important;
     will-change: transform, opacity;
     transform: translateZ(0);
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
 }
 
 .btn-watch-trailer::after, 
@@ -2637,13 +2556,6 @@ h1, h2 {
         linear-gradient(rgba(176, 0, 32, 0.10), rgba(176, 0, 32, 0.10)); /* Cadmium top 10% */
     mix-blend-mode: multiply;
     pointer-events: none;
-}
-
-.btn-watch-trailer:hover, 
-.btn-primary:hover, 
-.btn-download:hover {
-    transform: translateY(-2px) translateZ(0) !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
 }
 
 /* Low-power / Touch / Small screens — solid fallback (no mix-blend GPU load) */
@@ -2692,9 +2604,8 @@ h1, h2 {
     }
 }
 
-/* Hero/Success/Header buttons — legacy fallback */
+/* Hero/Header buttons — legacy fallback */
 .btn-hero-primary,
-.btn-success,
 .header-nav-link-faculty {
     background: transparent !important;
     border: 1px solid var(--accent-unified) !important;
@@ -2710,14 +2621,6 @@ h1, h2 {
     background: transparent !important;
     color: #E6E6E6 !important;
     border: 1px solid rgba(230, 230, 230, 0.5) !important;
-}
-
-.btn-hero-secondary:hover,
-.btn-faculty-required:hover,
-.btn-sample-preview:hover,
-.btn-pricing-secondary:hover,
-.btn-secondary:hover {
-    border-color: #E6E6E6 !important;
 }
 
 /* 4. TIMELINE & MARKER — same layer stack as trailer button */
@@ -2858,7 +2761,7 @@ a.btn-master-solid, button.btn-master-solid {
     box-sizing: border-box !important;
     cursor: pointer !important;
     z-index: 10 !important;
-    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.8s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
 }
 
 /* Hard-kill any old ghost layers globally */
@@ -2907,11 +2810,6 @@ a.btn-master-solid, button.btn-master-solid {
     z-index: 2 !important;
     /* Ensure no text-shadows or extra effects */
     text-shadow: none !important;
-}
-
-/* Add the hover pulse effect specifically to the outline */
-.btn-master-stack:hover::before {
-    animation: buried-glaze-pulse 4s ease-in-out infinite !important;
 }
 
 /* =======================================
@@ -3040,54 +2938,151 @@ a.btn-master-solid, button.btn-master-solid {
 }
 
 /* ============================================
-   ORGANIC HOVER PULSE & BURIED GLAZE GLOW (REFINED)
+   INSTITUTIONAL CADMIUM GLOW — unified hover & press
    ============================================ */
 
-/* The Lazy 4-Second Breathing Loop with 0.1s Offset */
-@keyframes buried-glaze-pulse {
-    0% {
-        /* Resting State */
-        box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.4), 0 0 0px 0px rgba(224, 73, 22, 0);
-        transform: translateY(0) scale(1);
-    }
-    47.5% {
-        /* FLASH PEAKS HERE (Exactly 0.1s before the physical lift in a 4s loop) */
-        /* Tighter blur/spread so it creeps out from exactly under the 1px line at 10% opacity */
-        box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.45), 0 0 12px 1px rgba(224, 73, 22, 0.10);
-        transform: translateY(-0.95px) scale(1.004);
-    }
-    50% {
-        /* PHYSICAL LIFT PEAKS HERE (Extremely subtle, 1px lift, 0.5% scale) */
-        box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.45), 0 0 11px 1px rgba(224, 73, 22, 0.095);
-        transform: translateY(-1px) scale(1.005);
-    }
-    100% {
-        /* Return to Resting State */
-        box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.4), 0 0 0px 0px rgba(224, 73, 22, 0);
-        transform: translateY(0) scale(1);
-    }
+/* Outline / ghost — micro-fill + ambient cadmium */
+.btn-secondary:hover,
+.btn-sample-preview:hover,
+.btn-faculty-required:hover,
+.btn-pricing-secondary:hover,
+.btn-pricing-quote:hover,
+.btn-hero-primary:hover,
+.btn-hero-secondary:hover,
+.btn-pricing-primary:hover,
+.header-nav-link-faculty:hover {
+    color: #FFFFFF !important;
+    border-color: var(--cadmium-glow) !important;
+    background: rgba(227, 66, 52, 0.04) !important;
+    box-shadow:
+        0 0 10px rgba(227, 66, 52, 0.15),
+        0 0 30px rgba(227, 66, 52, 0.08),
+        inset 0 0 15px rgba(227, 66, 52, 0.05) !important;
+    transform: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
 }
 
-/* Apply the resting state and a smooth, luxurious release transition */
-/* Outline stack: no drop shadow (matches header Contact Us); pulse lives on ::before */
-a.btn-master-stack, button.btn-master-stack {
-    box-shadow: none !important;
-    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.8s cubic-bezier(0.25, 1, 0.5, 1) !important;
-}
-a.btn-parchment-clean, button.btn-parchment-clean,
-a.btn-master-solid, button.btn-master-solid {
-    box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.4) !important;
-    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.8s cubic-bezier(0.25, 1, 0.5, 1) !important;
+/* Solid vermillion CTAs — preserve fill, add glow */
+.btn-watch-trailer:hover,
+.btn-primary:hover,
+.btn-download:hover {
+    color: #FFFFFF !important;
+    border-color: var(--cadmium-glow) !important;
+    box-shadow:
+        0 0 10px rgba(227, 66, 52, 0.15),
+        0 0 30px rgba(227, 66, 52, 0.08),
+        inset 0 0 15px rgba(227, 66, 52, 0.05) !important;
+    transform: none !important;
+    filter: brightness(1.07) !important;
 }
 
-/* Trigger the breathing animation on parchment/solid only (stack uses ::before pulse) */
-a.btn-parchment-clean:hover, button.btn-parchment-clean:hover,
-a.btn-master-solid:hover, button.btn-master-solid:hover {
-    animation: buried-glaze-pulse 4s ease-in-out infinite !important;
-    transition: none !important;
+/* Standalone watch-trailer (no master-stack mask border) */
+.watch-trailer-btn:not(.btn-master-stack):hover {
+    color: #FFFFFF !important;
+    border: 1px solid var(--cadmium-glow) !important;
+    background: rgba(227, 66, 52, 0.04) !important;
+    box-shadow:
+        0 0 10px rgba(227, 66, 52, 0.15),
+        0 0 30px rgba(227, 66, 52, 0.08),
+        inset 0 0 15px rgba(227, 66, 52, 0.05) !important;
+    transform: none !important;
 }
-a.btn-master-stack:hover, button.btn-master-stack:hover {
-    transition: none !important;
+
+a.btn-master-solid:hover,
+button.btn-master-solid:hover {
+    color: #FFFFFF !important;
+    border-color: var(--cadmium-glow) !important;
+    box-shadow:
+        0 0 10px rgba(227, 66, 52, 0.15),
+        0 0 30px rgba(227, 66, 52, 0.08),
+        inset 0 0 15px rgba(227, 66, 52, 0.05),
+        0 8px 16px -4px rgba(0, 0, 0, 0.35) !important;
+    transform: none !important;
+    filter: brightness(1.06) !important;
+}
+
+a.btn-parchment-clean:hover,
+button.btn-parchment-clean:hover {
+    animation: none !important;
+    color: #FFFFFF !important;
+    border-color: var(--cadmium-glow) !important;
+    background: rgba(227, 66, 52, 0.04) !important;
+    box-shadow:
+        0 0 10px rgba(227, 66, 52, 0.15),
+        0 0 30px rgba(227, 66, 52, 0.08),
+        inset 0 0 15px rgba(227, 66, 52, 0.05),
+        0 8px 16px -4px rgba(0, 0, 0, 0.35) !important;
+    transform: none !important;
+    -webkit-text-fill-color: #FFFFFF !important;
+}
+
+a.btn-master-stack:hover,
+button.btn-master-stack:hover {
+    animation: none !important;
+    background: rgba(227, 66, 52, 0.04) !important;
+    box-shadow:
+        0 0 10px rgba(227, 66, 52, 0.15),
+        0 0 30px rgba(227, 66, 52, 0.08),
+        inset 0 0 15px rgba(227, 66, 52, 0.05) !important;
+    transform: none !important;
+}
+
+a.btn-master-stack:hover span,
+button.btn-master-stack:hover span {
+    background-image: none !important;
+    background-blend-mode: normal !important;
+    -webkit-text-fill-color: #FFFFFF !important;
+    color: #FFFFFF !important;
+}
+
+.header-login-link:hover {
+    color: #FFFFFF !important;
+    box-shadow:
+        0 0 10px rgba(227, 66, 52, 0.12),
+        0 0 28px rgba(227, 66, 52, 0.06),
+        inset 0 0 12px rgba(227, 66, 52, 0.04) !important;
+}
+
+.btn-success:hover {
+    color: #FFFFFF !important;
+    border-color: var(--cadmium-glow) !important;
+    box-shadow:
+        0 0 10px rgba(227, 66, 52, 0.15),
+        0 0 30px rgba(227, 66, 52, 0.08),
+        inset 0 0 15px rgba(227, 66, 52, 0.05) !important;
+    transform: none !important;
+    filter: brightness(1.06) !important;
+}
+
+/* Physical press — dampened glow */
+.btn-primary:active,
+.btn-secondary:active,
+.watch-trailer-btn:active,
+.btn-pricing-primary:active,
+.btn-pricing-secondary:active,
+.btn-pricing-quote:active,
+.btn-sample-preview:active,
+.btn-faculty-required:active,
+.btn-hero-primary:active,
+.btn-hero-secondary:active,
+.btn-watch-trailer:active,
+.btn-download:active,
+.header-nav-link-faculty:active,
+.header-login-link:active,
+.btn-success:active,
+a.btn-master-stack:active,
+button.btn-master-stack:active,
+a.btn-parchment-clean:active,
+button.btn-parchment-clean:active,
+a.btn-master-solid:active,
+button.btn-master-solid:active {
+    transform: scale(0.98) !important;
+    transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.1s ease !important;
+    box-shadow:
+        0 0 6px rgba(227, 66, 52, 0.1),
+        0 0 18px rgba(227, 66, 52, 0.05),
+        inset 0 0 10px rgba(227, 66, 52, 0.04) !important;
 }
 
 /* ============================================
@@ -3270,7 +3265,7 @@ img.upcoming-image-img[src*="judycassab.png"] {
     perspective: 1000px;
 }
 
-/* Optimize the 4s animation so it doesn't drain battery */
+/* GPU hint on master buttons when hovered (cadmium glow) */
 a.btn-master-stack, button.btn-master-stack,
 a.btn-parchment-clean, button.btn-parchment-clean,
 a.btn-master-solid, button.btn-master-solid {
@@ -3336,10 +3331,6 @@ a.btn-master-solid:hover, button.btn-master-solid:hover {
     a.btn-master-stack:hover, button.btn-master-stack:hover,
     a.btn-parchment-clean:hover, button.btn-parchment-clean:hover,
     a.btn-master-solid:hover, button.btn-master-solid:hover {
-        animation: none !important;
-        transform: translateY(-2px) scale(1) !important; /* Static lift only */
-    }
-    .btn-master-stack:hover::before {
         animation: none !important;
     }
 }
