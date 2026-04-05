@@ -3334,3 +3334,67 @@ a.btn-master-solid:hover, button.btn-master-solid:hover {
         animation: none !important;
     }
 }
+
+/* ============================================
+   ISOLATED PURCHASE CTA — #activate-enrollment-btn only
+   (no global .btn-primary / .btn-master-solid changes)
+   ============================================ */
+#activate-enrollment-btn.btn-master-solid,
+button#activate-enrollment-btn.btn-master-solid,
+a#activate-enrollment-btn.btn-master-solid {
+    border: none !important;
+    outline: none !important;
+}
+
+#activate-enrollment-btn.btn-master-solid:focus,
+#activate-enrollment-btn.btn-master-solid:focus-visible,
+button#activate-enrollment-btn:focus,
+button#activate-enrollment-btn:focus-visible,
+a#activate-enrollment-btn:focus,
+a#activate-enrollment-btn:focus-visible {
+    outline: none !important;
+}
+
+/* Keep cadmium glow + fill; strip border only */
+#activate-enrollment-btn.btn-master-solid:hover,
+button#activate-enrollment-btn.btn-master-solid:hover,
+a#activate-enrollment-btn.btn-master-solid:hover {
+    border: none !important;
+    border-color: transparent !important;
+}
+
+#activate-enrollment-btn.btn-master-solid:active,
+button#activate-enrollment-btn.btn-master-solid:active,
+a#activate-enrollment-btn.btn-master-solid:active {
+    border: none !important;
+    border-color: transparent !important;
+}
+
+/* ============================================
+   FOOTER LINK — GTP pill + cadmium hover (overrides earlier footer rules)
+   ============================================ */
+.footer-link {
+    padding: 6px 14px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #E6E6E6 !important;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.footer-text .footer-link {
+    color: #E6E6E6 !important;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.footer-link:hover,
+.footer-text .footer-link:hover,
+.footer-content .footer-link:hover {
+    color: #FFFFFF !important;
+    border-color: var(--cadmium-glow) !important;
+    background: rgba(227, 66, 52, 0.05) !important;
+    box-shadow:
+        0 0 10px rgba(227, 66, 52, 0.15),
+        0 0 30px rgba(227, 66, 52, 0.08) !important;
+    text-shadow: 0 0 8px rgba(227, 66, 52, 0.4);
+}
