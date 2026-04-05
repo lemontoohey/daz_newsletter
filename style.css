@@ -35,6 +35,12 @@
 
 html {
     scroll-behavior: auto; /* Lenis handles smooth scrolling */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+html::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
 }
 
 body {
@@ -48,9 +54,15 @@ body {
     position: relative;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
     -moz-osx-font-smoothing: grayscale;
     opacity: 0;
     transition: opacity 1.2s ease;
+}
+
+body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
 }
 
 body.ink-bleed-loaded {
@@ -1212,11 +1224,12 @@ img.header-logo {
 /* Quiet Authority scroll reveal — initial state */
 .pedagogy-oversight-quote {
     font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 0.95rem;
+    font-size: 1rem;
     font-weight: 400;
     font-style: italic;
     color: var(--text-color);
     line-height: 1.65;
+    text-align: left;
     margin: 0;
     padding-left: 0;
     border: none;
@@ -1579,7 +1592,7 @@ img.header-logo {
     }
 
     .pedagogy-oversight-quote {
-        text-align: center;
+        text-align: left;
     }
 }
 
@@ -3135,22 +3148,7 @@ a.btn-master-stack.watch-trailer-btn::after {
     text-shadow: none !important;
 }
 
-/* 2.2. THE VELVET ROPE (Custom Scrollbar) */
-::-webkit-scrollbar {
-    width: 10px;
-    background: #0B0810; /* Matches your site background */
-}
-::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.02);
-}
-::-webkit-scrollbar-thumb {
-    background: #B06838; /* Burnt Orange */
-    border-radius: 10px;
-    border: 2px solid #0B0810; /* Adds padding inside the track */
-}
-::-webkit-scrollbar-thumb:hover {
-    background: rgba(176, 68, 56, 1); /* Cadmium Red on hover */
-}
+/* 2.2. Scrollbars — hidden on html/body (see reset); scrolling remains active */
 
 /* 2.3. TYPOGRAPHIC DEPTH (Softening Body Text for Header Contrast) */
 /* Targets all standard reading text so the Parchment White headers pop forward */
