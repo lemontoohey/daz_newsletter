@@ -340,6 +340,16 @@ img.header-logo {
     border-color: var(--glaze-border);
 }
 
+.gtp-eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(0.7rem, 1.2vw, 0.85rem);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: #9ac8c4;
+    margin-bottom: 0.5rem;
+}
+
 .hero-title {
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
