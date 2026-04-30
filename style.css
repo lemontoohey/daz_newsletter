@@ -348,7 +348,7 @@ img.header-logo {
     letter-spacing: 0.25em;
     color: #60ad90 !important;
     text-shadow:
-        0 0 8px rgba(76, 120, 105, 0.14),
+        0 0 8px rgba(76, 120, 105, 0.47),
         0 0 22px rgba(104, 196, 160, 0.18),
         0 0 45px rgba(104, 196, 160, 0.08);
     margin-bottom: 0.5rem;
@@ -1014,6 +1014,9 @@ img.header-logo {
     text-transform: uppercase;
     margin: 0;
     text-align: center;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.8;
 }
 
 .footer-text .footer-link {
@@ -1024,6 +1027,19 @@ img.header-logo {
 
 .footer-text .footer-link:hover {
     color: var(--accent-unified);
+}
+
+.footer-link-gtp {
+    color: #60ad90 !important;
+    transition: color 0.3s ease;
+}
+
+.footer-link-gtp:hover {
+    color: #7ec4aa !important;
+}
+
+.abn-text {
+    color: #60ad90 !important;
 }
 
 .footer-link {
@@ -1484,8 +1500,8 @@ img.header-logo {
     }
 
     .enrollment-section {
-        padding-top: 60px;
-        margin-top: 60px;
+        padding-top: 32px;
+        margin-top: 32px;
     }
 
     .enrollment-narrative {
@@ -1494,7 +1510,7 @@ img.header-logo {
 
     .header .container {
         flex-direction: column;
-        gap: 16px;
+        gap: 12px;
     }
 
     .header .header-logo {
@@ -1507,9 +1523,20 @@ img.header-logo {
         align-items: center;
     }
 
+    .nas-logo {
+        height: 44px;
+    }
+
     .header-nav {
         width: 100%;
         justify-content: center;
+    }
+
+    .header-nav .btn-master-stack {
+        width: auto !important;
+        font-size: 11px !important;
+        padding: 8px 20px !important;
+        letter-spacing: 0.12em !important;
     }
 
     .header-login-link {
@@ -1517,8 +1544,10 @@ img.header-logo {
     }
 
     .enrollment-content-wrap {
-        margin-left: calc(var(--timeline-offset) + 30px);
-        max-width: calc(100% - (var(--timeline-offset) + 30px));
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+        max-width: 100%;
     }
 
     .pedagogy-oversight-inner {
@@ -1666,10 +1695,16 @@ img.header-logo {
     }
     
     .enrollment-content-wrap {
-        margin-left: calc(var(--timeline-offset) + 30px);
-        max-width: calc(100% - (var(--timeline-offset) + 30px));
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+        max-width: 100%;
     }
-    
+
+    .pedagogy-oversight-wrap {
+        margin-bottom: 32px;
+    }
+
     .cta-group {
         flex-direction: column;
     }
@@ -1685,8 +1720,7 @@ img.header-logo {
     }
     
     .nas-logo {
-        height: 60px;
-        /* Neutral black/white – no brand colour filter */
+        height: 48px;
     }
     
     .tag {
@@ -3293,19 +3327,40 @@ a.btn-master-solid:hover, button.btn-master-solid:hover {
 
 /* 2. MOBILE FORMATTING (Button Stacking) */
 @media (max-width: 600px) {
-    /* Ensure the new master classes span full width on phones for easy tapping */
+    /* Full-width tap targets on phone — except header nav button */
     a.btn-master-stack, button.btn-master-stack,
     a.btn-parchment-clean, button.btn-parchment-clean,
     a.btn-master-solid, button.btn-master-solid {
         width: 100% !important;
         display: flex !important;
     }
-    
+
+    /* Header Contact Us stays compact — not full-bleed */
+    .header-nav a.btn-master-stack,
+    .header-nav button.btn-master-stack {
+        width: auto !important;
+        display: inline-flex !important;
+    }
+
     /* Ensure cta-groups stack neatly instead of side-by-side */
     .cta-group, .hero-cta-group, .pricing-buttons {
         flex-direction: column !important;
         align-items: center !important;
         gap: 12px !important;
+    }
+
+    /* Pricing card centred on phone */
+    .pricing-card, .enrollment-card {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* Footer text legible at narrow widths */
+    .footer-text {
+        font-size: 11px !important;
+        letter-spacing: 0.05em !important;
     }
 }
 
