@@ -346,8 +346,11 @@ img.header-logo {
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.25em;
-    color: #68c4a0 !important;
-    text-shadow: 0 0 22px rgba(104, 196, 160, 0.18), 0 0 45px rgba(104, 196, 160, 0.08);
+    color: #60ad90 !important;
+    text-shadow:
+        0 0 8px rgba(76, 120, 105, 0.14),
+        0 0 22px rgba(104, 196, 160, 0.18),
+        0 0 45px rgba(104, 196, 160, 0.08);
     margin-bottom: 0.5rem;
 }
 
