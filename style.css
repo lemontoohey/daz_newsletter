@@ -342,16 +342,18 @@ img.header-logo {
 
 .gtp-eyebrow {
     font-family: 'Montserrat', sans-serif;
-    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-size: clamp(1.4rem, 2.8vw, 1.8rem);
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.25em;
-    color: #9ac8c4;
+    color: #68c4a0;
+    text-shadow: 0 0 18px rgba(104, 196, 160, 0.55), 0 0 40px rgba(104, 196, 160, 0.25);
     margin-bottom: 0.5rem;
 }
 
 .hero-title {
     font-family: 'Montserrat', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 300;
     text-transform: uppercase;
     letter-spacing: 0.1em;
